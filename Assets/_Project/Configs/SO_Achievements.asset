@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 042f5aae6ef3c5e4cae1cd991c611c76, type: 3}
   m_Name: SO_Achievements
   m_EditorClassIdentifier: TSS.Achievements.AchievementsConfig, TSS.Achievements
-  _viewPrefab: {fileID: 5374792331767018602, guid: abbd7afb25712834797e852bbc8c9fdf, type: 3}
+  _viewPrefab: {fileID: 760862266283794182, guid: 05af27ffb65839e4c91d16d92f928776, type: 3}
   _collection:
     _serializedList:
     - Key: Ach1
