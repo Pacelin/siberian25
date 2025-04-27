@@ -15,11 +15,6 @@ MonoBehaviour:
   m_GroupName: Default Local Group
   m_GUID: 74d1f905e2729fb4cabb3f98768f8d67
   m_SerializeEntries:
-  - m_GUID: 27b396cce9891154daf63a7586422da0
-    m_Address: Supabase Settings
-    m_ReadOnly: 0
-    m_SerializedLabels: []
-    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 62af7fca09f34c74481788e651479d18
     m_Address: Runtime Settings
     m_ReadOnly: 0
@@ -35,8 +30,13 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 8e04e0c45b8d7cc4a98ed3247bda1d69
+    m_Address: Rest Config
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 93b2e0b7538d4f944a3ffa3f94be4813
-    m_Address: Achievements Collection
+    m_Address: Achievements Config
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0

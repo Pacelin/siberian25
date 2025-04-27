@@ -13,29 +13,29 @@ namespace TSS.Achievements
             get
             {
                 foreach (var pair in _reports)
-                    if (pair.Value >= _collection[pair.Key].ReportsCount)
+                    if (pair.Value >= _config[pair.Key].ReportsCount)
                         yield return pair.Key;
             }
         }
 
         public Observable<string> OnClaimAchievement => _achievementClaimSubject;
         
-        private readonly AchievementsCollection _collection;
+        private readonly AchievementsConfig _config;
         private readonly Dictionary<string, int> _reports;
         private readonly Subject<string> _achievementClaimSubject;
         
-        public LocalAchievements(AchievementsCollection collection)
+        public LocalAchievements(AchievementsConfig config)
         {
-            _collection = collection;
-            _reports = new Dictionary<string, int>(collection.Count);
+            _config = config;
+            _reports = new Dictionary<string, int>(config.Count);
             _achievementClaimSubject = new Subject<string>();
         }
 
-        public bool AchievementClaimed(string key) => _reports[key] >= _collection[key].ReportsCount;
-
+        public bool AchievementClaimed(string key) => _reports[key] >= _config[key].ReportsCount;
+        
         public void Load()
         {
-            foreach (var pair in _collection)
+            foreach (var pair in _config)
                 _reports.Add(pair.Key, SaveSystem.Load<int>(KEY_PREFIX + pair.Key, 0));
         }
         
@@ -47,6 +47,14 @@ namespace TSS.Achievements
             SaveSystem.Save(KEY_PREFIX + key, _reports[key]);
             if (AchievementClaimed(key))
                 _achievementClaimSubject.OnNext(key);
+        }
+
+        public void Claim(string key)
+        {
+            if (AchievementClaimed(key))
+                return;
+            _reports[key] = _config[key].ReportsCount;
+            SaveSystem.Save(KEY_PREFIX + key, _reports[key]);
         }
     }
 }

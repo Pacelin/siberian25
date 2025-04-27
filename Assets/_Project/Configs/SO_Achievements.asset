@@ -9,12 +9,18 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: aaacfcc7f0d94f7d8f2b4ea41cde2565, type: 3}
+  m_Script: {fileID: 11500000, guid: 042f5aae6ef3c5e4cae1cd991c611c76, type: 3}
   m_Name: SO_Achievements
-  m_EditorClassIdentifier: TSS.Achievements.AchievementsCollection, TSS.Achievements
+  m_EditorClassIdentifier: TSS.Achievements.AchievementsConfig, TSS.Achievements
+  _viewPrefab: {fileID: 5374792331767018602, guid: abbd7afb25712834797e852bbc8c9fdf, type: 3}
   _collection:
     _serializedList:
-    - Key: soedfh
+    - Key: Ach1
       Value: {fileID: 11400000, guid: 2292b4c5c43aa234fb2b1770a5700d8d, type: 2}
-    - Key: sdbsdtb
+    - Key: Ach2
+      Value: {fileID: 11400000, guid: 03bf1e92f546ca64390cdeec0de8e191, type: 2}
+    - Key: Ach3
       Value: {fileID: 11400000, guid: 8e0e56d3f2b3ebd41a81c1788c02059b, type: 2}
+  _grantApi: grant-achievement
+  _listApi: user-achievements
+  _ratioApi: achievements-ratio

@@ -12,7 +12,7 @@ namespace TSS.Achievements
         public int ReportsCount => _reportsCount;
 
         public SoundEvent ClaimSound => _claimSound;
-        public EAchievementNotificationContainer NotificationContainer => _notificationContainer;
+        public string NotificationContainer => _notificationContainer;
 
         [Header("Settings")] 
         [SerializeField] private Sprite _icon;
@@ -21,6 +21,7 @@ namespace TSS.Achievements
         [SerializeField] private int _reportsCount = 1;
         [Header("View")]
         [SerializeField] private SoundEvent _claimSound;
-        [SerializeField] private EAchievementNotificationContainer _notificationContainer;
+        [AchievementContainer]
+        [SerializeField] private string _notificationContainer;
     }
 }

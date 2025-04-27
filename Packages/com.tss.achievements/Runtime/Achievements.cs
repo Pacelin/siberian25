@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 using Cysharp.Threading.Tasks;
 using R3;
 using UnityEngine;
@@ -8,51 +9,85 @@ namespace TSS.Achievements
 {
     public static class Achievements
     {
-        private static AchievementsCollection _collection;
+        private const float FETCH_COOLDOWN = 2f;
+        
+        private static AchievementsConfig _config;
         private static LocalAchievements _local;
         private static RemoteAchievements _remote;
-        
-        internal static void Initialize(AchievementsCollection collection)
+
+        private static float _ratiousFetchExpiration;
+        private static IDisposable _localDisposables;
+        private static Dictionary<string, float> _ratious;
+
+        internal static async UniTask Initialize(AchievementsConfig config)
         {
-            _collection = collection;
-            _local = new LocalAchievements(_collection);
+            _config = config;
+            _ratious = new Dictionary<string, float>();
+            _local = new LocalAchievements(_config);
             _local.Load();
-            _remote = new RemoteAchievements(_local);
-            _remote.Initialize();
+            _remote = new RemoteAchievements(_config);
+            _localDisposables = _local.OnClaimAchievement.Subscribe(OnClaimAchievementLocal);
+            await SyncAchievements();
         }
 
         internal static void Dispose()
         {
-            _remote.Dispose();
+            _localDisposables.Dispose();
         }
 
-        public static IReadOnlyDictionary<string, AchievementConfig> Get() => _collection;
+        public static IReadOnlyDictionary<string, AchievementConfig> GetAllAchievements() => _config;
         public static Observable<string> ObserveAchievements() => _local.OnClaimAchievement;
         
         public static void Report(string achievement) => _local.AddReport(achievement);
         public static bool IsClaimed(string achievement) => _local.AchievementClaimed(achievement);
-        
-        public static void LoadRatio(string achievement, Action<float> onResult, Action onError)
+
+        public static void GetAchievementsRatio(Action<IReadOnlyDictionary<string, float>> onResult, Action onError)
         {
-            if (!_remote.IsReachable)
+            if (Time.time >= _ratiousFetchExpiration)
             {
-                onError?.Invoke();
-                return;
+                UniTask.Void(async () =>
+                {
+                    _ratious.Clear();
+                    try
+                    {
+                        await _remote.GetAchievementsRatio(_ratious);
+                        onResult(_ratious);
+                    }
+                    catch (Exception e)
+                    {
+                        onError();
+                        Debug.LogException(e);
+                    }
+                });
+                _ratiousFetchExpiration = Time.time + FETCH_COOLDOWN;
             }
-            
-            UniTask.Void(async () =>
+            else
             {
-                try
-                {
-                    var result = await _remote.GetClaimedRatio(achievement);
-                    onResult?.Invoke(result);           
-                }
-                catch (Exception e)
-                {
-                    Debug.LogException(e);
-                    onError?.Invoke();
-                }
-            });
+                onResult(_ratious);
+            }
+        }
+        
+        private static async UniTask SyncAchievements()
+        {
+            try
+            {
+                var claimedRemote = await _remote.GetClaimedAchievements();
+                foreach (var achievement in claimedRemote)
+                    _local.Claim(achievement);
+                var claimedLocal = _local.ClaimedAchievements.ToArray();
+                var notClaimedRemote = claimedLocal.Except(claimedRemote);
+                foreach (var achievement in notClaimedRemote)
+                    await _remote.GrantAchievement(achievement);
+            }
+            catch (Exception e)
+            {
+                Debug.LogException(e);
+            }
+        }
+        
+        private static void OnClaimAchievementLocal(string achievementId)
+        {
+            _remote.GrantAchievement(achievementId).Forget(Debug.LogException);
         }
     }
 }

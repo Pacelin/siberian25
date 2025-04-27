@@ -92,7 +92,7 @@
       "dependencies": {
         "com.tss.core": "1.0.0",
         "com.tss.utils": "1.0.0",
-        "com.tss.supabase": "1.0.0"
+        "com.tss.restapi": "1.0.0"
       }
     },
     "com.tss.audio-fmod": {
@@ -146,6 +146,15 @@
         "com.tss.utils": "1.0.0"
       }
     },
+    "com.tss.restapi": {
+      "version": "file:com.tss.restapi",
+      "depth": 0,
+      "source": "embedded",
+      "dependencies": {
+        "com.tss.core": "1.0.0",
+        "com.tss.utils": "1.0.0"
+      }
+    },
     "com.tss.scene-management": {
       "version": "file:com.tss.scene-management",
       "depth": 0,
@@ -159,15 +168,6 @@
         "com.cysharp.r3": "1.2.9",
         "org.nuget.r3": "1.2.9",
         "org.nuget.observablecollections.r3": "3.3.3",
-        "com.tss.utils": "1.0.0"
-      }
-    },
-    "com.tss.supabase": {
-      "version": "file:com.tss.supabase",
-      "depth": 0,
-      "source": "embedded",
-      "dependencies": {
-        "com.tss.core": "1.0.0",
         "com.tss.utils": "1.0.0"
       }
     },

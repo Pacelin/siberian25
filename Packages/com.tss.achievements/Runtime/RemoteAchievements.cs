@@ -1,114 +1,44 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
+﻿using System.Collections.Generic;
 using Cysharp.Threading.Tasks;
-using Postgrest;
-using R3;
-using TSS.Achievements.Database;
-using TSS.Core;
-using TSS.Supabase;
-using TSS.Supabase.Data;
-using UnityEngine;
+using TSS.Rest;
 
 namespace TSS.Achievements
 {
     internal class RemoteAchievements
     {
-        private struct AchievementTimestamp
+        [System.Serializable]
+        private struct AchievementRatioResponse
         {
-            public float Time;
-            public int ClaimsCount;
+            public string achievement_id;
+            public float percentage;
         }
 
-        private struct UserTimestamp
-        {
-            public float Time;
-            public int UsersCount;
-        }
-
-        public bool IsReachable => SupabaseManager.IsInitialized;
+        private readonly AchievementsConfig _config;
         
-        private const float UPDATE_FREQ = 30f;
-        
-        private IDisposable _localDisposable;
-        
-        private readonly LocalAchievements _local;
-        private readonly Dictionary<string, AchievementTimestamp> _achievementTimestamps;
-        private UserTimestamp _userTimestamp;
-        
-        public RemoteAchievements(LocalAchievements local)
+        public RemoteAchievements(AchievementsConfig config)
         {
-            _local = local;
-            _achievementTimestamps = new Dictionary<string, AchievementTimestamp>();
+            _config = config;
         }
 
-        public void Initialize()
+        public async UniTask GetAchievementsRatio(Dictionary<string, float> dict)
         {
-            _localDisposable = _local.OnClaimAchievement.Subscribe(key => OnClaimLocalAchievement(key).Forget());
-            SyncLocal().Forget();
+            var result = await RestAPI.Get<AchievementRatioResponse[]>(_config.RatioApi);
+            foreach (var item in result)
+                dict[item.achievement_id] = item.percentage;
         }
 
-        public void Dispose() => _localDisposable.Dispose();
-
-        public async UniTask<float> GetClaimedRatio(string achievement)
+        public async UniTask GrantAchievement(string achievementId)
         {
-            if (Time.time - _userTimestamp.Time >= UPDATE_FREQ)
-                await FetchUsers();
-            if (!_achievementTimestamps.ContainsKey(achievement) ||
-                Time.time - _achievementTimestamps[achievement].Time >= UPDATE_FREQ)
-                await FetchAchievement(achievement);
-            return 1f * _achievementTimestamps[achievement].ClaimsCount / _userTimestamp.UsersCount;
-        }
-
-        private async UniTask FetchUsers()
-        {
-            var count = await SupabaseManager.Client.From<User>()
-                .Count(Constants.CountType.Exact, Runtime.CancellationToken);
-            _userTimestamp = new UserTimestamp()
+            await RestAPI.Post(_config.GrantApi, new
             {
-                UsersCount = count,
-                Time = Time.time
-            };
+                user_id = RestAPI.GetUserIdentity(),
+                achievement_id = achievementId
+            });
         }
 
-        private async UniTask FetchAchievement(string achievement)
+        public async UniTask<string[]> GetClaimedAchievements()
         {
-            var count = await SupabaseManager.Client.From<UserAchievement>()
-                .Where(a => a.AchievementId == achievement)
-                .Count(Constants.CountType.Exact, Runtime.CancellationToken);
-            _achievementTimestamps[achievement] = new AchievementTimestamp()
-            {
-                ClaimsCount = count,
-                Time = Time.time
-            };
-        }
-
-        private async UniTaskVoid SyncLocal()
-        {
-            var result = await SupabaseManager.Client.From<UserAchievement>()
-                .Where(a => a.UserId == SupabaseManager.CurrentUserId)
-                .Get(Runtime.CancellationToken);
-            var claimedRemote = result.Models.Select(a => a.AchievementId);
-            var claimedLocal = _local.ClaimedAchievements;
-            var notClaimedRemote = claimedLocal.Except(claimedRemote)
-                .Select(key => new UserAchievement(key));
-            await SupabaseManager.Client.From<UserAchievement>()
-                .Insert(notClaimedRemote.ToArray(), cancellationToken: Runtime.CancellationToken);
-        }
-        
-        private async UniTaskVoid OnClaimLocalAchievement(string key)
-        {
-            if (_achievementTimestamps.ContainsKey(key))
-            {
-                var newTimestamp = new AchievementTimestamp()
-                {
-                    Time = Time.time,
-                    ClaimsCount = _achievementTimestamps[key].ClaimsCount + 1
-                };
-                _achievementTimestamps[key] = newTimestamp;
-            }
-            await SupabaseManager.Client.From<UserAchievement>()
-                .Insert(new UserAchievement(key), cancellationToken: Runtime.CancellationToken);
+            return await RestAPI.Post<string[]>(_config.ListApi, new { id = RestAPI.GetUserIdentity() });
         }
     }
 }

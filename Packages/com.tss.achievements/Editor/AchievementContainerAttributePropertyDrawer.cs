@@ -1,20 +1,24 @@
 ﻿using System.Linq;
+using TSS.Achievements.View;
 using UnityEditor;
+using UnityEditor.Search;
 using UnityEngine;
 
 namespace TSS.Achievements.Editor
 {
-    [CustomPropertyDrawer(typeof(AchievementKeyAttribute))]
-    public class AchievementKeyAttributePropertyDrawer : PropertyDrawer
+    [CustomPropertyDrawer(typeof(AchievementContainerAttribute))]
+    public class AchievementContainerAttributePropertyDrawer : PropertyDrawer
     {
         public override void OnGUI(Rect position, SerializedProperty property, GUIContent label)
         {
-            var keys = AssetDatabase
-                .LoadAssetAtPath<AchievementsConfig>("Assets/_Project/Configs/SO_Achievements.asset").Keys
-                .OrderBy(k => k);
+            var searchList = SearchService.Request($"p: t:prefab t:{nameof(AchievementNotificationCollectionView)}",
+                SearchFlags.Synchronous);
+            var assets = searchList.Select(item => item.ToObject<AchievementNotificationCollectionView>());
+            var keys = assets.SelectMany(asset => asset.GetContainerKeys())
+                .Distinct().ToArray();
             if (!keys.Contains(property.stringValue))
             {
-                property.stringValue = "";
+                property.stringValue = keys.Length > 0 ? keys[0] : "";
                 property.serializedObject.ApplyModifiedPropertiesWithoutUndo();
                 property.serializedObject.Update();
             }

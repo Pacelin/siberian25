@@ -28,5 +28,7 @@ namespace TSS.Utils.Saving
                 return JsonConvert.DeserializeObject<T>(_savePrefs.GetString(key));
             return defaultValue;
         }
+
+        public static void ClearSaves() => _savePrefs.ClearData();
     }
 }

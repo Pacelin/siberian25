@@ -549,9 +549,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 8112608569814027134}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d0d0abfecb224df690f3af7f633698b9, type: 3}
+  m_Script: {fileID: 11500000, guid: c9e4d6de219be8442a89b90123205d01, type: 3}
   m_Name: 
   m_EditorClassIdentifier: TSS.Achievements.View.AchievementNotificationView, TSS.Achievements
+  _viewId: Default
   _captionText: {fileID: 686491430188539784}
   _descriptionText: {fileID: 7755162559199687148}
   _iconImage: {fileID: 8477552059267632934}
@@ -646,7 +647,7 @@ MonoBehaviour:
         _ignoreTimescale: 0
         _duration:
           rid: 4922611942589464848
-        _useStartValue: 0
+        _useStartValue: 1
         _startValue:
           rid: 4922611942589464849
         _endValue:
@@ -666,7 +667,7 @@ MonoBehaviour:
     - rid: 4922611942589464849
       type: {class: FloatValueProvider, ns: TSS.Utils, asm: TSS.Utils}
       data:
-        _value: 0
+        _value: 1
     - rid: 4922611942589464850
       type: {class: FloatValueProvider, ns: TSS.Utils, asm: TSS.Utils}
       data:

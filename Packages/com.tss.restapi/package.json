@@ -1,13 +1,12 @@
 {
-  "name": "com.tss.achievements",
+  "name": "com.tss.restapi",
   "version": "1.0.0",
-  "displayName": "TSS - Achievements",
-  "description": "This package contains all achievements API for TSS team projects",
+  "displayName": "TSS - REST API",
+  "description": "This package contains REST API methods for TSS team projects",
   "unity": "6000.0",
   "dependencies": {
     "com.tss.core": "1.0.0",
-    "com.tss.utils": "1.0.0",
-    "com.tss.restapi": "1.0.0"
+    "com.tss.utils": "1.0.0"
   },
   "keywords": [
     "tss",

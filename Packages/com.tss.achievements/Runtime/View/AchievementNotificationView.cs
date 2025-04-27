@@ -8,6 +8,9 @@ namespace TSS.Achievements.View
 {
     public class AchievementNotificationView : MonoBehaviour
     {
+        public string ViewId => _viewId;
+    
+        [SerializeField] private string _viewId;
         [SerializeField] private TMP_Text _captionText;
         [SerializeField] private TMP_Text _descriptionText;
         [SerializeField] private Image _iconImage;

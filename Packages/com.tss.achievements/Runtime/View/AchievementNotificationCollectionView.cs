@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
-using AYellowpaper.SerializedCollections;
+using System.Linq;
+using System.Threading;
 using Cysharp.Threading.Tasks;
 using R3;
 using UnityEngine;
@@ -9,49 +10,47 @@ namespace TSS.Achievements.View
 {
     public class AchievementNotificationCollectionView : MonoBehaviour
     {
-        [SerializeField] private SerializedDictionary<EAchievementNotificationContainer, AchievementNotificationView> _notificationsViews;
+        [SerializeField] private List<AchievementNotificationView> _notificationViews;
 
-        //private Dictionary<EAchievementNotificationContainer, UniTaskCompletionSource> _completions = new();
-        private Dictionary<EAchievementNotificationContainer, UniTask> _tasks = new();
+        private readonly Queue<string> _achievementsQueue = new();
         private IDisposable _disposable;
+        private CancellationTokenSource _cts;
+        
         
         private void OnEnable()
         {
+            _cts = new CancellationTokenSource();
             _disposable = Achievements.ObserveAchievements()
-                //.Subscribe(key => RecieveNotification(key).Forget());
                 .Subscribe(RecieveNotification);
+            Lifetime(_cts.Token).Forget();
         }
 
         private void OnDisable()
         {
             _disposable?.Dispose();
-            //_completions.Clear();
-            _tasks.Clear();
+            _achievementsQueue.Clear();
+            _cts.Cancel();
+            _cts.Dispose();
         }
 
-        private void RecieveNotification(string achievementKey)
-        {
-            var achievement = Achievements.Get()[achievementKey];
-            var container = achievement.NotificationContainer;
-            var oldTask = _tasks.ContainsKey(container) ? _tasks[container] : UniTask.CompletedTask;
+        public IEnumerable<string> GetContainerKeys() => _notificationViews.Select(v => v.ViewId);
+        
+        private void RecieveNotification(string achievementKey) => _achievementsQueue.Enqueue(achievementKey);
 
-            _tasks[container] = oldTask.ContinueWith(() => _notificationsViews[container].Claim(achievement));
-            _tasks[container].Forget();
+        private async UniTaskVoid Lifetime(CancellationToken cancellationToken)
+        {
+            while (!cancellationToken.IsCancellationRequested)
+            {
+                if (_achievementsQueue.Count > 0)
+                {
+                    var achievement = Achievements.GetAllAchievements()[_achievementsQueue.Dequeue()];
+                    var container = _notificationViews.First(v => v.ViewId == achievement.NotificationContainer);
+                    await container.Claim(achievement);
+                }
+
+                await UniTask.NextFrame(cancellationToken)
+                    .SuppressCancellationThrow();
+            }
         }
-        /*
-        private async UniTaskVoid RecieveNotification(string achievementKey)
-        {
-            var achievement = Achievements.Get()[achievementKey];
-            var container = achievement.NotificationContainer;
-            var oldCompletionSource = _completions.ContainsKey(container) ? _completions[container] : null;
-            var completionSource = new UniTaskCompletionSource();
-            
-            _completions[container] = completionSource;
-            if (oldCompletionSource != null)
-                await oldCompletionSource.Task;
-
-            await _notificationsViews[container].Claim(achievement);
-            completionSource.TrySetResult();
-        }*/
     }
 }

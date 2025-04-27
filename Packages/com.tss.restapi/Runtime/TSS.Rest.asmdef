@@ -1,6 +1,6 @@
 {
-    "name": "TSS.Achievements",
-    "rootNamespace": "TSS.Achievements",
+    "name": "TSS.Rest",
+    "rootNamespace": "TSS.Rest",
     "references": [
         "TSS.Core",
         "UniTask",
@@ -8,12 +8,7 @@
         "UniTask.Addressables",
         "Unity.Addressables",
         "Unity.ResourceManager",
-        "R3.Unity",
-        "TSS.Rest",
-        "TSS.Audio.FMOD",
-        "AYellowpaper.SerializedCollections",
-        "TSS.Tweening",
-        "Unity.TextMeshPro"
+        "R3.Unity"
     ],
     "includePlatforms": [],
     "excludePlatforms": [],
@@ -28,8 +23,7 @@
         "R3.dll",
         "Supabase.Core.dll",
         "Supabase.Postgrest.dll",
-        "Supabase.Functions.dll",
-        "DOTween.dll"
+        "Supabase.Functions.dll"
     ],
     "autoReferenced": true,
     "defineConstraints": [],

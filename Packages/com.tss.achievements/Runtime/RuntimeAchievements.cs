@@ -12,8 +12,8 @@ namespace TSS.Achievements
     {
         public async UniTask Initialize(CancellationToken cancellationToken)
         {
-            var collection = await Addressables.LoadAssetAsync<AchievementsCollection>("Achievements Collection");
-            Achievements.Initialize(collection);
+            var collection = await Addressables.LoadAssetAsync<AchievementsConfig>("Achievements Config");
+            await Achievements.Initialize(collection);
             var collectionView = UnityEngine.Object.Instantiate(collection.ViewPrefab);
             UnityEngine.Object.DontDestroyOnLoad(collectionView.gameObject);
         }
