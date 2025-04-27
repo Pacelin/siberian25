@@ -36,6 +36,9 @@ namespace TSS.Achievements
             });
         }
 
+        public UniTask ClearAchievements() =>
+            RestAPI.Post(_config.ClearApi, new { id = RestAPI.GetUserIdentity() });
+
         public async UniTask<string[]> GetClaimedAchievements()
         {
             return await RestAPI.Post<string[]>(_config.ListApi, new { id = RestAPI.GetUserIdentity() });

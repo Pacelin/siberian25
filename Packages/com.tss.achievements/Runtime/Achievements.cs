@@ -41,6 +41,16 @@ namespace TSS.Achievements
         public static void Report(string achievement) => _local.AddReport(achievement);
         public static bool IsClaimed(string achievement) => _local.AchievementClaimed(achievement);
 
+        public static void ClearAchievements(Action onError = null)
+        {
+            _local.ClearAchievements();
+            _remote.ClearAchievements().Forget(e =>
+            {
+                onError?.Invoke();
+                Debug.LogException(e);
+            });
+        }
+
         public static void GetAchievementsRatio(Action<IReadOnlyDictionary<string, float>> onResult, Action onError)
         {
             if (Time.time >= _ratiousFetchExpiration)

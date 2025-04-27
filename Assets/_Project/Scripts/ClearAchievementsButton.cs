@@ -1,12 +1,13 @@
 using System;
 using R3;
 using Siberian25.UI.Common;
+using TSS.Achievements;
 using TSS.Utils.Saving;
 using UnityEngine;
 
 namespace Siberian25
 {
-    public class SaveReset : MonoBehaviour
+    public class ClearAchievementsButton : MonoBehaviour
     {
         [SerializeField] private ScriptableButton _button;
 
@@ -16,7 +17,7 @@ namespace Siberian25
         {
             _disposable = _button.ObserveClick().Subscribe(_ =>
             {
-                SaveSystem.ClearSaves();
+                Achievements.ClearAchievements();
             });
         }
 

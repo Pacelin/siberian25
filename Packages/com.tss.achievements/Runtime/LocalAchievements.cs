@@ -35,6 +35,7 @@ namespace TSS.Achievements
         
         public void Load()
         {
+            _reports.Clear();
             foreach (var pair in _config)
                 _reports.Add(pair.Key, SaveSystem.Load<int>(KEY_PREFIX + pair.Key, 0));
         }
@@ -55,6 +56,13 @@ namespace TSS.Achievements
                 return;
             _reports[key] = _config[key].ReportsCount;
             SaveSystem.Save(KEY_PREFIX + key, _reports[key]);
+        }
+
+        public void ClearAchievements()
+        {
+            foreach (KeyValuePair<string,int> pair in _reports)
+                SaveSystem.Save(KEY_PREFIX + pair.Key, 0);
+            Load();
         }
     }
 }

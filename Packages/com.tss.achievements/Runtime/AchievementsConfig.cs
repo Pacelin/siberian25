@@ -14,6 +14,7 @@ namespace TSS.Achievements
         public string GrantApi => _grantApi;
         public string ListApi => _listApi;
         public string RatioApi => _ratioApi;
+        public string ClearApi => _clearApi;
         
         [SerializeField] private AchievementNotificationCollectionView _viewPrefab;
         [SerializedDictionary("Id", "Achievement")] 
@@ -22,6 +23,7 @@ namespace TSS.Achievements
         [SerializeField] private string _grantApi = "grant-achievement";
         [SerializeField] private string _listApi = "user-achievements";
         [SerializeField] private string _ratioApi = "achievements-ratio";
+        [SerializeField] private string _clearApi = "clear-achievements";
         
         public int Count => _collection.Count;
         public IEnumerator<KeyValuePair<string, AchievementConfig>> GetEnumerator() => _collection.GetEnumerator();
