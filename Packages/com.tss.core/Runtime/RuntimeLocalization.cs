@@ -3,6 +3,7 @@ using Cysharp.Threading.Tasks;
 using JetBrains.Annotations;
 using UnityEngine.Localization.Settings;
 
+#pragma warning disable CS1998
 namespace TSS.Core
 {
     [UsedImplicitly] 
@@ -17,3 +18,4 @@ namespace TSS.Core
         public void Dispose() { }
     }
 }
+#pragma warning restore CS1998
