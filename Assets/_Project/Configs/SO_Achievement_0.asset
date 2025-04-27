@@ -19,9 +19,9 @@ MonoBehaviour:
   _claimSound:
     _eventRef:
       Guid:
-        Data1: -73757971
-        Data2: 1092300725
-        Data3: 530329010
-        Data4: 2045083333
-      Path: event:/UI/Click
+        Data1: -1117165947
+        Data2: 1076614636
+        Data3: -967558497
+        Data4: 1705713923
+      Path: event:/UI/AchievementAppear
   _notificationContainer: Default

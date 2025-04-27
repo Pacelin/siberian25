@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <objects serializationModel="Studio.02.03.00">
-	<object class="EventFolder" id="{fd500669-735d-4901-bdaa-dfcb6043757c}">
+	<object class="EventFolder" id="{4a0765b7-27d8-42ac-847d-f1f86a2cf8ed}">
 		<property name="name">
 			<value>MainMenu</value>
 		</property>
