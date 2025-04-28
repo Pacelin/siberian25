@@ -11,17 +11,21 @@ namespace TSS.Achievements
     public class AchievementsConfig : ScriptableObject, IReadOnlyDictionary<string, AchievementConfig>
     {
         public AchievementNotificationCollectionView ViewPrefab => _viewPrefab;
+        public AchievementsPanelView PanelPrefab => _panelPrefab;
         public string GrantApi => _grantApi;
         public string ListApi => _listApi;
         public string RatioApi => _ratioApi;
+        public string ClearApi => _clearApi;
         
         [SerializeField] private AchievementNotificationCollectionView _viewPrefab;
+        [SerializeField] private AchievementsPanelView _panelPrefab;
         [SerializedDictionary("Id", "Achievement")] 
         [SerializeField] private SerializedDictionary<string, AchievementConfig> _collection;
         [Header("Remote")]
         [SerializeField] private string _grantApi = "grant-achievement";
         [SerializeField] private string _listApi = "user-achievements";
         [SerializeField] private string _ratioApi = "achievements-ratio";
+        [SerializeField] private string _clearApi = "clear-achievements";
         
         public int Count => _collection.Count;
         public IEnumerator<KeyValuePair<string, AchievementConfig>> GetEnumerator() => _collection.GetEnumerator();

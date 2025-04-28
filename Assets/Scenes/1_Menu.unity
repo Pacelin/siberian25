@@ -527,7 +527,11 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 4927804634963443410, guid: 7f3b127f8cee7434ba5ebd5622d05028, type: 3}
       propertyPath: m_text
-      value: CLEAR PREFS
+      value: RESET ACHIEVEMENTS
+      objectReference: {fileID: 0}
+    - target: {fileID: 4927804634963443410, guid: 7f3b127f8cee7434ba5ebd5622d05028, type: 3}
+      propertyPath: m_characterSpacing
+      value: -7.4
       objectReference: {fileID: 0}
     - target: {fileID: 6735690314036541544, guid: 7f3b127f8cee7434ba5ebd5622d05028, type: 3}
       propertyPath: m_Pivot.x
@@ -653,7 +657,7 @@ MonoBehaviour:
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 7cb0d644c74bacd40a84b0cd022afcf2, type: 3}
   m_Name: 
-  m_EditorClassIdentifier: Siberian25.SaveReset, Assembly-CSharp
+  m_EditorClassIdentifier: Siberian25.ClearAchievementsButton, Assembly-CSharp
   _button: {fileID: 2056635153}
 --- !u!1001 &846380117305477003
 PrefabInstance:
