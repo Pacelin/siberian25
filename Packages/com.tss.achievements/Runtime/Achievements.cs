@@ -1,8 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Threading;
 using Cysharp.Threading.Tasks;
 using R3;
+using TSS.Achievements.View;
 using UnityEngine;
 
 namespace TSS.Achievements
@@ -12,12 +14,15 @@ namespace TSS.Achievements
         private const float FETCH_COOLDOWN = 2f;
         
         private static AchievementsConfig _config;
+        private static AchievementsPanelView _panelView;
         private static LocalAchievements _local;
         private static RemoteAchievements _remote;
 
         private static float _ratiousFetchExpiration;
         private static IDisposable _localDisposables;
         private static Dictionary<string, float> _ratious;
+
+        private static UniTaskCompletionSource _ratioSource;
 
         internal static async UniTask Initialize(AchievementsConfig config)
         {
@@ -30,6 +35,8 @@ namespace TSS.Achievements
             await SyncAchievements();
         }
 
+        internal static void SetPanel(AchievementsPanelView panelView) => _panelView = panelView;
+
         internal static void Dispose()
         {
             _localDisposables.Dispose();
@@ -40,6 +47,9 @@ namespace TSS.Achievements
         
         public static void Report(string achievement) => _local.AddReport(achievement);
         public static bool IsClaimed(string achievement) => _local.AchievementClaimed(achievement);
+        public static bool IsSecret(string achievement) => _config[achievement].IsSecret;
+        public static void ShowPanel() => _panelView.gameObject.SetActive(true);
+        public static void HidePanel() => _panelView.gameObject.SetActive(false);
 
         public static void ClearAchievements(Action onError = null)
         {
@@ -51,30 +61,55 @@ namespace TSS.Achievements
             });
         }
 
-        public static void GetAchievementsRatio(Action<IReadOnlyDictionary<string, float>> onResult, Action onError)
+        public static void GetAchievementsRatio(Action<IReadOnlyDictionary<string, float>> onResult, Action onError, CancellationToken cancellationToken)
         {
+            if (_ratioSource != null)
+            {
+                UniTask.Void(async () =>
+                {
+                    try
+                    {
+                        await _ratioSource.Task;
+                        if (!cancellationToken.IsCancellationRequested)
+                            onResult(_ratious);
+                    }
+                    catch
+                    {
+                        if (!cancellationToken.IsCancellationRequested)
+                            onError();
+                    }
+                });
+                return;
+            }
+
             if (Time.time >= _ratiousFetchExpiration)
             {
                 UniTask.Void(async () =>
                 {
+                    _ratioSource = new UniTaskCompletionSource();
                     _ratious.Clear();
                     try
                     {
                         await _remote.GetAchievementsRatio(_ratious);
-                        onResult(_ratious);
+                        if (!cancellationToken.IsCancellationRequested)
+                            onResult(_ratious);
+                        _ratiousFetchExpiration = Time.time + FETCH_COOLDOWN;
+                        _ratioSource.TrySetResult();
                     }
                     catch (Exception e)
                     {
-                        onError();
+                        if (!cancellationToken.IsCancellationRequested)
+                            onError();
                         Debug.LogException(e);
+                        _ratioSource.TrySetException(e);
                     }
+                    _ratioSource = null;
                 });
-                _ratiousFetchExpiration = Time.time + FETCH_COOLDOWN;
+                return;    
             }
-            else
-            {
+
+            if (!cancellationToken.IsCancellationRequested)
                 onResult(_ratious);
-            }
         }
         
         private static async UniTask SyncAchievements()
