@@ -12,10 +12,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6299c4a559d382e46b9abfd4bab5cb46, type: 3}
   m_Name: SO_Achievement_2
   m_EditorClassIdentifier: TSS.Achievements.AchievementConfig, TSS.Achievements
-  _icon: {fileID: 21300000, guid: 37f5e7ba5c1ffd94c9d06c0c505e40d8, type: 3}
+  _icon: {fileID: 21300000, guid: 531977d97ca340947b5f243090577fb2, type: 3}
   _caption: Caption
   _description: Description
   _reportsCount: 1
+  _isSecret: 0
   _claimSound:
     _eventRef:
       Guid:
