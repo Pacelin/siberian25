@@ -64,14 +64,7 @@ namespace TSS.Achievements.View
                     _items[pair.Key].SetLoadFinishedSuccess(ratio);
  
                     if (isUnlocked)
-                    {
-                        if (isSecret)
-                            return 4 + ratio;
                         return 6 + ratio;
-                    }
-
-                    if (isSecret)
-                        return ratio;
                     return 2 + ratio;
                 }).ToArray();
                 for (int i = 0; i < ordered.Length; i++)
@@ -87,14 +80,7 @@ namespace TSS.Achievements.View
                     _items[pair.Key].SetLoadFinishedFailure();
  
                     if (isUnlocked)
-                    {
-                        if (isSecret)
-                            return "2" + pair.Value.Caption;
                         return "3" + pair.Value.Caption;
-                    }
-
-                    if (isSecret)
-                        return "0" + pair.Value.Caption;
                     return "1" + pair.Value.Caption;
                 }).ToArray();
                 for (int i = 0; i < ordered.Length; i++)
