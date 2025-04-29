@@ -23,20 +23,47 @@ namespace TSS.Achievements.View
         [SerializeField] private UnityEvent _onLoadFinishedSuccessful;
         [SerializeField] private UnityEvent _onLoadFinishedFailure;
 
+        private AchievementConfig _config;
+        
         private void OnDisable() => DOTween.Kill(this);
 
         public void SetInfo(AchievementConfig config)
         {
-            _icon.sprite = config.Icon;
-            _captionText.text = config.Caption;
-            _descriptionText.text = config.Description;
+            _config = config;
         }
 
-        public void SetLocked() => _onLock.Invoke();
-        public void SetUnlocked() => _onUnlock.Invoke();
-        public void SetSecretLocked() => _onSecretLock.Invoke();
-        public void SetSecretUnlocked() => _onSecretUnlock.Invoke();
+        public void SetLocked()
+        {
+            _icon.sprite = _config.LockedIcon;
+            _captionText.text = _config.LockedCaption;
+            _descriptionText.text = _config.LockedDescription;
+            _onLock.Invoke();
+        }
+
+        public void SetUnlocked()
+        {
+            _icon.sprite = _config.Icon;
+            _captionText.text = _config.Caption;
+            _descriptionText.text = _config.Description;
+            _onUnlock.Invoke();
+        }
+
+        public void SetSecretLocked()
+        {
+            _icon.sprite = _config.LockedIcon;
+            _captionText.text = _config.LockedCaption;
+            _descriptionText.text = _config.LockedDescription;
+            _onSecretLock.Invoke();
+        } 
         
+        public void SetSecretUnlocked()
+        {
+            _icon.sprite = _config.Icon;
+            _captionText.text = _config.Caption;
+            _descriptionText.text = _config.Description;
+            _onSecretUnlock.Invoke();
+        }
+
         public void SetLoadFinishedFailure() => _onLoadFinishedFailure.Invoke();
         public void SetLoadFinishedSuccess(float ratio)
         {
