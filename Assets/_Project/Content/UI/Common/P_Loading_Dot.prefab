@@ -101,7 +101,7 @@ MonoBehaviour:
   - rid: 1284257742812348552
   - rid: 1284257742812348555
   - rid: 1284257742812348591
-  _cacheTween: 0
+  _cacheTween: 1
   _playOnEnable: 0
   _loops: 0
   _loopType: 0
