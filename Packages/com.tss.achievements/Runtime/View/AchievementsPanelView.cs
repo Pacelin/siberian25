@@ -58,13 +58,12 @@ namespace TSS.Achievements.View
                 var ordered = allAchievements.OrderByDescending(pair =>
                 {
                     bool isUnlocked = Achievements.IsClaimed(pair.Key);
-                    bool isSecret = pair.Value.IsSecret;
                     float ratio = result.ContainsKey(pair.Key) ? result[pair.Key] : 0;
-                    ApplyState(isUnlocked, isSecret, pair.Key);
+                    ApplyState(isUnlocked, pair.Value.IsSecret, pair.Key);
                     _items[pair.Key].SetLoadFinishedSuccess(ratio);
  
                     if (isUnlocked)
-                        return 6 + ratio;
+                        return ratio;
                     return 2 + ratio;
                 }).ToArray();
                 for (int i = 0; i < ordered.Length; i++)
