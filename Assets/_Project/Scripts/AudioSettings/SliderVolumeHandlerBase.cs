@@ -1,12 +1,12 @@
 ﻿using System;
-using Siberian25.UI.Common;
 using R3;
+using TSS.Tweening.UI;
 using UnityEngine;
 
-namespace Siberian25.UI.Common
+namespace Siberian25.UI
 {
     [RequireComponent(typeof(ScriptableSlider))]
-    public abstract class SliderHandlerBase : MonoBehaviour
+    public abstract class SliderVolumeHandlerBase : MonoBehaviour
     {
         [HideInInspector] [SerializeField] private ScriptableSlider _target;
 
@@ -19,15 +19,13 @@ namespace Siberian25.UI.Common
 
         private void OnEnable()
         {
-            _disposable = Disposable.Combine(
-                _target.ObserveDrag().Subscribe(_ => OnDrag()),
-                _target.ObserveHover().Subscribe(_ => OnHover())
-            );
+            _target.Value = GetVolume();
+            _disposable = _target.OnValueChanged.Subscribe(SetVolume);
         }
 
         private void OnDisable() => _disposable?.Dispose();
 
-        protected abstract void OnDrag();
-        protected abstract void OnHover();
+        protected abstract float GetVolume();
+        protected abstract void SetVolume(float volume);
     }
 }

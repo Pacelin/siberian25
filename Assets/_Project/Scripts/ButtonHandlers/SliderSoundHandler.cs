@@ -1,4 +1,4 @@
-﻿using Siberian25.UI.Common;
+﻿using TSS.Tweening.UI;
 using TSS.Audio;
 using UnityEngine;
 

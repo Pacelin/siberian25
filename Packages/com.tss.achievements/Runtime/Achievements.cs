@@ -48,8 +48,8 @@ namespace TSS.Achievements
         public static void Report(string achievement) => _local.AddReport(achievement);
         public static bool IsClaimed(string achievement) => _local.AchievementClaimed(achievement);
         public static bool IsSecret(string achievement) => _config[achievement].IsSecret;
-        public static void ShowPanel() => _panelView.gameObject.SetActive(true);
-        public static void HidePanel() => _panelView.gameObject.SetActive(false);
+        public static void ShowPanel() => _panelView.OpenPanel();
+        public static void HidePanel() => _panelView.ClosePanel();
 
         public static void ClearAchievements(Action onError = null)
         {
