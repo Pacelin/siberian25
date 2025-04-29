@@ -63,8 +63,8 @@ namespace TSS.Achievements.View
                     _items[pair.Key].SetLoadFinishedSuccess(ratio);
  
                     if (isUnlocked)
-                        return ratio;
-                    return 2 + ratio;
+                        return 2 + ratio;
+                    return ratio;
                 }).ToArray();
                 for (int i = 0; i < ordered.Length; i++)
                     _items[ordered[i].Key].transform.SetSiblingIndex(i);
