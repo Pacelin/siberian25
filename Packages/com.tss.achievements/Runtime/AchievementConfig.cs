@@ -12,6 +12,10 @@ namespace TSS.Achievements
         public int ReportsCount => _reportsCount;
         public bool IsSecret => _isSecret;
 
+        public Sprite LockedIcon => _lockedIcon;
+        public string LockedCaption => _lockedCaption;
+        public string LockedDescription => _lockedDescription;
+        
         public SoundEvent ClaimSound => _claimSound;
         public string NotificationContainer => _notificationContainer;
 
@@ -21,6 +25,9 @@ namespace TSS.Achievements
         [SerializeField] private string _description = "Description";
         [SerializeField] private int _reportsCount = 1;
         [SerializeField] private bool _isSecret;
+        [SerializeField] private Sprite _lockedIcon;
+        [SerializeField] private string _lockedCaption;
+        [SerializeField] private string _lockedDescription;
         [Header("View")]
         [SerializeField] private SoundEvent _claimSound;
         [AchievementContainer]
