@@ -72,7 +72,7 @@ namespace TSS.Achievements.View
         public void SetLoadFinishedSuccess(float ratio)
         {
             _onLoadFinishedSuccessful.Invoke();
-            _percentText.text = (ratio * 100).ToString("0.0");
+            _percentText.text = (ratio * 100).ToString("0.0") + "%";
             _fillImage.DOFillAmount(ratio, _applyFillDuration)
                 .SetTarget(this)
                 .Play();
