@@ -66,13 +66,13 @@ namespace TSS.Achievements.View
                     if (isUnlocked)
                     {
                         if (isSecret)
-                            return 2 + ratio;
-                        return ratio;
+                            return 4 + ratio;
+                        return 6 + ratio;
                     }
 
                     if (isSecret)
-                        return 6 + ratio;
-                    return 4 + ratio;
+                        return ratio;
+                    return 2 + ratio;
                 }).ToArray();
                 for (int i = 0; i < ordered.Length; i++)
                     _items[ordered[i].Key].transform.SetSiblingIndex(i);
@@ -89,13 +89,13 @@ namespace TSS.Achievements.View
                     if (isUnlocked)
                     {
                         if (isSecret)
-                            return "1" + pair.Value.Caption;
-                        return "0" + pair.Value.Caption;
+                            return "2" + pair.Value.Caption;
+                        return "3" + pair.Value.Caption;
                     }
 
                     if (isSecret)
-                        return "3" + pair.Value.Caption;
-                    return "2" + pair.Value.Caption;
+                        return "0" + pair.Value.Caption;
+                    return "1" + pair.Value.Caption;
                 }).ToArray();
                 for (int i = 0; i < ordered.Length; i++)
                     _items[ordered[i].Key].transform.SetSiblingIndex(i);
