@@ -15,6 +15,7 @@ namespace TSS.Achievements.View
         [SerializeField] private AchievementsPanelItemView _achivementItemPrefab;
         [SerializeField] private UnityEvent _onLoadStart;
         [SerializeField] private UnityEvent _onLoadFinish;
+        [SerializeField] private UnityEvent _onLoadFinishFailed;
 
         private Dictionary<string, AchievementsPanelItemView> _items = new();
         private CancellationTokenSource _cts;
@@ -75,7 +76,7 @@ namespace TSS.Achievements.View
                     _items[ordered[i].Key].transform.SetSiblingIndex(i);
             }, () =>
             {
-                _onLoadFinish.Invoke();
+                _onLoadFinishFailed.Invoke();
                 var ordered = allAchievements.OrderBy(pair =>
                 {
                     bool isUnlocked = Achievements.IsClaimed(pair.Key);
