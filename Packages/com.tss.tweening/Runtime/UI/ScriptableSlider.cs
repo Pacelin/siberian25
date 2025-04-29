@@ -6,7 +6,7 @@ using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
 
-namespace Siberian25.UI.Common
+namespace TSS.Tweening.UI
 {
     [PublicAPI] 
     public class ScriptableSlider : MonoBehaviour, 

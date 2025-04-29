@@ -1,5 +1,5 @@
 ﻿using Cysharp.Threading.Tasks;
-using Siberian25.UI.Common;
+using TSS.Tweening.UI;
 using TSS.ContentManagement;
 using TSS.Core;
 using TSS.SceneManagement;

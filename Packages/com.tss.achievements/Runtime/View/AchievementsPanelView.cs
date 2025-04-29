@@ -1,6 +1,7 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
 using System.Threading;
+using TSS.Tweening;
 using UnityEngine;
 using UnityEngine.Events;
 
@@ -8,6 +9,8 @@ namespace TSS.Achievements.View
 {
     public class AchievementsPanelView : MonoBehaviour
     {
+        [SerializeField] private ScriptableTween _openTween;
+        [SerializeField] private ScriptableTween _closeTween;
         [SerializeField] private RectTransform _achievementsContainer;
         [SerializeField] private AchievementsPanelItemView _achivementItemPrefab;
         [SerializeField] private UnityEvent _onLoadStart;
@@ -15,6 +18,20 @@ namespace TSS.Achievements.View
 
         private Dictionary<string, AchievementsPanelItemView> _items = new();
         private CancellationTokenSource _cts;
+
+        public void OpenPanel()
+        {
+            if (_closeTween.IsPlaying)
+                _closeTween.Pause();
+            _openTween.Play();
+        }
+
+        public void ClosePanel()
+        {
+            if (_openTween.IsPlaying)
+                _openTween.Pause();
+            _closeTween.Play();
+        }
         
         private void Awake()
         {

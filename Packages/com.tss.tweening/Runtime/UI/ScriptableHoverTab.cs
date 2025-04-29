@@ -1,23 +1,22 @@
-using JetBrains.Annotations;
+﻿using JetBrains.Annotations;
 using R3;
 using TSS.Tweening;
 using UnityEngine;
 using UnityEngine.EventSystems;
 
-namespace Siberian25.UI.Common
+namespace TSS.Tweening.UI
 {
     [PublicAPI]
-    public class ScriptableButton : MonoBehaviour, IPointerEnterHandler, IPointerDownHandler, IPointerExitHandler, IPointerClickHandler
+    public class ScriptableHoverTab : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
     {
         private enum EState
         {
             Unset,
             Disabled,
             Default,
-            Hover,
-            Down,
+            Hover
         }
-
+        
         public bool Interactable
         {
             get => _interactable;
@@ -28,11 +27,6 @@ namespace Siberian25.UI.Common
                 _interactable = value;
                 if (!_interactable)
                 {
-                    if (_down)
-                    {
-                        _onUp.OnNext(Unit.Default);
-                        _down = false;
-                    }
                     if (_hover)
                     {
                         _onExit.OnNext(Unit.Default);
@@ -46,20 +40,15 @@ namespace Siberian25.UI.Common
         [SerializeField] private bool _interactable = true;
         [SerializeField] private ScriptableTween _toDefaultTween;
         [SerializeField] private ScriptableTween _toHoverTween;
-        [SerializeField] private ScriptableTween _toDownTween;
         [SerializeField] private ScriptableTween _toDisabledTween;
         
-        private bool _down;
         private bool _hover;
         private EState _activeState = EState.Unset;
         
-        private readonly Subject<Unit> _onDown = new();
-        private readonly Subject<Unit> _onUp = new();
         private readonly Subject<Unit> _onEnter = new();
         private readonly Subject<Unit> _onExit = new();
-        private readonly Subject<Unit> _onClick = new();
 
-        public Observable<Unit> ObserveClick() => _onClick;
+        public Observable<Unit> ObserveExit() => _onExit;
         public Observable<Unit> ObserveEnter() => _onEnter;
 
         private void OnValidate()
@@ -113,30 +102,6 @@ namespace Siberian25.UI.Common
                 return;
             _hover = false;
             _onExit.OnNext(Unit.Default);
-            if (_down)
-                _onUp.OnNext(Unit.Default);
-            _down = false;
-            UpdateState();
-        }
-
-        public void OnPointerDown(PointerEventData eventData)
-        {
-            if (!_interactable)
-                return;
-            _down = true;
-            _onDown.OnNext(Unit.Default);
-            UpdateState();
-        }
-
-        public void OnPointerClick(PointerEventData eventData)
-        {
-            if (!_interactable)
-                return;
-            if (!_down)
-                return;
-            _down = false;
-            _onUp.OnNext(Unit.Default);
-            _onClick.OnNext(Unit.Default);
             UpdateState();
         }
 
@@ -150,11 +115,6 @@ namespace Siberian25.UI.Common
             {
                 currentState = EState.Disabled;
                 tween = _toDisabledTween;
-            }
-            else if (_down)
-            {
-                currentState = EState.Down;
-                tween = _toDownTween;
             }
             else if (_hover)
             {
@@ -177,8 +137,6 @@ namespace Siberian25.UI.Common
                 _toDisabledTween.Kill();
             if (_toDefaultTween.IsPlaying)
                 _toDefaultTween.Kill();
-            if (_toDownTween.IsPlaying)
-                _toDownTween.Kill();
             if (_toHoverTween.IsPlaying)
                 _toHoverTween.Kill();
         }

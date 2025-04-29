@@ -1,9 +1,9 @@
 ﻿using System;
-using Siberian25.UI.Common;
+using TSS.Tweening.UI;
 using R3;
 using UnityEngine;
 
-namespace Siberian25.UI.Common
+namespace TSS.Tweening.UI
 {
     [RequireComponent(typeof(ScriptableButton))]
     public abstract class ButtonHandlerBase : MonoBehaviour
