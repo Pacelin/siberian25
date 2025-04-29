@@ -68,6 +68,7 @@ namespace TSS.Achievements.View
             _onSecretUnlock.Invoke();
         }
 
+        public void SetLoadStart() => _fillImage.fillAmount = 0;
         public void SetLoadFinishedFailure() => _onLoadFinishedFailure.Invoke();
         public void SetLoadFinishedSuccess(float ratio)
         {

@@ -48,12 +48,14 @@ namespace TSS.Achievements.View
         private void OnEnable()
         {
             _cts = new();
+            foreach (var pair in _items)
+                pair.Value.SetLoadStart();
             var allAchievements = Achievements.GetAllAchievements();
             _onLoadStart.Invoke();
             Achievements.GetAchievementsRatio(result =>
             {
                 _onLoadFinish.Invoke();
-                var ordered = allAchievements.OrderBy(pair =>
+                var ordered = allAchievements.OrderByDescending(pair =>
                 {
                     bool isUnlocked = Achievements.IsClaimed(pair.Key);
                     bool isSecret = pair.Value.IsSecret;
@@ -77,7 +79,7 @@ namespace TSS.Achievements.View
             }, () =>
             {
                 _onLoadFinishFailed.Invoke();
-                var ordered = allAchievements.OrderBy(pair =>
+                var ordered = allAchievements.OrderByDescending(pair =>
                 {
                     bool isUnlocked = Achievements.IsClaimed(pair.Key);
                     bool isSecret = pair.Value.IsSecret;
