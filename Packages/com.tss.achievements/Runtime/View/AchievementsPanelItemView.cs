@@ -37,6 +37,7 @@ namespace TSS.Achievements.View
             _icon.sprite = _config.LockedIcon;
             _captionText.text = _config.LockedCaption;
             _descriptionText.text = _config.LockedDescription;
+            _icon.color = _config.LockedIconColor;
             _onLock.Invoke();
         }
 
@@ -45,6 +46,7 @@ namespace TSS.Achievements.View
             _icon.sprite = _config.Icon;
             _captionText.text = _config.Caption;
             _descriptionText.text = _config.Description;
+            _icon.color = _config.IconColor;
             _onUnlock.Invoke();
         }
 
@@ -53,6 +55,7 @@ namespace TSS.Achievements.View
             _icon.sprite = _config.LockedIcon;
             _captionText.text = _config.LockedCaption;
             _descriptionText.text = _config.LockedDescription;
+            _icon.color = _config.LockedIconColor;
             _onSecretLock.Invoke();
         } 
         
@@ -61,6 +64,7 @@ namespace TSS.Achievements.View
             _icon.sprite = _config.Icon;
             _captionText.text = _config.Caption;
             _descriptionText.text = _config.Description;
+            _icon.color = _config.IconColor;
             _onSecretUnlock.Invoke();
         }
 
