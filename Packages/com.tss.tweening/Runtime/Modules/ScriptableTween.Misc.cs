@@ -100,7 +100,7 @@ namespace TSS.Tweening
     
     [Serializable]
     [ScriptableTweenPath("Misc/Cycling Animation", 1007)]
-    [NoFoldout]
+    [NotPreset]
     public class ScriptableTweenCyclingAnimation : IScriptableTweenItemNoTarget
     {
         [SerializeField] private ScriptableTween[] _animations;
