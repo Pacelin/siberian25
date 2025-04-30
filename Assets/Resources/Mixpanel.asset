@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5e37f1d599a72b64eba3799d826c755b, type: 3}
   m_Name: Mixpanel
   m_EditorClassIdentifier: 
-  ShowDebug: 1
+  ShowDebug: 0
   ManualInitialization: 1
   APIHostAddress: https://mixpanel.thespinningsofa.ru/
   RuntimeToken: dd14220b2323cedd2563f30a8937bbc2
