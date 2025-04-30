@@ -15,19 +15,13 @@ namespace TSS.Rest
     public static class RestAPI
     {
         private static RestApiConfig _config;
-
-        internal static async UniTask Initialize(RestApiConfig config)
+        private static bool _loggedIn;
+        private static UniTaskCompletionSource _loginCompletionSource;
+        
+        internal static void Initialize(RestApiConfig config)
         {
             _config = config;
-            try
-            {
-                await Post(_config.JoinUserApi, new { id = GetUserIdentity() });
-                await GetUsersCount();
-            }
-            catch (Exception e)
-            {
-                Debug.LogException(e);
-            }
+            WaitLogin().Forget();
         }
 
         public static string GetUserIdentity()
@@ -47,12 +41,16 @@ namespace TSS.Rest
         
         public static async UniTask<int> GetUsersCount()
         {
+            if (!await WaitLogin())
+                throw new WebException("Login failed");
             var result = await Get<int>(_config.UsersCountApi);
             return result;
         }
 
         public static async UniTask<T> Get<T>(string api)
         {
+            if (!await WaitLogin())
+                throw new WebException("Login failed");
             using (UnityWebRequest request = UnityWebRequest.Get(_config.ApiAddress + api))
             {
                 await request.SendWebRequest();
@@ -70,6 +68,8 @@ namespace TSS.Rest
 
         public static async UniTask<T> Post<T>(string api, object data)
         {
+            if (!await WaitLogin())
+                throw new WebException("Login failed");
             var jsonData = JsonConvert.SerializeObject(data);
             byte[] rawData = Encoding.UTF8.GetBytes(jsonData);
             using (UnityWebRequest request = new UnityWebRequest(_config.ApiAddress + api, "POST"))
@@ -90,8 +90,10 @@ namespace TSS.Rest
             }
         }
         
-        public static async UniTask Post(string api, object data)
+        public static async UniTask Post(string api, object data, bool ignoreLogin = false)
         {
+            if (!ignoreLogin && !await WaitLogin())
+                throw new WebException("Login failed");
             var jsonData = JsonConvert.SerializeObject(data);
             byte[] rawData = Encoding.UTF8.GetBytes(jsonData);
             using (UnityWebRequest request = new UnityWebRequest(_config.ApiAddress + api, "POST"))
@@ -110,6 +112,35 @@ namespace TSS.Rest
                 LogFail(api, request);
                 throw new WebException(request.error);
             }
+        }
+
+        private static async UniTask<bool> WaitLogin()
+        {
+            if (_loggedIn)
+                return true;
+
+            if (_loginCompletionSource != null)
+            {
+                await _loginCompletionSource.Task;
+                return _loggedIn;
+            }
+
+            _loginCompletionSource = new UniTaskCompletionSource();
+            
+            try
+            {
+                await Post(_config.JoinUserApi, new { id = GetUserIdentity() }, true);
+                _loggedIn = true;
+            }
+            catch (Exception e)
+            {
+                Debug.LogException(e);
+                _loggedIn = false;
+            }
+
+            _loginCompletionSource.TrySetResult();
+            _loginCompletionSource = null;
+            return _loggedIn;
         }
 
         private static void LogSuccess(string api, UnityWebRequest request, string input = "")

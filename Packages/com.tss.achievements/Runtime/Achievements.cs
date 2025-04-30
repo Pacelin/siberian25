@@ -24,7 +24,7 @@ namespace TSS.Achievements
 
         private static UniTaskCompletionSource _ratioSource;
 
-        internal static async UniTask Initialize(AchievementsConfig config)
+        internal static void Initialize(AchievementsConfig config)
         {
             _config = config;
             _ratious = new Dictionary<string, float>();
@@ -32,7 +32,7 @@ namespace TSS.Achievements
             _local.Load();
             _remote = new RemoteAchievements(_config);
             _localDisposables = _local.OnClaimAchievement.Subscribe(OnClaimAchievementLocal);
-            await SyncAchievements();
+            SyncAchievements().Forget();
         }
 
         internal static void SetPanel(AchievementsPanelView panelView) => _panelView = panelView;

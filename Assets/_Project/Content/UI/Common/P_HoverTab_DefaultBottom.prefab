@@ -233,7 +233,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 8815848740214650280, guid: 3ac8b30df68dcde478261d8e0591e736, type: 3}
+  m_Sprite: {fileID: 7166997027533273625, guid: 3ac8b30df68dcde478261d8e0591e736, type: 3}
   m_Type: 1
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -410,7 +410,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: -32082312, guid: 3ac8b30df68dcde478261d8e0591e736, type: 3}
+  m_Sprite: {fileID: 1948667822, guid: 77afe71d375b2d24d9e41c0a3bd7bb92, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -473,7 +473,7 @@ MonoBehaviour:
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: ca3365aa65574925a661b4df7547fd14, type: 3}
   m_Name: 
-  m_EditorClassIdentifier: Siberian25.UI.Common.ScriptableHoverTab, Assembly-CSharp
+  m_EditorClassIdentifier: TSS.Tweening.UI.ScriptableHoverTab, TSS.Tweening
   _interactable: 1
   _toDefaultTween: {fileID: 5607012579492605418}
   _toHoverTween: {fileID: 2929174613396789051}
@@ -506,7 +506,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 3125017118502212947, guid: 3ac8b30df68dcde478261d8e0591e736, type: 3}
+  m_Sprite: {fileID: -1760440938515366868, guid: 3ac8b30df68dcde478261d8e0591e736, type: 3}
   m_Type: 1
   m_PreserveAspect: 0
   m_FillCenter: 1

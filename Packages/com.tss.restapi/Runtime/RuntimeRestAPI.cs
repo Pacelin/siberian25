@@ -13,7 +13,7 @@ namespace TSS.Rest
         public async UniTask Initialize(CancellationToken cancellationToken)
         {
             var config = await Addressables.LoadAssetAsync<RestApiConfig>("Rest Config");
-            await RestAPI.Initialize(config);
+            RestAPI.Initialize(config);
         }
 
         public void Dispose()
