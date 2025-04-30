@@ -12,10 +12,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5e37f1d599a72b64eba3799d826c755b, type: 3}
   m_Name: Mixpanel
   m_EditorClassIdentifier: 
-  ShowDebug: 0
+  ShowDebug: 1
   ManualInitialization: 1
-  APIHostAddress: https://api.mixpanel.com/
-  RuntimeToken: ac3cd6b7fd978c5a69be94220da2d2fb
-  DebugToken: 
+  APIHostAddress: https://mixpanel.thespinningsofa.ru/
+  RuntimeToken: dd14220b2323cedd2563f30a8937bbc2
+  DebugToken: ac3cd6b7fd978c5a69be94220da2d2fb
   FlushInterval: 20
   UseIpAddressForGeolocation: 0

@@ -12,6 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 98efc09f264e404c85f9d6c08db730fb, type: 3}
   m_Name: RestConfig
   m_EditorClassIdentifier: TSS.Rest.RestApiConfig, TSS.Rest
-  _apiAddress: https://thespinningsofa.ru/api/
+  _apiAddress: https://api.thespinningsofa.ru/api/
   _joinUserApi: join-user
   _usersCountApi: users-count
