@@ -148,6 +148,7 @@ GameObject:
   - component: {fileID: 2242006056523735227}
   - component: {fileID: 7297011207240833448}
   - component: {fileID: 3327007547414069795}
+  - component: {fileID: 5041684624979940494}
   m_Layer: 5
   m_Name: Button_Close
   m_TagString: Untagged
@@ -246,6 +247,21 @@ MonoBehaviour:
         Data3: 530329010
         Data4: 2045083333
       Path: event:/UI/Click
+--- !u!114 &5041684624979940494
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 918251793442823556}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2e4db7107bf0484f978a0c84252d0ca1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Siberian25.UI.ButtonHandlers.MixpanelScriptableButtonHandler,
+    Assembly-CSharp
+  _target: {fileID: 2242006056523735227}
+  _event: button_click_resume
 --- !u!1 &1038262329154755231
 GameObject:
   m_ObjectHideFlags: 0
@@ -401,6 +417,7 @@ GameObject:
   - component: {fileID: 1926076021848719071}
   - component: {fileID: 985716998675922316}
   - component: {fileID: 8879328156455515508}
+  - component: {fileID: 4664668437423675843}
   m_Layer: 5
   m_Name: Button_MainMenu
   m_TagString: Untagged
@@ -499,6 +516,21 @@ MonoBehaviour:
         Data3: 530329010
         Data4: 2045083333
       Path: event:/UI/Click
+--- !u!114 &4664668437423675843
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1185303560383081189}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2e4db7107bf0484f978a0c84252d0ca1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Siberian25.UI.ButtonHandlers.MixpanelScriptableButtonHandler,
+    Assembly-CSharp
+  _target: {fileID: 1926076021848719071}
+  _event: button_click_mainmenu
 --- !u!1 &1834133438153904672
 GameObject:
   m_ObjectHideFlags: 0

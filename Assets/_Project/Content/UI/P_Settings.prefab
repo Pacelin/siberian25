@@ -453,6 +453,7 @@ GameObject:
   - component: {fileID: 5375759788742964267}
   - component: {fileID: 4306849376245158657}
   - component: {fileID: 1398399836796759178}
+  - component: {fileID: 428187224587283423}
   m_Layer: 5
   m_Name: BG
   m_TagString: Untagged
@@ -529,6 +530,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0e59f62c9f1b431b9eeaaccce0caaf52, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Siberian25.UI.ButtonHandlers.CloseSettingsButton, Assembly-CSharp
+--- !u!114 &428187224587283423
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4119714957097620384}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 96a7bcf361a94702ad524db200be453f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Siberian25.UI.ButtonHandlers.MixpanelButton, Assembly-CSharp
+  _event: button_click_settings_close
 --- !u!1 &5912046030950936321
 GameObject:
   m_ObjectHideFlags: 0
@@ -1131,6 +1145,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 1611619545907305884, guid: 22e1ee59a25e68a4c83b51e891ef7f60, type: 3}
       insertIndex: -1
       addedObject: {fileID: 2510443553303277413}
+    - targetCorrespondingSourceObject: {fileID: 1611619545907305884, guid: 22e1ee59a25e68a4c83b51e891ef7f60, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 5053000621336188880}
   m_SourcePrefab: {fileID: 100100000, guid: 22e1ee59a25e68a4c83b51e891ef7f60, type: 3}
 --- !u!1 &334548881331874859 stripped
 GameObject:
@@ -1180,6 +1197,21 @@ MonoBehaviour:
         Data3: 530329010
         Data4: 2045083333
       Path: event:/UI/Click
+--- !u!114 &5053000621336188880
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 334548881331874859}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2e4db7107bf0484f978a0c84252d0ca1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Siberian25.UI.ButtonHandlers.MixpanelScriptableButtonHandler,
+    Assembly-CSharp
+  _target: {fileID: 4860355180337013580}
+  _event: button_click_settings_close
 --- !u!224 &3204473017918611960 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 4504024194424967247, guid: 22e1ee59a25e68a4c83b51e891ef7f60, type: 3}

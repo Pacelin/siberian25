@@ -399,6 +399,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 8025671948033376023, guid: c90a06db16b02ac45967e178a6fd458e, type: 3}
       insertIndex: -1
       addedObject: {fileID: 1132692885}
+    - targetCorrespondingSourceObject: {fileID: 8025671948033376023, guid: c90a06db16b02ac45967e178a6fd458e, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1132692886}
   m_SourcePrefab: {fileID: 100100000, guid: c90a06db16b02ac45967e178a6fd458e, type: 3}
 --- !u!224 &1132692882 stripped
 RectTransform:
@@ -450,6 +453,21 @@ MonoBehaviour:
         Data3: 530329010
         Data4: 2045083333
       Path: event:/UI/Click
+--- !u!114 &1132692886
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1132692883}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2e4db7107bf0484f978a0c84252d0ca1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Siberian25.UI.ButtonHandlers.MixpanelScriptableButtonHandler,
+    Assembly-CSharp
+  _target: {fileID: 1132692884}
+  _event: button_click_pause
 --- !u!1 &1182102818
 GameObject:
   m_ObjectHideFlags: 0
