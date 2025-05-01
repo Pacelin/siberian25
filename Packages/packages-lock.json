@@ -41,7 +41,7 @@
       "url": "https://package.openupm.com"
     },
     "com.mixpanel.unity": {
-      "version": "3.5.1",
+      "version": "3.5.2",
       "depth": 1,
       "source": "registry",
       "dependencies": {},
@@ -135,7 +135,7 @@
         "org.nuget.r3": "1.2.9",
         "org.nuget.observablecollections.r3": "3.3.3",
         "com.tss.utils": "1.0.0",
-        "com.mixpanel.unity": "3.5.1"
+        "com.mixpanel.unity": "3.5.2"
       }
     },
     "com.tss.jams": {
