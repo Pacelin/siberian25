@@ -13,9 +13,15 @@ namespace TSS.Achievements
         public async UniTask Initialize(CancellationToken cancellationToken)
         {
             var collection = await Addressables.LoadAssetAsync<AchievementsConfig>("Achievements Config");
-            await Achievements.Initialize(collection);
+            Achievements.Initialize(collection);
             var collectionView = UnityEngine.Object.Instantiate(collection.ViewPrefab);
             UnityEngine.Object.DontDestroyOnLoad(collectionView.gameObject);
+            
+            collection.PanelPrefab.gameObject.SetActive(false);
+            var panelView = UnityEngine.Object.Instantiate(collection.PanelPrefab);
+            collection.PanelPrefab.gameObject.SetActive(true);
+            UnityEngine.Object.DontDestroyOnLoad(panelView.gameObject);
+            Achievements.SetPanel(panelView);
         }
 
         public void Dispose()

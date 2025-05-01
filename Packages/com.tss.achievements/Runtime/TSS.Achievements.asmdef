@@ -13,23 +13,17 @@
         "TSS.Audio.FMOD",
         "AYellowpaper.SerializedCollections",
         "TSS.Tweening",
-        "Unity.TextMeshPro"
+        "Unity.TextMeshPro",
+        "DOTween.Modules"
     ],
     "includePlatforms": [],
     "excludePlatforms": [],
     "allowUnsafeCode": false,
     "overrideReferences": true,
     "precompiledReferences": [
-        "Supabase.dll",
-        "Supabase.Gotrue.dll",
         "Newtonsoft.Json.dll",
-        "Supabase.Realtime.dll",
-        "Supabase.Storage.dll",
-        "R3.dll",
-        "Supabase.Core.dll",
-        "Supabase.Postgrest.dll",
-        "Supabase.Functions.dll",
-        "DOTween.dll"
+        "DOTween.dll",
+        "R3.dll"
     ],
     "autoReferenced": true,
     "defineConstraints": [],

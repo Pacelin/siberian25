@@ -16,6 +16,15 @@ namespace TSS.Utils.Saving
             return result;
         }
 
+        public void SetInt(string key, int data) => saveData(PrefixKey(key), data.ToString());
+        public int GetInt(string key, int defaultValue = 0)
+        {
+            var str = GetString(key);
+            if (int.TryParse(str, out var value))
+                return value;
+            return defaultValue;
+        }
+
         public bool HasKey(string key)
         {
             var data = loadData(PrefixKey(key));

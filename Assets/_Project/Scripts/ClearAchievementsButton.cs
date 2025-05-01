@@ -1,6 +1,6 @@
 using System;
 using R3;
-using Siberian25.UI.Common;
+using TSS.Tweening.UI;
 using TSS.Achievements;
 using TSS.Utils.Saving;
 using UnityEngine;

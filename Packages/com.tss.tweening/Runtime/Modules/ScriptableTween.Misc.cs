@@ -97,4 +97,23 @@ namespace TSS.Tweening
                 sequence.JoinCallback(obj.OnTrigger);
         }
     }
+    
+    [Serializable]
+    [ScriptableTweenPath("Misc/Cycling Animation", 1007)]
+    [NotPreset]
+    public class ScriptableTweenCyclingAnimation : IScriptableTweenItemNoTarget
+    {
+        [SerializeField] private ScriptableTween[] _animations;
+        [SerializeField] private float _interval;
+
+        public void AddTween(Sequence sequence)
+        {
+            for (int i = 0; i < _animations.Length; i++)
+            {
+                var index = i;
+                sequence.AppendCallback(() => _animations[index].Play());
+                sequence.AppendInterval(_interval);
+            }
+        }
+    }
 }
