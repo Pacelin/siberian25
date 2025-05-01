@@ -13,6 +13,7 @@ MonoBehaviour:
   m_Name: SO_Achievements
   m_EditorClassIdentifier: TSS.Achievements.AchievementsConfig, TSS.Achievements
   _viewPrefab: {fileID: 760862266283794182, guid: 05af27ffb65839e4c91d16d92f928776, type: 3}
+  _panelPrefab: {fileID: 7834350470061144188, guid: 75dc8b80a7865e94cb961866e3933919, type: 3}
   _collection:
     _serializedList:
     - Key: Ach1
@@ -24,3 +25,4 @@ MonoBehaviour:
   _grantApi: grant-achievement
   _listApi: user-achievements
   _ratioApi: achievements-ratio
+  _clearApi: clear-achievements

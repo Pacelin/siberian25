@@ -15,6 +15,7 @@ namespace TSS.Achievements.View
         [SerializeField] private AchievementsPanelItemView _achivementItemPrefab;
         [SerializeField] private UnityEvent _onLoadStart;
         [SerializeField] private UnityEvent _onLoadFinish;
+        [SerializeField] private UnityEvent _onLoadFinishFailed;
 
         private Dictionary<string, AchievementsPanelItemView> _items = new();
         private CancellationTokenSource _cts;
@@ -47,36 +48,30 @@ namespace TSS.Achievements.View
         private void OnEnable()
         {
             _cts = new();
+            foreach (var pair in _items)
+                pair.Value.SetLoadStart();
             var allAchievements = Achievements.GetAllAchievements();
             _onLoadStart.Invoke();
             Achievements.GetAchievementsRatio(result =>
             {
                 _onLoadFinish.Invoke();
-                var ordered = allAchievements.OrderBy(pair =>
+                var ordered = allAchievements.OrderByDescending(pair =>
                 {
                     bool isUnlocked = Achievements.IsClaimed(pair.Key);
-                    bool isSecret = pair.Value.IsSecret;
                     float ratio = result.ContainsKey(pair.Key) ? result[pair.Key] : 0;
-                    ApplyState(isUnlocked, isSecret, pair.Key);
+                    ApplyState(isUnlocked, pair.Value.IsSecret, pair.Key);
                     _items[pair.Key].SetLoadFinishedSuccess(ratio);
  
                     if (isUnlocked)
-                    {
-                        if (isSecret)
-                            return 2 + ratio;
-                        return ratio;
-                    }
-
-                    if (isSecret)
-                        return 6 + ratio;
-                    return 4 + ratio;
+                        return 2 + ratio;
+                    return ratio;
                 }).ToArray();
                 for (int i = 0; i < ordered.Length; i++)
                     _items[ordered[i].Key].transform.SetSiblingIndex(i);
             }, () =>
             {
-                _onLoadFinish.Invoke();
-                var ordered = allAchievements.OrderBy(pair =>
+                _onLoadFinishFailed.Invoke();
+                var ordered = allAchievements.OrderByDescending(pair =>
                 {
                     bool isUnlocked = Achievements.IsClaimed(pair.Key);
                     bool isSecret = pair.Value.IsSecret;
@@ -84,15 +79,8 @@ namespace TSS.Achievements.View
                     _items[pair.Key].SetLoadFinishedFailure();
  
                     if (isUnlocked)
-                    {
-                        if (isSecret)
-                            return "1" + pair.Value.Caption;
-                        return "0" + pair.Value.Caption;
-                    }
-
-                    if (isSecret)
                         return "3" + pair.Value.Caption;
-                    return "2" + pair.Value.Caption;
+                    return "1" + pair.Value.Caption;
                 }).ToArray();
                 for (int i = 0; i < ordered.Length; i++)
                     _items[ordered[i].Key].transform.SetSiblingIndex(i);

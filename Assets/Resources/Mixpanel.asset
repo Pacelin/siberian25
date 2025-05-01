@@ -14,8 +14,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ShowDebug: 0
   ManualInitialization: 1
-  APIHostAddress: https://api.mixpanel.com/
-  RuntimeToken: ac3cd6b7fd978c5a69be94220da2d2fb
-  DebugToken: 
+  APIHostAddress: https://mixpanel.thespinningsofa.ru/
+  RuntimeToken: dd14220b2323cedd2563f30a8937bbc2
+  DebugToken: ac3cd6b7fd978c5a69be94220da2d2fb
   FlushInterval: 20
   UseIpAddressForGeolocation: 0
