@@ -61,7 +61,7 @@ namespace TSS.Achievements
 
         public void ClearAchievements()
         {
-            foreach (KeyValuePair<string,int> pair in _reports)
+            foreach (var pair in _reports)
                 SaveSystem.Save(KEY_PREFIX + pair.Key, 0);
             Load();
         }

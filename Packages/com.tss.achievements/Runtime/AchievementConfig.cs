@@ -6,6 +6,8 @@ namespace TSS.Achievements
     [CreateAssetMenu(menuName = "TSS/Achievement", fileName = "SO_Achievement")]
     public class AchievementConfig : ScriptableObject
     {
+        public string Id => _id;
+        
         public Sprite Icon => _icon;
         public Color IconColor => _iconColor;
         public string Caption => _caption;
@@ -21,6 +23,7 @@ namespace TSS.Achievements
         public SoundEvent ClaimSound => _claimSound;
         public string NotificationContainer => _notificationContainer;
 
+        [SerializeField] private string _id;
         [Header("Settings")] 
         [SerializeField] private Sprite _icon;
         [SerializeField] private Color _iconColor;

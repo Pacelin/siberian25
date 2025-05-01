@@ -1,9 +1,11 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using AYellowpaper.SerializedCollections;
 using TSS.Achievements.View;
 using TSS.Utils;
 using UnityEngine;
+using UnityEngine.Scripting;
 
 namespace TSS.Achievements
 {
@@ -19,21 +21,81 @@ namespace TSS.Achievements
         
         [SerializeField] private AchievementNotificationCollectionView _viewPrefab;
         [SerializeField] private AchievementsPanelView _panelPrefab;
-        [SerializedDictionary("Id", "Achievement")] 
-        [SerializeField] private SerializedDictionary<string, AchievementConfig> _collection;
+        [SerializeField] private List<AchievementConfig> _collection;
         [Header("Remote")]
         [SerializeField] private string _grantApi = "grant-achievement";
         [SerializeField] private string _listApi = "user-achievements";
         [SerializeField] private string _ratioApi = "achievements-ratio";
         [SerializeField] private string _clearApi = "clear-achievements";
-        
-        public int Count => _collection.Count;
-        public IEnumerator<KeyValuePair<string, AchievementConfig>> GetEnumerator() => _collection.GetEnumerator();
-        IEnumerator IEnumerable.GetEnumerator() => GetEnumerator();
-        public bool ContainsKey(string key) => _collection.ContainsKey(key);
-        public bool TryGetValue(string key, out AchievementConfig value) => _collection.TryGetValue(key, out value);
-        public AchievementConfig this[string key] => _collection[key];
-        public IEnumerable<string> Keys => _collection.Keys;
-        public IEnumerable<AchievementConfig> Values => _collection.Values;
+
+        private Dictionary<string, AchievementConfig> _dictionary;
+
+        public int Count
+        {
+            get
+            {
+                SureDict();
+                return _collection.Count;
+            }
+        }
+
+        [Preserve]
+        public IEnumerator<KeyValuePair<string, AchievementConfig>> GetEnumerator()
+        {
+            SureDict();
+            return _dictionary.GetEnumerator();
+        }
+
+        [Preserve]
+        IEnumerator IEnumerable.GetEnumerator()
+        {
+            SureDict();
+            return _dictionary.GetEnumerator();
+        } 
+
+        public bool ContainsKey(string key)
+        {
+            SureDict();
+            return _dictionary.ContainsKey(key);
+        }
+
+        public bool TryGetValue(string key, out AchievementConfig value)
+        {
+            SureDict();
+            return _dictionary.TryGetValue(key, out value);
+        }
+
+        public AchievementConfig this[string key]
+        {
+            get
+            {
+                SureDict();
+                return _dictionary[key];
+            }
+        }
+
+        public IEnumerable<string> Keys
+        {
+            get
+            {
+                SureDict();
+                return _dictionary.Keys;
+            }
+        }
+
+        public IEnumerable<AchievementConfig> Values
+        {
+            get
+            {
+                SureDict();
+                return _dictionary.Values;
+            }    
+        } 
+
+        private void SureDict()
+        {
+            if (_dictionary == null)
+                _dictionary = _collection.ToDictionary(i => i.Id);
+        }
     }
 }
