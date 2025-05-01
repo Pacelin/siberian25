@@ -11,6 +11,9 @@ namespace TSS.Achievements
 {
     public static class Achievements
     {
+        public static IEnumerable<string> CompletedAchievements => _local.ClaimedAchievements;
+        public static IReadOnlyDictionary<string, AchievementConfig> AllAchievements => _config;
+
         private const float FETCH_COOLDOWN = 2f;
         
         private static AchievementsConfig _config;
