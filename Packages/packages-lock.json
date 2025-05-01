@@ -41,7 +41,7 @@
       "url": "https://package.openupm.com"
     },
     "com.mixpanel.unity": {
-      "version": "3.5.1",
+      "version": "3.5.2",
       "depth": 1,
       "source": "registry",
       "dependencies": {},
@@ -85,6 +85,16 @@
       "dependencies": {},
       "url": "https://package.openupm.com"
     },
+    "com.tss.achievements": {
+      "version": "file:com.tss.achievements",
+      "depth": 0,
+      "source": "embedded",
+      "dependencies": {
+        "com.tss.core": "1.0.0",
+        "com.tss.utils": "1.0.0",
+        "com.tss.restapi": "1.0.0"
+      }
+    },
     "com.tss.audio-fmod": {
       "version": "file:com.tss.audio-fmod",
       "depth": 0,
@@ -125,7 +135,7 @@
         "org.nuget.r3": "1.2.9",
         "org.nuget.observablecollections.r3": "3.3.3",
         "com.tss.utils": "1.0.0",
-        "com.mixpanel.unity": "3.5.1"
+        "com.mixpanel.unity": "3.5.2"
       }
     },
     "com.tss.jams": {
@@ -133,6 +143,15 @@
       "depth": 0,
       "source": "embedded",
       "dependencies": {
+        "com.tss.utils": "1.0.0"
+      }
+    },
+    "com.tss.restapi": {
+      "version": "file:com.tss.restapi",
+      "depth": 0,
+      "source": "embedded",
+      "dependencies": {
+        "com.tss.core": "1.0.0",
         "com.tss.utils": "1.0.0"
       }
     },

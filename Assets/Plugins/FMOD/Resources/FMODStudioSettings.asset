@@ -453,8 +453,8 @@ MonoBehaviour:
   switchSettingsMigration: 1
   HasSourceProject: 1
   HasPlatforms: 1
-  sourceProjectPath: FMODProject/ggjam25/ggjam25.fspro
-  sourceBankPath: FMODProject/ggjam25/Build
+  sourceProjectPath: FMODProject/siberian25/siberian25.fspro
+  sourceBankPath: FMODProject/siberian25/Build
   sourceBankPathUnformatted: 
   BankRefreshCooldown: 1
   ShowBankRefreshWindow: 0

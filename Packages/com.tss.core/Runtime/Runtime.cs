@@ -25,6 +25,8 @@ namespace TSS.Core
             RuntimeMonoHook._quitRequestSubject.Subscribe(observer);
         public static IDisposable SubscribeQuit(Observer<Unit> observer) =>
             RuntimeMonoHook._quitSubject.Subscribe(observer);
+        public static IDisposable SubscribeQuit(Action observer) =>
+            RuntimeMonoHook._quitSubject.Subscribe(_ => observer());
 
         public static void ShutdownApplication()
         {
