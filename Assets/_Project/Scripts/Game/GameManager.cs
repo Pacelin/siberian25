@@ -1,7 +1,10 @@
 ﻿using System;
 using System.Threading;
+using TSS.ContentManagement;
 using TSS.Core;
+using UnityEngine;
 using VContainer.Unity;
+using Object = UnityEngine.Object;
 
 namespace Siberian25.Game
 {
@@ -13,6 +16,7 @@ namespace Siberian25.Game
         {
             _cts = CancellationTokenSource.CreateLinkedTokenSource(Runtime.CancellationToken);
             GameContext.CancellationToken = _cts.Token;
+            GameContext.Player = Object.Instantiate(CMS.Prefabs.Player, Vector3.zero, Quaternion.identity);
         }
 
         public void Tick()

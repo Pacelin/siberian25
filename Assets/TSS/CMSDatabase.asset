@@ -21,3 +21,7 @@ MonoBehaviour:
     CMSName: Scenes/Game
     ComponentName: GameObject
     Namespace: 
+  - GUID: 525d8d8798d1b324289424186557344b
+    CMSName: Prefabs/Player
+    ComponentName: PlayerComposition
+    Namespace: Siberian25.Game.Characters

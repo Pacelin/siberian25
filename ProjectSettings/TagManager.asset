@@ -8,13 +8,13 @@ TagManager:
   - Default
   - TransparentFX
   - Ignore Raycast
-  - Floor
+  - Player
   - Water
   - UI
-  - Influence
-  - Triggers
-  - 
-  - 
+  - Enemy
+  - Props
+  - Obstacle
+  - Slice
   - 
   - 
   - 
