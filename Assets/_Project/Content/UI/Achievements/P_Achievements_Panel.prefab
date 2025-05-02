@@ -533,6 +533,7 @@ GameObject:
   - component: {fileID: 3182293083744904538}
   - component: {fileID: 62457992005503363}
   - component: {fileID: 1738684383018945687}
+  - component: {fileID: 2760895751642049187}
   m_Layer: 5
   m_Name: Counter_Text
   m_TagString: Untagged
@@ -659,6 +660,21 @@ MonoBehaviour:
   m_hasFontAssetChanged: 0
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
+--- !u!114 &2760895751642049187
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5100244801859556586}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 66e70ab198f24cf3b4a5101d035f6738, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: TSS.Achievements.AchivementsCounter, TSS.Achievements
+  _text: {fileID: 1738684383018945687}
+  _format: "\u0412\u0441\u0435\u0433\u043E \u0434\u043E\u0441\u0442\u0438\u0436\u0435\u043D\u0438\u0439:
+    {0}/{1}"
 --- !u!1 &5839177734374656319
 GameObject:
   m_ObjectHideFlags: 0
@@ -887,6 +903,7 @@ GameObject:
   - component: {fileID: 1110422781802804487}
   - component: {fileID: 4651933984749437284}
   - component: {fileID: 8905825259896733116}
+  - component: {fileID: 388180689842032114}
   m_Layer: 5
   m_Name: BG
   m_TagString: Untagged
@@ -963,6 +980,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2e3c26f3e92640419d83300c74e1e22e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: TSS.Achievements.View.AchievementsCloseButton, TSS.Achievements
+--- !u!114 &388180689842032114
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6417888052793235728}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 96a7bcf361a94702ad524db200be453f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Siberian25.UI.ButtonHandlers.MixpanelButton, Assembly-CSharp
+  _event: button_click_achievements_close
 --- !u!1 &7360348050989053735
 GameObject:
   m_ObjectHideFlags: 0
@@ -2577,7 +2607,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1611619545907305884, guid: 22e1ee59a25e68a4c83b51e891ef7f60, type: 3}
       propertyPath: m_Name
-      value: P_Button_Default
+      value: Button_Close
       objectReference: {fileID: 0}
     - target: {fileID: 4504024194424967247, guid: 22e1ee59a25e68a4c83b51e891ef7f60, type: 3}
       propertyPath: m_Pivot.x
@@ -2690,6 +2720,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 1611619545907305884, guid: 22e1ee59a25e68a4c83b51e891ef7f60, type: 3}
       insertIndex: -1
       addedObject: {fileID: 3557497269623378691}
+    - targetCorrespondingSourceObject: {fileID: 1611619545907305884, guid: 22e1ee59a25e68a4c83b51e891ef7f60, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 814390194143691646}
   m_SourcePrefab: {fileID: 100100000, guid: 22e1ee59a25e68a4c83b51e891ef7f60, type: 3}
 --- !u!114 &4008530754018891849 stripped
 MonoBehaviour:
@@ -2726,6 +2759,21 @@ MonoBehaviour:
   m_EditorClassIdentifier: TSS.Achievements.View.AchievementsCloseScriptableButton,
     TSS.Achievements
   _button: {fileID: 4008530754018891849}
+--- !u!114 &814390194143691646
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8103898078777153326}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2e4db7107bf0484f978a0c84252d0ca1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Siberian25.UI.ButtonHandlers.MixpanelScriptableButtonHandler,
+    Assembly-CSharp
+  _target: {fileID: 4008530754018891849}
+  _event: button_click_achievements_close
 --- !u!1001 &7425927430615422107
 PrefabInstance:
   m_ObjectHideFlags: 0

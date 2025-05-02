@@ -246,6 +246,7 @@ namespace TSS.Tweening.UI
         {
             if (!_interactable)
                 return;
+            _onDrag.OnNext(Unit.Default);
             UpdateDrag(eventData, eventData.pressEventCamera);
         }
         

@@ -24,7 +24,6 @@ namespace Siberian25.UI
         {
             _instance = this;
             _instance.gameObject.SetActive(false);
-            DontDestroyOnLoad(gameObject);
         }
 
         private void OnDestroy()
