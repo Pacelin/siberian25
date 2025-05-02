@@ -10,11 +10,12 @@ namespace Siberian25.Game.Characters
     public class SlicableComponent : MonoBehaviour, ISlicable
     {
         [SerializeField] private Behaviour[] _disableOnCut;
-        [SerializeField] private Collider2D _initialCollider;
+        [SerializeField] private Collider2D _collider;
         [SerializeField] private HealthComponent _healthComponent;
-        [SerializeField] private LineRenderer _lineRendererPrefab; 
+        [SerializeField] private LineRenderer _lineRendererPrefab;
         [Header("Settings")]
         [SerializeField] private int _maxSlices = 3;
+        [SerializeField] private float _sliceLineLength = 2;
         [SerializeField] private Vector2 _explosionForceRange;
         [SerializeField] private Vector2 _explosionInheritDirectionForceRange;
         [SerializeField] private Vector2 _debrisLifetimeRange;
@@ -41,10 +42,14 @@ namespace Siberian25.Game.Characters
             _slices.Add((point, direction));
             var newLineRenderer = Instantiate(_lineRendererPrefab, transform);
             newLineRenderer.positionCount = 2;
-            newLineRenderer.SetPosition(0, point);
-            newLineRenderer.SetPosition(1, point + direction * 2);
-//            if (_healthComponent.IsDead)
-  //              Slice(point, direction);
+            var point1 = point - direction * 10;
+            var point2 = point + direction * 10;
+            _collider.bounds.IntersectRay(new Ray(point1, direction), out var distance1);
+            _collider.bounds.IntersectRay(new Ray(point2, -direction), out var distance2);
+            point1 += direction * distance1;
+            point2 -= direction * distance2;
+            newLineRenderer.SetPosition(0, transform.InverseTransformPoint(point1));
+            newLineRenderer.SetPosition(1, transform.InverseTransformPoint(point2));
         }
 
         private void Slice(Vector2 explodeDirection)
@@ -64,7 +69,9 @@ namespace Siberian25.Game.Characters
             List<DebrisComponent> debrises = new List<DebrisComponent>();
             foreach (var go in result)
             {
-                var rb = go.AddComponent<Rigidbody2D>();
+                var rb = go.GetComponent<Rigidbody2D>();
+                if (!rb)
+                    rb = go.AddComponent<Rigidbody2D>();
                 rbs.Add(rb);
                 var col = go.GetComponent<PolygonCollider2D>();
                 var debris = go.AddComponent<DebrisComponent>();
