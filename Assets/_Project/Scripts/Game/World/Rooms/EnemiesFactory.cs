@@ -38,6 +38,7 @@ namespace Siberian25.Game.World
             
             _busyPortalPoints.Add(point);
             var portal = GameContext.EnemiesPortalsPool.Get();
+            portal.transform.position = point.position;
             portal.gameObject.SetActive(true);
             await portal.Activate();
             

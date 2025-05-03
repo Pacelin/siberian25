@@ -11,7 +11,7 @@ namespace Siberian25.Game.Bullets
 		[SerializeField] private Transform _detatchTo;
 		[SerializeField] private ParticleSystem _ps;
 
-		private CompositeDisposable _disposables;
+		private CompositeDisposable _disposables = new();
 
 		private void OnEnable()
 		{

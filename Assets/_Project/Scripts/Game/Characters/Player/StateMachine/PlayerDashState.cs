@@ -27,9 +27,11 @@ namespace Siberian25.Game.Characters
 
         public override void OnExit()
         {
+            Composition.SliceTrigger.PerformSlice();
             GameContext.Player.DashTrail.emitting = false;
             Composition.SliceTrigger.EnableSlice = false;
-            Composition.StartDashCooldown();
+            if (!Composition.SliceTrigger.WasSliceCurrentDash())
+                Composition.StartDashCooldown();
             Animator.SetBool(PlayerConstants.ANIMATOR_DASH_BOOL, false);
         }
 
@@ -42,7 +44,6 @@ namespace Siberian25.Game.Characters
             }
             if (Rigidbody.position == _dashPosition)
             {
-                Composition.SliceTrigger.PerformSlice();
                 if (Input.IsIdle)
                     SwitchState(new PlayerIdleState());
                 else
