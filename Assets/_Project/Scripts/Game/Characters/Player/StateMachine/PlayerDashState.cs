@@ -22,6 +22,8 @@ namespace Siberian25.Game.Characters
             Composition.DashTrail.emitting = true;
             Composition.SliceTrigger.SliceDirection = dashVector.normalized;
             Composition.SliceTrigger.EnableSlice = true;
+            Animator.SetFloat(PlayerConstants.ANIMATOR_DASH_FLOAT_X, dashVector.x);
+            Animator.SetFloat(PlayerConstants.ANIMATOR_DASH_FLOAT_Y, dashVector.y);
             Animator.SetBool(PlayerConstants.ANIMATOR_DASH_BOOL, true);
         }
 
@@ -37,6 +39,7 @@ namespace Siberian25.Game.Characters
 
         public override void OnUpdate()
         {
+            Composition.Combo.Update();
             if (Composition.SliceTrigger.WasSliceCurrentDash())
             {
                 if (Input.IsDashing)

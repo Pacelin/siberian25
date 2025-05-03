@@ -16,6 +16,7 @@ namespace Siberian25.Game.Characters
 
         public override void OnUpdate()
         {
+            Composition.Combo.Update();
             if (Input.IsDashing && Composition.CanDash())
                 SwitchState(new PlayerDashState());
             else if (Input.IsMove)

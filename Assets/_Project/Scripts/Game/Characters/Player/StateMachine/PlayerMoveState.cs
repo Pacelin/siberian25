@@ -16,6 +16,9 @@ namespace Siberian25.Game.Characters
 
         public override void OnUpdate()
         {
+            Composition.Combo.Update();
+            Animator.SetFloat(PlayerConstants.ANIMATOR_WALK_FLOAT_X, Input.MoveInput.x);
+            Animator.SetFloat(PlayerConstants.ANIMATOR_WALK_FLOAT_Y, Input.MoveInput.y);
             if (Input.IsDashing && Composition.CanDash())
                 SwitchState(new PlayerDashState());
             else if (Input.IsIdle)
