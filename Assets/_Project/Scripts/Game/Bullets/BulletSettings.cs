@@ -10,6 +10,10 @@ namespace Siberian25.Game.Bullets
 		[SerializeField] private BulletTypeData m_immortalBulletsType;
 		[SerializeField] private BulletTypeData m_deflectableBulletsType;
 
+		[SerializeField] private LayerMask _deflectedLayers;
+
+		public LayerMask DeflectedLayers => _deflectedLayers;
+
 		public BulletTypeData GetBulletTypeData(EBulletType bulletType)
 		{
 			return bulletType switch

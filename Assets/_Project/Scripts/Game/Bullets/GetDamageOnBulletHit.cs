@@ -10,7 +10,6 @@ namespace Siberian25.Game.Bullets
 
         private void OnParticleCollision(GameObject other)
         {
-            Debug.Log("collision from " + other + " on " + this, this);
             _health.TakeDamage(_damage);
         }
     }
