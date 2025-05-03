@@ -60,6 +60,8 @@ MonoBehaviour:
   _rigidbody: {fileID: 4874739503321101541}
   _animator: {fileID: 1427450189949271906}
   _health: {fileID: 7066952607971034265}
+  _combo:
+    _cooldown: 5
   _arrow: {fileID: 2965614977064178087}
   _input: {fileID: 3255057928543800149}
   _dashTrail: {fileID: 1484608787065929476}
@@ -77,7 +79,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 62c65cda97604926923d05b756198c72, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Siberian25.Game.Characters.HealthComponent, Assembly-CSharp
-  _health: 3
+  _health: 6
   _invinsibilityTimeOnDamage: 0.7
 --- !u!114 &3255057928543800149
 MonoBehaviour:

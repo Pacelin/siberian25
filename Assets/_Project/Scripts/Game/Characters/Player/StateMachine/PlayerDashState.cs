@@ -39,7 +39,6 @@ namespace Siberian25.Game.Characters
 
         public override void OnUpdate()
         {
-            Composition.Combo.Update();
             if (Composition.SliceTrigger.WasSliceCurrentDash())
             {
                 if (Input.IsDashing)
