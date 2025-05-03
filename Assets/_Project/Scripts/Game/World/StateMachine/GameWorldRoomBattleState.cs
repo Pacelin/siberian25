@@ -1,13 +1,10 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using Siberian25.Game.Characters.Enemies;
+﻿using System.Collections.Generic;
 using UnityEngine;
 
 namespace Siberian25.Game.World
 {
     public class GameWorldRoomBattleState : GameWorldState
     {
-
         private readonly Queue<GameRoomStageItem> _itemsQueue = new();
         private int _roomStageIndex = 0;
         private float _time;

@@ -19276,6 +19276,14 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 2176740272163408691}
     m_Modifications:
+    - target: {fileID: 376962762746713405, guid: 2df4221f09a375540ab5a8e905634693, type: 3}
+      propertyPath: _rooms.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 376962762746713405, guid: 2df4221f09a375540ab5a8e905634693, type: 3}
+      propertyPath: '_rooms.Array.data[0]'
+      value: 
+      objectReference: {fileID: 3666338871593912829}
     - target: {fileID: 733678006983616720, guid: 2df4221f09a375540ab5a8e905634693, type: 3}
       propertyPath: m_Name
       value: P_Portal_Finish
