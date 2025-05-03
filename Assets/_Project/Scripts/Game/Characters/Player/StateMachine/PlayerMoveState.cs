@@ -16,12 +16,16 @@ namespace Siberian25.Game.Characters
 
         public override void OnUpdate()
         {
-            Animator.SetFloat(PlayerConstants.ANIMATOR_WALK_FLOAT_X, Input.MoveInput.x);
-            Animator.SetFloat(PlayerConstants.ANIMATOR_WALK_FLOAT_Y, Input.MoveInput.y);
             if (Input.IsDashing && Composition.CanDash())
                 SwitchState(new PlayerDashState());
             else if (Input.IsIdle)
                 SwitchState(new PlayerIdleState());
+            else
+            {
+                Animator.SetFloat(PlayerConstants.ANIMATOR_WALK_FLOAT_X, Input.MoveInput.x);
+                Animator.SetFloat(PlayerConstants.ANIMATOR_WALK_FLOAT_Y, Input.MoveInput.y);
+                Animator.SetBool(PlayerConstants.ANIMATOR_WALK_HORIZONTAL_BOOL, Input.MoveInput.x != 0);
+            }
         }
 
         public override void OnFixedUpdate()
