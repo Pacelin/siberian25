@@ -74,7 +74,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 62c65cda97604926923d05b756198c72, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Siberian25.Game.Characters.HealthComponent, Assembly-CSharp
-  _health: 0
+  _health: 3
 --- !u!114 &3255057928543800149
 MonoBehaviour:
   m_ObjectHideFlags: 0

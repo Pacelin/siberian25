@@ -14,3 +14,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: Siberian25.Game.World.GameRoomSchedule, Assembly-CSharp
   _stages:
   - {fileID: 11400000, guid: 0dfd80afd2077ef4687a23f0dd606dcf, type: 2}
+  - {fileID: 11400000, guid: f1d4e9e51ed433845b300ae613bc93ae, type: 2}

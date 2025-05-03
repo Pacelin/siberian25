@@ -10,8 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: d1ed3e0b38d34158a71d6f2e5b85c30e, type: 3}
-  m_Name: SO_Room_Stage_1
+  m_Name: SO_Room_Stage_2
   m_EditorClassIdentifier: Siberian25.Game.World.GameRoomStage, Assembly-CSharp
   _items:
-  - {fileID: 11400000, guid: e73667d160505994baaca911a3646216, type: 2}
-  - {fileID: 11400000, guid: 6547de239828a2b49b8772d68e08184e, type: 2}
+  - {fileID: 11400000, guid: 8444b315b24fdc44fa303bbbccb229ae, type: 2}
