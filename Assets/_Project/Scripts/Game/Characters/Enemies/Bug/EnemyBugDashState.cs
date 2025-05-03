@@ -12,7 +12,7 @@ namespace Siberian25.Game.Characters.Enemies
 
         public override void OnEnter()
         {
-            var playerPos = GameContext.Player.Rigidbody.position;
+            var playerPos = (Vector2) GameContext.Player.DashTrail.transform.position;
             var dashVector = playerPos - (Vector2) StateMachine.DashTrail.transform.position;
             dashVector = dashVector.normalized.Spread(StateMachine.DashSpread) * dashVector.magnitude;
             dashVector += dashVector.normalized * StateMachine.DashDistanceOverPlayer;
