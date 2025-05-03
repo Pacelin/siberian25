@@ -251,6 +251,7 @@ MonoBehaviour:
   _rigidbody: {fileID: 2142838506360132365}
   _animator: {fileID: 7459212569136981763}
   _health: {fileID: 2335498474528181219}
+  _stateMachine: {fileID: 0}
 --- !u!114 &2335498474528181219
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -264,6 +265,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Siberian25.Game.Characters.HealthComponent, Assembly-CSharp
   _health: 5
+  _invinsibilityTimeOnDamage: 0.3
 --- !u!114 &7667894506854180042
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -282,7 +284,6 @@ MonoBehaviour:
   _healthComponent: {fileID: 2335498474528181219}
   _lineRendererPrefab: {fileID: 6040173771880810235, guid: ec9acad37af11e64c9e1dd8360198de2, type: 3}
   _maxSlices: 5
-  _sliceLineLength: 0.8
   _explosionForceRange: {x: 150, y: 180}
   _explosionInheritDirectionForceRange: {x: 100, y: 150}
   _debrisLifetimeRange: {x: 0.3, y: 0.8}
