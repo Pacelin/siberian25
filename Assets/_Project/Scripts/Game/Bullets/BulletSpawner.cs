@@ -16,10 +16,19 @@ namespace Siberian25.Game.Bullets
 				return;
 
 			ParticleSystem ps = GetComponent<ParticleSystem>();
-			ParticleSystem.MainModule main = ps.main;
-
 			BulletTypeData data = m_bulletsSettings.GetBulletTypeData(_bulletType);
+
+			ParticleSystem.MainModule main = ps.main;
 			main.startColor = data.startColor;
+
+			ParticleSystem.TextureSheetAnimationModule animation = ps.textureSheetAnimation;
+			animation.SetSprite(0, data.sprite);
+
+			ParticleSystem.ShapeModule shape = ps.shape;
+			shape.alignToDirection = data.alignToDirection;
+
+			ParticleSystemRenderer renderer = ps.GetComponent<ParticleSystemRenderer>();
+			renderer.rotateWithStretchDirection = data.alignToDirection;
 		}
 	}
 }

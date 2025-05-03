@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 2179715013799992782}
   - component: {fileID: 5933163096034167261}
   - component: {fileID: 7815490011533270700}
+  - component: {fileID: 5989888415468260580}
   m_Layer: 0
   m_Name: P_Bullet_Spiral_Double
   m_TagString: Untagged
@@ -4898,6 +4899,21 @@ ParticleSystemRenderer:
   m_MeshWeighting2: 1
   m_MeshWeighting3: 1
   m_MaskInteraction: 0
+--- !u!114 &5989888415468260580
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5726061474006758509}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: efa11869e78d476ab0d334728b052e04, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Siberian25.Game.Bullets.DetatchParticlesOnDeath, Assembly-CSharp
+  _health: {fileID: 0}
+  _detatchTo: {fileID: 0}
+  _ps: {fileID: 5933163096034167261}
 --- !u!1001 &6071380744387633379
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -4970,6 +4986,10 @@ PrefabInstance:
       propertyPath: InitialModule.startColor.maxColor.r
       value: 0.8235294
       objectReference: {fileID: 0}
+    - target: {fileID: 9213949832498894135, guid: 1163ca96486170e4f9dd0b54224ab617, type: 3}
+      propertyPath: UVModule.sprites.Array.data[0].sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: e050f280b5e46b549ab83b3c13a40a0f, type: 3}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []

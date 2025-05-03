@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 7828192183870646055}
   - component: {fileID: 2058622042899628472}
   - component: {fileID: 4547969326663584410}
+  - component: {fileID: 5246689583324455609}
   m_Layer: 0
   m_Name: P_Bullet_Spiral
   m_TagString: Untagged
@@ -4892,6 +4893,21 @@ ParticleSystemRenderer:
   m_MeshWeighting2: 1
   m_MeshWeighting3: 1
   m_MaskInteraction: 0
+--- !u!114 &5246689583324455609
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4003516839593125144}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: efa11869e78d476ab0d334728b052e04, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Siberian25.Game.Bullets.DetatchParticlesOnDeath, Assembly-CSharp
+  _health: {fileID: 0}
+  _detatchTo: {fileID: 0}
+  _ps: {fileID: 2058622042899628472}
 --- !u!1001 &8375755011502091242
 PrefabInstance:
   m_ObjectHideFlags: 0
