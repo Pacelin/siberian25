@@ -426,6 +426,14 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3636379968763456069, guid: 51604f7c34291f04cac8ccf5b29bc448, type: 3}
+      propertyPath: m_text
+      value: Red Iron Hood
+      objectReference: {fileID: 0}
+    - target: {fileID: 3636379968763456069, guid: 51604f7c34291f04cac8ccf5b29bc448, type: 3}
+      propertyPath: m_fontSize
+      value: 46.8
+      objectReference: {fileID: 0}
     - target: {fileID: 4242673463692218895, guid: 51604f7c34291f04cac8ccf5b29bc448, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
