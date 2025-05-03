@@ -15,18 +15,22 @@ namespace Siberian25.Game.Characters
         public int Health => _health;
         public bool IsAlive => _health > 0;
         public bool IsDead => _health == 0;
-
+        public int DefaultHealth => _defaultHealth;
+        
         [SerializeField] private int _health;
         [SerializeField] private float _invinsibilityTimeOnDamage = .3f;
 
         private bool _canTakeDamage;
 
+        private int _defaultHealth;
         private CancellationTokenSource _cts;
 
         private readonly Subject<int> _onHealthChanged = new();
         private readonly Subject<int> _onDamage = new();
         private readonly Subject<Unit> _onDeath = new();
 
+        private void Awake() => _defaultHealth = _health;
+        
         private void OnEnable()
         {
             _canTakeDamage = true;
@@ -38,6 +42,12 @@ namespace Siberian25.Game.Characters
             _cts?.Cancel();
             _cts?.Dispose();
             _cts = null;
+        }
+
+        public void ResetHealth()
+        {
+            _health = _defaultHealth;
+            _onHealthChanged.OnNext(_health);
         }
 
         public void TakeDamage(int damage)

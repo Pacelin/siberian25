@@ -1,4 +1,5 @@
 ﻿using Cysharp.Threading.Tasks;
+using Siberian25.Game.Characters;
 using UnityEngine;
 
 namespace Siberian25.Game.World
@@ -15,6 +16,10 @@ namespace Siberian25.Game.World
         {
             UniTask.Void(async () =>
             {
+                GameContext.Player.StateMachine.SetPause(true);
+                GameContext.Player.StateMachine.SwitchState(new PlayerIdleState());
+                GameContext.Player.Rigidbody.position = 
+                    GameContext.ActiveRoom.Composition.FinishPortal.transform.position;
                 GameContext.Player.DisappearTween.Play();
                 await GameContext.Player.DisappearTween.WaitWhilePlay();
                 if (GameContext.CancellationToken.IsCancellationRequested)

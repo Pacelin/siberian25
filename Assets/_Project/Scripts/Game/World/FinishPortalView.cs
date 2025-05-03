@@ -35,7 +35,6 @@ namespace Siberian25.Game.World
             {
                 GameContext.World.StateMachine.SwitchState(new GameWorldRoomEndState(
                     _rooms[Random.Range(0, _rooms.Length)]));
-                    
             }
         }
     }

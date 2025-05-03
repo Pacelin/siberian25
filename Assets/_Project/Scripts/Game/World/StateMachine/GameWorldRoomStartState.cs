@@ -1,4 +1,5 @@
 ﻿using Cysharp.Threading.Tasks;
+using Siberian25.Game.Characters;
 using UnityEngine;
 
 namespace Siberian25.Game.World
@@ -32,7 +33,6 @@ namespace Siberian25.Game.World
                     if (GameContext.CancellationToken.IsCancellationRequested)
                         return;
                     await GameContext.ActiveRoom.Composition.PlayerPortal.Activate();
-                    GameContext.Player.StateMachine.SetPause(true);
                     GameContext.Player.transform.position =
                         GameContext.ActiveRoom.Composition.PlayerPortal.transform.position;
                     GameContext.Player.AppearTween.Play();
