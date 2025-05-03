@@ -331,6 +331,9 @@ AnimatorStateTransition:
   - m_ConditionMode: 3
     m_ConditionEvent: walk_y
     m_EventTreshold: 0
+  - m_ConditionMode: 2
+    m_ConditionEvent: walk_horizontal
+    m_EventTreshold: 0
   m_DstStateMachine: {fileID: 0}
   m_DstState: {fileID: 4570266831385324539}
   m_Solo: 0
@@ -361,6 +364,9 @@ AnimatorStateTransition:
     m_EventTreshold: 0
   - m_ConditionMode: 4
     m_ConditionEvent: walk_y
+    m_EventTreshold: 0
+  - m_ConditionMode: 2
+    m_ConditionEvent: walk_horizontal
     m_EventTreshold: 0
   m_DstStateMachine: {fileID: 0}
   m_DstState: {fileID: -5654270647335763208}
