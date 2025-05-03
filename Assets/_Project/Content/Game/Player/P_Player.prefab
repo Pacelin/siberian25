@@ -52,6 +52,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Siberian25.Game.Characters.PlayerComposition, Assembly-CSharp
   _rigidbody: {fileID: 4874739503321101541}
   _animator: {fileID: 1427450189949271906}
+  _health: {fileID: 0}
   _input: {fileID: 3255057928543800149}
   _dashTrail: {fileID: 1484608787065929476}
   _sliceTrigger: {fileID: 4608671749684995462}
@@ -73,7 +74,7 @@ MonoBehaviour:
     m_Type: 0
     m_ExpectedControlType: 
     m_Id: 7ff64e66-ebe0-4abc-a4a9-3e7b5f90ddf3
-    m_Processors: 
+    m_Processors: NormalizeVector2
     m_Interactions: 
     m_SingletonActionBindings:
     - m_Name: 2D Vector
@@ -243,7 +244,7 @@ BoxCollider2D:
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
-  m_Offset: {x: -0.011882126, y: 0.04277523}
+  m_Offset: {x: 0, y: 0.6650489}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -253,7 +254,7 @@ BoxCollider2D:
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
-  m_Size: {x: 0.36787778, y: 0.2490581}
+  m_Size: {x: 0.35, y: 0.6200758}
   m_EdgeRadius: 0
 --- !u!95 &1427450189949271906
 Animator:
@@ -305,7 +306,7 @@ Transform:
   m_GameObject: {fileID: 6689319177106219871}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0.4, z: 0}
+  m_LocalPosition: {x: 0, y: 0.65, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []

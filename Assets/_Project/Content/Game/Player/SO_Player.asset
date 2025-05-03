@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 70602696da67475fb0bb264f00ffbf3e, type: 3}
   m_Name: SO_Player
   m_EditorClassIdentifier: Siberian25.Game.Characters.PlayerCharacterConfig, Assembly-CSharp
-  _movementSpeed: 2
+  _movementSpeed: 4
   _health: 3
   _maxAttackDashDistance: 7
   _attackDashSpeed: 30
