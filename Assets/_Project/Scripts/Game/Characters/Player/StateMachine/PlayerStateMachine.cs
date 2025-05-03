@@ -13,7 +13,11 @@ namespace Siberian25.Game.Characters
             _activeState.OnEnter();
         }
 
-        public void SetPause(bool pause) => _paused = pause;
+        public void SetPause(bool pause)
+        {
+            _paused = pause;
+            GameContext.Player.Arrow.gameObject.SetActive(!pause);
+        }
 
         public void Stop()
         {

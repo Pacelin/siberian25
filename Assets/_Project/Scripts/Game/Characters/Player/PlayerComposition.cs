@@ -1,10 +1,11 @@
-﻿using System;
-using UnityEngine;
+﻿using UnityEngine;
 
 namespace Siberian25.Game.Characters
 {
     public class PlayerComposition : CharacterComposition
     {
+        public PlayerCombo Combo => _combo;
+        public PlayerArrow Arrow => _arrow;
         public PlayerInput Input => _input;
         public TrailRenderer DashTrail => _dashTrail;
         public PlayerCharacterConfig Config => _config;
@@ -12,7 +13,9 @@ namespace Siberian25.Game.Characters
 
         public PlayerStateMachine StateMachine => _stateMachine;
 
-        [Space]
+        [Space] 
+        [SerializeField] private PlayerCombo _combo;
+        [SerializeField] private PlayerArrow _arrow;
         [SerializeField] private PlayerInput _input;
         [SerializeField] private TrailRenderer _dashTrail;
         [SerializeField] private PlayerSliceTrigger _sliceTrigger;

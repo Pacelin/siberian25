@@ -15,5 +15,5 @@ MonoBehaviour:
   _time: 5
   _distanceFromPlayer: 2
   _enemies:
-  - {fileID: -1371283832030299052, guid: d5b8ec18eac0c1e4d8920553e4629d0e, type: 3}
-  - {fileID: -1371283832030299052, guid: d5b8ec18eac0c1e4d8920553e4629d0e, type: 3}
+  - {fileID: 4520266325542536889, guid: b49ea6a8c4562854783972bd4c66c3ca, type: 3}
+  - {fileID: 4520266325542536889, guid: b49ea6a8c4562854783972bd4c66c3ca, type: 3}

@@ -8,8 +8,8 @@ namespace Siberian25.Game.Characters.Enemies
         public float DashSpread => _dashSpread;
         public float MaxDashDistance => _maxDashDistance;
         public float DashDistanceOverPlayer => _dashDistanceOverPlayer;
-        public float IdleDuration => _idleDuration;
-        public float DashPrepareDuration => _dashPrepareDuration;
+        public float IdleDuration => Random.Range(_idleDuration.x, _idleDuration.y);
+        public float DashPrepareDuration => Random.Range(_dashPrepareDuration.x, _dashPrepareDuration.y);
         public LayerMask ObstaclesMask => _obstaclesMask;
         public float ObstacleAvoidRadius => _obstacleAvoidRadius;
         public TrailRenderer DashTrail => _dashTrail;
@@ -22,8 +22,8 @@ namespace Siberian25.Game.Characters.Enemies
         [SerializeField] private float _dashSpread;
         [SerializeField] private float _maxDashDistance;
         [SerializeField] private float _dashDistanceOverPlayer = 2f;
-        [SerializeField] private float _idleDuration;
-        [SerializeField] private float _dashPrepareDuration;
+        [SerializeField] private Vector2 _idleDuration;
+        [SerializeField] private Vector2 _dashPrepareDuration;
         [SerializeField] private LayerMask _obstaclesMask;
         [SerializeField] private float _obstacleAvoidRadius;
 

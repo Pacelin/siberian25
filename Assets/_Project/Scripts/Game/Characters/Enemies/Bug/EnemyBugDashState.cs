@@ -12,13 +12,14 @@ namespace Siberian25.Game.Characters.Enemies
 
         public override void OnEnter()
         {
-            var playerPos = GameContext.Player.Rigidbody.position;
+            var position = (Vector2) GameContext.Player.DashTrail.transform.position;
+            var playerPos = position;
             var dashVector = playerPos - (Vector2) StateMachine.DashTrail.transform.position;
             dashVector = dashVector.normalized.Spread(StateMachine.DashSpread) * dashVector.magnitude;
             dashVector += dashVector.normalized * StateMachine.DashDistanceOverPlayer;
             dashVector = Vector2.ClampMagnitude(dashVector, StateMachine.MaxDashDistance);
 
-            var cast = Physics2D.CircleCast(Composition.Rigidbody.position, StateMachine.ObstacleAvoidRadius,
+            var cast = Physics2D.CircleCast(position, StateMachine.ObstacleAvoidRadius,
                 dashVector.normalized, dashVector.magnitude, StateMachine.ObstaclesMask);
             if (cast)
                 dashVector = Vector2.ClampMagnitude(dashVector, cast.distance);
