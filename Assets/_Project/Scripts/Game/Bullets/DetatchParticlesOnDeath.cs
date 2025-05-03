@@ -1,6 +1,7 @@
 ﻿using System;
 using R3;
 using Siberian25.Game.Characters;
+using TSS.Core;
 using UnityEngine;
 
 namespace Siberian25.Game.Bullets
@@ -11,17 +12,26 @@ namespace Siberian25.Game.Bullets
 		[SerializeField] private Transform _detatchTo;
 		[SerializeField] private ParticleSystem _ps;
 
-		private IDisposable _disposable;
+		private CompositeDisposable _disposables;
 
 		private void OnEnable()
 		{
 			if (_health != null && _health.IsAlive)
-				_disposable = _health.OnDeath.Subscribe(_ => Detatch());
+				_health.OnDeath.Subscribe(_ => Detatch()).AddTo(_disposables);
+
+			Runtime.ObservePause().Subscribe(OnSetPaused).AddTo(_disposables);
+		}
+		private void OnSetPaused(bool isPaused)
+		{
+			if (isPaused)
+				_ps.Pause(true);
+			else
+				_ps.Play(true);
 		}
 
 		private void OnDisable()
 		{
-			_disposable?.Dispose();
+			_disposables?.Dispose();
 		}
 
 		private void Detatch()
