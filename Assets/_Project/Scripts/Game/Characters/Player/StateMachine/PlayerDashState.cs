@@ -24,6 +24,7 @@ namespace Siberian25.Game.Characters
             Composition.SliceTrigger.EnableSlice = true;
             Animator.SetFloat(PlayerConstants.ANIMATOR_DASH_FLOAT_X, dashVector.x);
             Animator.SetFloat(PlayerConstants.ANIMATOR_DASH_FLOAT_Y, dashVector.y);
+            Animator.SetBool(PlayerConstants.ANIMATOR_DASH_HORIZONTAL_BOOL, Mathf.Abs(dashVector.x) > 0.2f);
             Animator.SetBool(PlayerConstants.ANIMATOR_DASH_BOOL, true);
         }
 

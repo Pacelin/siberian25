@@ -18,6 +18,7 @@ namespace Siberian25.Game.Characters
         {
             Animator.SetFloat(PlayerConstants.ANIMATOR_WALK_FLOAT_X, Input.MoveInput.x);
             Animator.SetFloat(PlayerConstants.ANIMATOR_WALK_FLOAT_Y, Input.MoveInput.y);
+            Animator.SetBool(PlayerConstants.ANIMATOR_WALK_HORIZONTAL_BOOL, Input.MoveInput.x != 0);
             if (Input.IsDashing && Composition.CanDash())
                 SwitchState(new PlayerDashState());
             else if (Input.IsIdle)
