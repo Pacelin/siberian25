@@ -16,7 +16,7 @@ namespace Siberian25.Game.Characters
 
         public override void OnUpdate()
         {
-            if (Input.IsDashing)
+            if (Input.IsDashing && Composition.CanDash())
                 SwitchState(new PlayerDashState());
             else if (Input.IsIdle)
                 SwitchState(new PlayerIdleState());

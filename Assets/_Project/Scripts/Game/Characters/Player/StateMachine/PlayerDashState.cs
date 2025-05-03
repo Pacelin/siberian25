@@ -9,6 +9,7 @@ namespace Siberian25.Game.Characters
         
         public override void OnEnter()
         {
+            Composition.SliceTrigger.StartDash();
             var dashVector = Vector2.ClampMagnitude(PlayerPointer.GetVector(PlayerPointer.GetPosition()), 
                 Config.MaxAttackDashDistance);
 
@@ -28,11 +29,17 @@ namespace Siberian25.Game.Characters
         {
             GameContext.Player.DashTrail.emitting = false;
             Composition.SliceTrigger.EnableSlice = false;
+            Composition.StartDashCooldown();
             Animator.SetBool(PlayerConstants.ANIMATOR_DASH_BOOL, false);
         }
 
         public override void OnUpdate()
         {
+            if (Composition.SliceTrigger.WasSliceCurrentDash())
+            {
+                if (Input.IsDashing)
+                    SwitchState(new PlayerDashState());
+            }
             if (Rigidbody.position == _dashPosition)
             {
                 Composition.SliceTrigger.PerformSlice();

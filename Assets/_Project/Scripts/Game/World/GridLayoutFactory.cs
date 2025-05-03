@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using System;
+using UnityEngine;
 
 namespace Siberian25.Game.World
 {
@@ -28,6 +29,12 @@ namespace Siberian25.Game.World
                     go.transform.localPosition = new Vector3(x + _spacing * i, y + _spacing * j, 0);
                 }
             }
+        }
+
+        private void OnDrawGizmosSelected()
+        {
+            for (int i = 0; i < transform.childCount; i++)
+                Gizmos.DrawSphere(transform.GetChild(i).position, 0.05f);
         }
     }
 }

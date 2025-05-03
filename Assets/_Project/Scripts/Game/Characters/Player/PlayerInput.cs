@@ -1,5 +1,6 @@
 ﻿using System;
 using UnityEngine;
+using UnityEngine.EventSystems;
 using UnityEngine.InputSystem;
 
 namespace Siberian25.Game.Characters
@@ -9,7 +10,7 @@ namespace Siberian25.Game.Characters
         public bool IsMove => MoveInput != Vector2.zero;
         public bool IsIdle => MoveInput == Vector2.zero;
         
-        public bool IsDashing => _dashInput.WasPerformedThisFrame();
+        public bool IsDashing => _dashInput.WasPerformedThisFrame() && !EventSystem.current.IsPointerOverGameObject();
         public Vector2 MoveInput => _moveInput.ReadValue<Vector2>();
         
         [SerializeField] private InputAction _moveInput;

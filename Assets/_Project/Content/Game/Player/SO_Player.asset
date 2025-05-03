@@ -16,6 +16,7 @@ MonoBehaviour:
   _health: 3
   _maxAttackDashDistance: 7
   _attackDashSpeed: 30
+  _dashCooldown: 0.4
   _dashObstaclesLayerMask:
     serializedVersion: 2
     m_Bits: 256

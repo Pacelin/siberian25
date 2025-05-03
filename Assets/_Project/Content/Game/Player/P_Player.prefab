@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5280520649765164871}
   - component: {fileID: 6943981438038646011}
+  - component: {fileID: 7066952607971034265}
   - component: {fileID: 3255057928543800149}
   - component: {fileID: 4874739503321101541}
   - component: {fileID: 2934798644503649201}
@@ -36,6 +37,8 @@ Transform:
   m_Children:
   - {fileID: 8376238531195016986}
   - {fileID: 1808090770500533333}
+  - {fileID: 438246582453363917}
+  - {fileID: 6978494978628478739}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &6943981438038646011
@@ -50,13 +53,28 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b10baf4443ac4c9aaaf6cc9355303569, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Siberian25.Game.Characters.PlayerComposition, Assembly-CSharp
+  _appearTween: {fileID: 3778184383086682866}
+  _disappearTween: {fileID: 1554571732911751741}
   _rigidbody: {fileID: 4874739503321101541}
   _animator: {fileID: 1427450189949271906}
-  _health: {fileID: 0}
+  _health: {fileID: 7066952607971034265}
   _input: {fileID: 3255057928543800149}
   _dashTrail: {fileID: 1484608787065929476}
   _sliceTrigger: {fileID: 4608671749684995462}
   _config: {fileID: 11400000, guid: c4ae8fde58233d54787ef9b1e489a6ac, type: 2}
+--- !u!114 &7066952607971034265
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1550257525525488654}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 62c65cda97604926923d05b756198c72, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Siberian25.Game.Characters.HealthComponent, Assembly-CSharp
+  _health: 0
 --- !u!114 &3255057928543800149
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -278,6 +296,102 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!1 &4848588206740404756
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 6978494978628478739}
+  - component: {fileID: 1554571732911751741}
+  m_Layer: 3
+  m_Name: Disappear_Tween
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &6978494978628478739
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4848588206740404756}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 5280520649765164871}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1554571732911751741
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4848588206740404756}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fa9ff0b64396cb04282c72829dcc46c3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _completeOnKill: 0
+  _preset: {fileID: 0}
+  _targets:
+  - {fileID: 3883824062450276390}
+  _items:
+  - rid: 7214840352482000901
+  _cacheTween: 0
+  _playOnEnable: 0
+  _loops: 0
+  _loopType: 0
+  _delay: 0
+  references:
+    version: 2
+    RefIds:
+    - rid: 7214840352482000901
+      type: {class: ScriptableTweenSpriteRenderer_DOFade, ns: TSS.Tweening, asm: TSS.Tweening}
+      data:
+        _connectBehaviour: 0
+        _easing: 6
+        _delay:
+          rid: 7214840352482000902
+        _loopsCount:
+          rid: 7214840352482000903
+        _loopType: 0
+        _ignoreTimescale: 0
+        _duration:
+          rid: 7214840352482000904
+        _useStartValue: 1
+        _startValue:
+          rid: 7214840352482000905
+        _endValue:
+          rid: 7214840352482000906
+    - rid: 7214840352482000902
+      type: {class: FloatValueProvider, ns: TSS.Utils, asm: TSS.Utils}
+      data:
+        _value: 0
+    - rid: 7214840352482000903
+      type: {class: IntValueProvider, ns: TSS.Utils, asm: TSS.Utils}
+      data:
+        _value: 1
+    - rid: 7214840352482000904
+      type: {class: FloatValueProvider, ns: TSS.Utils, asm: TSS.Utils}
+      data:
+        _value: 0.5
+    - rid: 7214840352482000905
+      type: {class: FloatValueProvider, ns: TSS.Utils, asm: TSS.Utils}
+      data:
+        _value: 1
+    - rid: 7214840352482000906
+      type: {class: FloatValueProvider, ns: TSS.Utils, asm: TSS.Utils}
+      data:
+        _value: 0
 --- !u!1 &6689319177106219871
 GameObject:
   m_ObjectHideFlags: 0
@@ -563,6 +677,102 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 1
+--- !u!1 &8290754429308453896
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 438246582453363917}
+  - component: {fileID: 3778184383086682866}
+  m_Layer: 3
+  m_Name: Appear_Tween
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &438246582453363917
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8290754429308453896}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 5280520649765164871}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &3778184383086682866
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8290754429308453896}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fa9ff0b64396cb04282c72829dcc46c3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _completeOnKill: 0
+  _preset: {fileID: 0}
+  _targets:
+  - {fileID: 3883824062450276390}
+  _items:
+  - rid: 7214840352482000901
+  _cacheTween: 0
+  _playOnEnable: 0
+  _loops: 0
+  _loopType: 0
+  _delay: 0
+  references:
+    version: 2
+    RefIds:
+    - rid: 7214840352482000901
+      type: {class: ScriptableTweenSpriteRenderer_DOFade, ns: TSS.Tweening, asm: TSS.Tweening}
+      data:
+        _connectBehaviour: 0
+        _easing: 6
+        _delay:
+          rid: 7214840352482000902
+        _loopsCount:
+          rid: 7214840352482000903
+        _loopType: 0
+        _ignoreTimescale: 0
+        _duration:
+          rid: 7214840352482000904
+        _useStartValue: 1
+        _startValue:
+          rid: 7214840352482000905
+        _endValue:
+          rid: 7214840352482000906
+    - rid: 7214840352482000902
+      type: {class: FloatValueProvider, ns: TSS.Utils, asm: TSS.Utils}
+      data:
+        _value: 0
+    - rid: 7214840352482000903
+      type: {class: IntValueProvider, ns: TSS.Utils, asm: TSS.Utils}
+      data:
+        _value: 1
+    - rid: 7214840352482000904
+      type: {class: FloatValueProvider, ns: TSS.Utils, asm: TSS.Utils}
+      data:
+        _value: 0.5
+    - rid: 7214840352482000905
+      type: {class: FloatValueProvider, ns: TSS.Utils, asm: TSS.Utils}
+      data:
+        _value: 0
+    - rid: 7214840352482000906
+      type: {class: FloatValueProvider, ns: TSS.Utils, asm: TSS.Utils}
+      data:
+        _value: 1
 --- !u!1 &8737788167350615297
 GameObject:
   m_ObjectHideFlags: 0

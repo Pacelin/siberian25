@@ -1,0 +1,20 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 351b6acd1ab347eb9ca28569649d9dce, type: 3}
+  m_Name: SO_Room_Stage_1_Spawn_1
+  m_EditorClassIdentifier: Siberian25.Game.World.GameRoomStageSpawnEnemiesItem, Assembly-CSharp
+  _time: 0
+  _distanceFromPlayer: 2
+  _enemies:
+  - {fileID: -1371283832030299052, guid: d5b8ec18eac0c1e4d8920553e4629d0e, type: 3}
+  - {fileID: -1371283832030299052, guid: d5b8ec18eac0c1e4d8920553e4629d0e, type: 3}
+  - {fileID: -1371283832030299052, guid: d5b8ec18eac0c1e4d8920553e4629d0e, type: 3}

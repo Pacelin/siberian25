@@ -6,10 +6,8 @@ namespace Siberian25.Game.Characters
     public class CharacterConfig : ScriptableObject
     {
         public float MovementSpeed => _movementSpeed;
-        public int Health => _health;
         
         [Header("Character")]
         [SerializeField] private float _movementSpeed;
-        [SerializeField] private int _health;
     }
 }

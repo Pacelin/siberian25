@@ -6,19 +6,23 @@ namespace Siberian25.Game.World
 {
     public class PortalView : MonoBehaviour
     {
+        public bool IsActive { get; private set; }
+        
         [SerializeField] private ScriptableTween _appearTween;
         [SerializeField] private ScriptableTween _disappearTween;
         
         public UniTask Activate()
         {
+            IsActive = true;
             _appearTween.Play();
             return _appearTween.WaitWhilePlay();
         }
 
-        public UniTask Deactivate()
+        public async UniTask Deactivate()
         {
             _disappearTween.Play();
-            return _disappearTween.WaitWhilePlay();
+            await _disappearTween.WaitWhilePlay();
+            IsActive = false;
         }
     }
 }

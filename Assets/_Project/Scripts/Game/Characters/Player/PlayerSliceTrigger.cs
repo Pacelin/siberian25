@@ -9,6 +9,10 @@ namespace Siberian25.Game.Characters
         public bool EnableSlice { get; set; }
 
         private List<ISlicable> _slicables = new();
+        private bool _wasSliceCurrentDash;
+
+        public void StartDash() => _wasSliceCurrentDash = false;
+        public bool WasSliceCurrentDash() => _wasSliceCurrentDash;
         
         public void PerformSlice()
         {
@@ -24,6 +28,7 @@ namespace Siberian25.Game.Characters
                 return;
             if (other.TryGetComponent<ISlicable>(out var slicable))
             {
+                _wasSliceCurrentDash = true;
                 slicable.OnSlice(transform.position,SliceDirection);
                 _slicables.Add(slicable);
             }
