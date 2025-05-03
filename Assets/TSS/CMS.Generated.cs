@@ -44,6 +44,7 @@ namespace TSS.ContentManagement
 		{
 			public static PlayerComposition Player { get; private set; }
 			public static GameWorldComposition World { get; private set; }
+			public static GameObject HUD { get; private set; }
 
 			public static async UniTask Initialize(CancellationToken cancellationToken)
 			{
@@ -51,6 +52,8 @@ namespace TSS.ContentManagement
 					.ToUniTask(cancellationToken: cancellationToken)).GetComponent<PlayerComposition>();
 				World = (await Addressables.LoadAssetAsync<GameObject>("Assets/_Project/Content/Game/World/P_World.prefab")
 					.ToUniTask(cancellationToken: cancellationToken)).GetComponent<GameWorldComposition>();
+				HUD = await Addressables.LoadAssetAsync<GameObject>("Assets/_Project/Content/Game/World/P_HUD.prefab")
+					.ToUniTask(cancellationToken: cancellationToken);
 			}
 		}
     }

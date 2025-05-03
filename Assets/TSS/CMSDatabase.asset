@@ -29,3 +29,7 @@ MonoBehaviour:
     CMSName: Prefabs/World
     ComponentName: GameWorldComposition
     Namespace: Siberian25.Game.World
+  - GUID: 11429530820545541b13ecdf5862623b
+    CMSName: Prefabs/HUD
+    ComponentName: GameObject
+    Namespace: 

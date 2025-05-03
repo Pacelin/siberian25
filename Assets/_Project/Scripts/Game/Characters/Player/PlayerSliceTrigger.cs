@@ -19,6 +19,8 @@ namespace Siberian25.Game.Characters
             foreach (var slicable in _slicables) 
                 if (slicable != null)
                     slicable.OnSlicePerform(transform.position, SliceDirection);
+            if (_slicables.Count > 0)
+                GameContext.Player.Combo.Add(_slicables.Count);
             _slicables.Clear();
         }
         
