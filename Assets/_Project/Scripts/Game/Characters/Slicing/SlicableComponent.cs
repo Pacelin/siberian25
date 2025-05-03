@@ -44,8 +44,10 @@ namespace Siberian25.Game.Characters
             newLineRenderer.positionCount = 2;
             var point1 = point - direction * 10;
             var point2 = point + direction * 10;
-            _collider.bounds.IntersectRay(new Ray(point1, direction), out var distance1);
-            _collider.bounds.IntersectRay(new Ray(point2, -direction), out var distance2);
+            _collider.bounds.IntersectRay(new Ray(point1, direction * 20), out var distance1);
+            _collider.bounds.IntersectRay(new Ray(point2, -direction * 20), out var distance2);
+            Debug.Log(distance1);
+            Debug.Log(distance2);
             point1 += direction * distance1;
             point2 -= direction * distance2;
             newLineRenderer.SetPosition(0, transform.InverseTransformPoint(point1));

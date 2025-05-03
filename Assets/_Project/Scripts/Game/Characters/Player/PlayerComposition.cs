@@ -31,6 +31,11 @@ namespace Siberian25.Game.Characters
             _stateMachine.Run();
         }
 
+        private void OnDestroy()
+        {
+            _stateMachine.Stop();
+        }
+
         private void Update()
         {
             _stateMachine.Update();

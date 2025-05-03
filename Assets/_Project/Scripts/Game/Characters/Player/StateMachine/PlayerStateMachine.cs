@@ -10,6 +10,12 @@
             _activeState.OnEnter();
         }
 
+        public void Stop()
+        {
+            _activeState?.OnExit();
+            _activeState = null;
+        }
+        
         public void SwitchState(PlayerState state)
         {
             _activeState?.OnExit();
