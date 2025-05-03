@@ -1,5 +1,4 @@
-﻿using System;
-using R3;
+﻿using R3;
 using Siberian25.Game.Characters;
 using TSS.Core;
 using UnityEngine;
