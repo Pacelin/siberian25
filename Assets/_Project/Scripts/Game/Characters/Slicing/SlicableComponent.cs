@@ -1,8 +1,11 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Linq;
+using Cysharp.Threading.Tasks;
 using UnityEngine;
 using UnitySpriteCutter;
 using GameObject = UnityEngine.GameObject;
+using Random = UnityEngine.Random;
 using Vector2 = UnityEngine.Vector2;
 
 namespace Siberian25.Game.Characters
@@ -91,7 +94,15 @@ namespace Siberian25.Game.Characters
                 rbs[i].AddForce(explodeDirection * Random.Range(_explosionInheritDirectionForceRange.x, _explosionInheritDirectionForceRange.y));
                 debrises[i].Activate(Random.Range(_debrisLifetimeRange.x, _debrisLifetimeRange.y));
             }
-            
+
+            Time.timeScale = 0.4f;
+            UniTask.Void(async () =>
+            {
+                await UniTask.Delay(TimeSpan.FromSeconds(0.05f));
+                if (GameContext.CancellationToken.IsCancellationRequested)
+                    return;
+                Time.timeScale = 1;
+            });
             Destroy(gameObject);
         }
 
