@@ -13,8 +13,16 @@ namespace Siberian25.Game.World
         
         public override void OnEnter()
         {
-            GameContext.World.FadeOutWorld().ContinueWith(() =>
+            UniTask.Void(async () =>
             {
+                GameContext.Player.DisappearTween.Play();
+                await GameContext.Player.DisappearTween.WaitWhilePlay();
+                if (GameContext.CancellationToken.IsCancellationRequested)
+                    return;
+                await GameContext.ActiveRoom.Composition.FinishPortal.Deactivate();
+                if (GameContext.CancellationToken.IsCancellationRequested)
+                    return;
+                await GameContext.World.FadeOutWorld();
                 if (GameContext.CancellationToken.IsCancellationRequested)
                     return;
                 var room = GameContext.ActiveRoom.Composition;
