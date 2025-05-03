@@ -22,6 +22,7 @@ namespace Siberian25.Game
             GameContext.World = Object.Instantiate(CMS.Prefabs.World);
             GameContext.EnemiesPortalsPool = new ObjectPool<PortalView>(
                 () => Object.Instantiate(GameContext.World.EnemyPortalPrefab));
+            Time.timeScale = 1;
         }
 
         public void Tick()
@@ -30,6 +31,7 @@ namespace Siberian25.Game
 
         public void Dispose()
         {
+            Time.timeScale = 1;
             _cts.Cancel();
             _cts.Dispose();
             _cts = null;
