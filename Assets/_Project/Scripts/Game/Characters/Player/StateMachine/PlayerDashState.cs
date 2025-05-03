@@ -26,6 +26,7 @@ namespace Siberian25.Game.Characters
             Animator.SetFloat(PlayerConstants.ANIMATOR_WALK_FLOAT_Y, dashVector.y);
             Animator.SetFloat(PlayerConstants.ANIMATOR_DASH_FLOAT_X, dashVector.x);
             Animator.SetFloat(PlayerConstants.ANIMATOR_DASH_FLOAT_Y, dashVector.y);
+            Animator.SetBool(PlayerConstants.ANIMATOR_WALK_HORIZONTAL_BOOL, Mathf.Abs(dashVector.normalized.x) > 0.2f);
             Animator.SetBool(PlayerConstants.ANIMATOR_DASH_HORIZONTAL_BOOL, Mathf.Abs(dashVector.normalized.x) > 0.2f);
             Animator.SetBool(PlayerConstants.ANIMATOR_DASH_BOOL, true);
         }
