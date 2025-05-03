@@ -179,5 +179,33 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 6742750113212680353, guid: 4e11b3ddb96681649a19f6c16140070a, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 162154506996939114}
   m_SourcePrefab: {fileID: 100100000, guid: 4e11b3ddb96681649a19f6c16140070a, type: 3}
+--- !u!1 &2627086877379346865 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6742750113212680353, guid: 4e11b3ddb96681649a19f6c16140070a, type: 3}
+  m_PrefabInstance: {fileID: 8783785193250818320}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &162154506996939114
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2627086877379346865}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: efa11869e78d476ab0d334728b052e04, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Siberian25.Game.Bullets.DetatchParticlesOnDeath, Assembly-CSharp
+  _health: {fileID: 0}
+  _detatchTo: {fileID: 0}
+  _ps: {fileID: 8215806348220659661}
+--- !u!198 &8215806348220659661 stripped
+ParticleSystem:
+  m_CorrespondingSourceObject: {fileID: 856297733480939229, guid: 4e11b3ddb96681649a19f6c16140070a, type: 3}
+  m_PrefabInstance: {fileID: 8783785193250818320}
+  m_PrefabAsset: {fileID: 0}
