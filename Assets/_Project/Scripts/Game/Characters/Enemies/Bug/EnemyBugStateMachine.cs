@@ -13,9 +13,11 @@ namespace Siberian25.Game.Characters.Enemies
         public LayerMask ObstaclesMask => _obstaclesMask;
         public float ObstacleAvoidRadius => _obstacleAvoidRadius;
         public TrailRenderer DashTrail => _dashTrail;
+        public EnemyDamageProvider DamageProvider => _damageProvider;
         
         [SerializeField] private EnemyComposition _composition;
         [SerializeField] private TrailRenderer _dashTrail;
+        [SerializeField] private EnemyDamageProvider _damageProvider;
         [SerializeField] private float _dashSpeed;
         [SerializeField] private float _dashSpread;
         [SerializeField] private float _maxDashDistance;

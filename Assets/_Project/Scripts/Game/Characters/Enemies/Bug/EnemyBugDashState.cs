@@ -1,5 +1,4 @@
 ﻿using UnityEngine;
-using UnityEngine.Rendering;
 
 namespace Siberian25.Game.Characters.Enemies
 {
@@ -26,11 +25,13 @@ namespace Siberian25.Game.Characters.Enemies
             _dashPosition = Composition.Rigidbody.position + dashVector;
             
             StateMachine.DashTrail.emitting = true;
+            StateMachine.DamageProvider.SetActive(true);
         }
 
         public override void OnExit()
         {
             GameContext.Player.DashTrail.emitting = false;
+            StateMachine.DamageProvider.SetActive(false);
         }
 
         public override void OnUpdate()

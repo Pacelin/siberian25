@@ -15,7 +15,6 @@ namespace Siberian25.Game.Characters
         [SerializeField] private LineRenderer _lineRendererPrefab;
         [Header("Settings")]
         [SerializeField] private int _maxSlices = 3;
-        [SerializeField] private float _sliceLineLength = 2;
         [SerializeField] private Vector2 _explosionForceRange;
         [SerializeField] private Vector2 _explosionInheritDirectionForceRange;
         [SerializeField] private Vector2 _debrisLifetimeRange;
