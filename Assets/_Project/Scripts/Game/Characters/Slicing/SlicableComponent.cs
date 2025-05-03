@@ -95,10 +95,10 @@ namespace Siberian25.Game.Characters
                 debrises[i].Activate(Random.Range(_debrisLifetimeRange.x, _debrisLifetimeRange.y));
             }
 
-            Time.timeScale = 0.4f;
+            Time.timeScale = 0.7f;
             UniTask.Void(async () =>
             {
-                await UniTask.Delay(TimeSpan.FromSeconds(0.05f));
+                await UniTask.Delay(TimeSpan.FromSeconds(0.2f));
                 if (GameContext.CancellationToken.IsCancellationRequested)
                     return;
                 Time.timeScale = 1;
