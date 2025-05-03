@@ -123,6 +123,9 @@ AnimatorStateTransition:
   - m_ConditionMode: 3
     m_ConditionEvent: dash_x
     m_EventTreshold: 0
+  - m_ConditionMode: 1
+    m_ConditionEvent: dash_horizontal
+    m_EventTreshold: 0
   m_DstStateMachine: {fileID: 0}
   m_DstState: {fileID: 7532378862113359282}
   m_Solo: 0
@@ -510,6 +513,9 @@ AnimatorStateTransition:
     m_EventTreshold: 0
   - m_ConditionMode: 4
     m_ConditionEvent: dash_x
+    m_EventTreshold: 0
+  - m_ConditionMode: 1
+    m_ConditionEvent: dash_horizontal
     m_EventTreshold: 0
   m_DstStateMachine: {fileID: 0}
   m_DstState: {fileID: -7499837671948253415}
