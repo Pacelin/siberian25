@@ -1,7 +1,6 @@
-﻿namespace Siberian25.Game.Characters
+﻿namespace Siberian25.Game.Characters.Enemies
 {
     public class EnemyComposition : CharacterComposition
     {
-        
     }
 }

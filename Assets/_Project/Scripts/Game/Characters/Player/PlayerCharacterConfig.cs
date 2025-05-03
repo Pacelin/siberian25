@@ -7,6 +7,8 @@ namespace Siberian25.Game.Characters
     {
         public float MaxAttackDashDistance => _maxAttackDashDistance;
         public float AttackDashSpeed => _attackDashSpeed;
+
+        public float DashCooldown => _dashCooldown;
         
         public LayerMask DashObstaclesLayerMask => _dashObstaclesLayerMask;
         public float DashObstacleAviodRadius => _dashObstacleAvoidRadius;
@@ -14,6 +16,7 @@ namespace Siberian25.Game.Characters
         [Header("Player")] 
         [SerializeField] private float _maxAttackDashDistance;
         [SerializeField] private float _attackDashSpeed;
+        [SerializeField] private float _dashCooldown;
         [Space]
         [SerializeField] private LayerMask _dashObstaclesLayerMask;
         [SerializeField] private float _dashObstacleAvoidRadius;

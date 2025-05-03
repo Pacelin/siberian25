@@ -4,8 +4,10 @@ namespace Siberian25.Game.World
 {
     public abstract class GameRoomStageItem : ScriptableObject
     {
-        public abstract bool IsFinished();
-        public abstract void OnStart();
-        public abstract void OnFinish();
+        public float Time => _time;
+        
+        [SerializeField] private float _time;
+
+        public abstract void Execute();
     }
 }

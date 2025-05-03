@@ -1,4 +1,6 @@
-﻿namespace Siberian25.Game.World
+﻿using TSS.Core;
+
+namespace Siberian25.Game.World
 {
     public class GameWorldStateMachine
     {
@@ -6,7 +8,7 @@
         
         public void Run()
         {
-            _activeState = new GameWorldStartState();
+            _activeState = new GameWorldRoomStartState(GameContext.World.FirstRoomPrefab, true);
             _activeState.OnEnter();
         }
 
@@ -18,6 +20,8 @@
 
         public void Update()
         {
+            if (Runtime.IsPaused)
+                return;
             _activeState?.OnUpdate();
         }
 

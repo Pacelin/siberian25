@@ -46,8 +46,6 @@ namespace Siberian25.Game.Characters
             var point2 = point + direction * 10;
             _collider.bounds.IntersectRay(new Ray(point1, direction * 20), out var distance1);
             _collider.bounds.IntersectRay(new Ray(point2, -direction * 20), out var distance2);
-            Debug.Log(distance1);
-            Debug.Log(distance2);
             point1 += direction * distance1;
             point2 -= direction * distance2;
             newLineRenderer.SetPosition(0, transform.InverseTransformPoint(point1));
@@ -113,11 +111,18 @@ namespace Siberian25.Game.Characters
                         lineStart = point,
                         lineEnd = point + direction
                     };
-                    var output = SpriteCutter.Cut(input);
-                    if (output != null)
+                    try
                     {
-                        if (output.secondSideGameObject)
-                            gameObjects.Add(output.secondSideGameObject);
+                        var output = SpriteCutter.Cut(input);
+                        if (output != null)
+                        {
+                            if (output.secondSideGameObject)
+                                gameObjects.Add(output.secondSideGameObject);
+                        }
+                    }
+                    catch
+                    {
+                        // ignore
                     }
                 }
             }
@@ -131,13 +136,20 @@ namespace Siberian25.Game.Characters
                     lineStart = point,
                     lineEnd = point + direction
                 };
-                var output = SpriteCutter.Cut(input);
-                if (output != null)
+                try
                 {
-                    if (output.firstSideGameObject)
-                        gameObjects.Add(output.firstSideGameObject);
-                    if (output.secondSideGameObject)
-                        gameObjects.Add(output.secondSideGameObject);
+                    var output = SpriteCutter.Cut(input);
+                    if (output != null)
+                    {
+                        if (output.firstSideGameObject)
+                            gameObjects.Add(output.firstSideGameObject);
+                        if (output.secondSideGameObject)
+                            gameObjects.Add(output.secondSideGameObject);
+                    }
+                }
+                catch
+                {
+                    // ignore
                 }
             }
         }

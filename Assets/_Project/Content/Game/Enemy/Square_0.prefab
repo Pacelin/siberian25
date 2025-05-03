@@ -1,5 +1,197 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!1 &1066056867188057128
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 121769929396758580}
+  - component: {fileID: 6859755823495773497}
+  m_Layer: 3
+  m_Name: Appear_Tween
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &121769929396758580
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1066056867188057128}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 4451979813891998067}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &6859755823495773497
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1066056867188057128}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fa9ff0b64396cb04282c72829dcc46c3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _completeOnKill: 0
+  _preset: {fileID: 0}
+  _targets:
+  - {fileID: 7705224664898509999}
+  _items:
+  - rid: 7214840352482000901
+  _cacheTween: 0
+  _playOnEnable: 0
+  _loops: 0
+  _loopType: 0
+  _delay: 0
+  references:
+    version: 2
+    RefIds:
+    - rid: 7214840352482000901
+      type: {class: ScriptableTweenSpriteRenderer_DOFade, ns: TSS.Tweening, asm: TSS.Tweening}
+      data:
+        _connectBehaviour: 0
+        _easing: 6
+        _delay:
+          rid: 7214840352482000902
+        _loopsCount:
+          rid: 7214840352482000903
+        _loopType: 0
+        _ignoreTimescale: 0
+        _duration:
+          rid: 7214840352482000904
+        _useStartValue: 1
+        _startValue:
+          rid: 7214840352482000905
+        _endValue:
+          rid: 7214840352482000906
+    - rid: 7214840352482000902
+      type: {class: FloatValueProvider, ns: TSS.Utils, asm: TSS.Utils}
+      data:
+        _value: 0
+    - rid: 7214840352482000903
+      type: {class: IntValueProvider, ns: TSS.Utils, asm: TSS.Utils}
+      data:
+        _value: 1
+    - rid: 7214840352482000904
+      type: {class: FloatValueProvider, ns: TSS.Utils, asm: TSS.Utils}
+      data:
+        _value: 0.5
+    - rid: 7214840352482000905
+      type: {class: FloatValueProvider, ns: TSS.Utils, asm: TSS.Utils}
+      data:
+        _value: 0
+    - rid: 7214840352482000906
+      type: {class: FloatValueProvider, ns: TSS.Utils, asm: TSS.Utils}
+      data:
+        _value: 1
+--- !u!1 &3764154193164021232
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 5895870719138787352}
+  - component: {fileID: 4339742712617946715}
+  m_Layer: 3
+  m_Name: Disappear_Tween
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &5895870719138787352
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3764154193164021232}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 4451979813891998067}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &4339742712617946715
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3764154193164021232}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fa9ff0b64396cb04282c72829dcc46c3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _completeOnKill: 0
+  _preset: {fileID: 0}
+  _targets:
+  - {fileID: 7705224664898509999}
+  _items:
+  - rid: 7214840352482000901
+  _cacheTween: 0
+  _playOnEnable: 0
+  _loops: 0
+  _loopType: 0
+  _delay: 0
+  references:
+    version: 2
+    RefIds:
+    - rid: 7214840352482000901
+      type: {class: ScriptableTweenSpriteRenderer_DOFade, ns: TSS.Tweening, asm: TSS.Tweening}
+      data:
+        _connectBehaviour: 0
+        _easing: 6
+        _delay:
+          rid: 7214840352482000902
+        _loopsCount:
+          rid: 7214840352482000903
+        _loopType: 0
+        _ignoreTimescale: 0
+        _duration:
+          rid: 7214840352482000904
+        _useStartValue: 1
+        _startValue:
+          rid: 7214840352482000905
+        _endValue:
+          rid: 7214840352482000906
+    - rid: 7214840352482000902
+      type: {class: FloatValueProvider, ns: TSS.Utils, asm: TSS.Utils}
+      data:
+        _value: 0
+    - rid: 7214840352482000903
+      type: {class: IntValueProvider, ns: TSS.Utils, asm: TSS.Utils}
+      data:
+        _value: 1
+    - rid: 7214840352482000904
+      type: {class: FloatValueProvider, ns: TSS.Utils, asm: TSS.Utils}
+      data:
+        _value: 0.5
+    - rid: 7214840352482000905
+      type: {class: FloatValueProvider, ns: TSS.Utils, asm: TSS.Utils}
+      data:
+        _value: 1
+    - rid: 7214840352482000906
+      type: {class: FloatValueProvider, ns: TSS.Utils, asm: TSS.Utils}
+      data:
+        _value: 0
 --- !u!1 &7821289024098901541
 GameObject:
   m_ObjectHideFlags: 0
@@ -9,12 +201,14 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4451979813891998067}
+  - component: {fileID: -1371283832030299052}
   - component: {fileID: 2335498474528181219}
   - component: {fileID: 7667894506854180042}
   - component: {fileID: 7705224664898509999}
   - component: {fileID: 2142838506360132365}
   - component: {fileID: 3981434656994244634}
   - component: {fileID: 2339190960394719600}
+  - component: {fileID: 7459212569136981763}
   m_Layer: 6
   m_Name: Square_0
   m_TagString: Untagged
@@ -36,8 +230,27 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1076888837828541728}
+  - {fileID: 121769929396758580}
+  - {fileID: 5895870719138787352}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &-1371283832030299052
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7821289024098901541}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: df8d162b08e74ff8aa31693a6419c283, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Siberian25.Game.Characters.Enemies.EnemyComposition, Assembly-CSharp
+  _appearTween: {fileID: 6859755823495773497}
+  _disappearTween: {fileID: 4339742712617946715}
+  _rigidbody: {fileID: 2142838506360132365}
+  _animator: {fileID: 7459212569136981763}
+  _health: {fileID: 2335498474528181219}
 --- !u!114 &2335498474528181219
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -312,6 +525,28 @@ SpriteMask:
   m_IsCustomRangeActive: 0
   m_SpriteSortPoint: 0
   m_MaskSource: 1
+--- !u!95 &7459212569136981763
+Animator:
+  serializedVersion: 7
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7821289024098901541}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 0}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_AnimatePhysics: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1001 &333373737147540278
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -320,6 +555,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 4451979813891998067}
     m_Modifications:
+    - target: {fileID: 162154506996939114, guid: 7762134fbe229e54b89831ea42c845c9, type: 3}
+      propertyPath: _health
+      value: 
+      objectReference: {fileID: 2335498474528181219}
     - target: {fileID: 743517338762337814, guid: 7762134fbe229e54b89831ea42c845c9, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0

@@ -19,7 +19,11 @@ namespace Siberian25.Game.Characters
         [SerializeField] private PlayerCharacterConfig _config;
         
         private PlayerStateMachine _stateMachine;
+        private float _dashCooldownExtimation;
 
+        public void StartDashCooldown() => _dashCooldownExtimation = Time.time + _config.DashCooldown;
+        public bool CanDash() => Time.time > _dashCooldownExtimation;
+        
         private void Awake()
         {
             _stateMachine = new PlayerStateMachine();
