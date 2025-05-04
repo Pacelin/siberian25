@@ -28,6 +28,8 @@ namespace Siberian25.Game.World
             _slowMotionEstimation = Time.time + time;
         }
 
+        public void StopSlowMo() => _targetTimeScale = 1;
+        
         public void Update()
         {
             if (Runtime.IsPaused)
