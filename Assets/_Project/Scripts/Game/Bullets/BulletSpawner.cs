@@ -52,10 +52,11 @@ namespace Siberian25.Game.Bullets
 			if (this == null)
 				return;
 
-			if (_bulletType == EBulletType.Deflectable)
+			if (!gameObject.TryGetComponent(out DeflectedBulletEngine _))
+			{
 				AddDeflectedPs(GetComponent<ParticleSystem>());
-			else
-				TryDestroyDeflectedPs();
+			}
+
 		}
 
 		private void AddDeflectedPs(ParticleSystem ps)
@@ -70,9 +71,10 @@ namespace Siberian25.Game.Bullets
 			childGo.transform.parent = transform;
 			deflectedPs = childGo.AddComponent<ParticleSystem>();
 
-			ApplyData(data, deflectedPs);
-
 			UnityEditor.EditorUtility.CopySerialized(ps, deflectedPs);
+			UnityEditor.EditorUtility.CopySerialized(ps.GetComponent<ParticleSystemRenderer>(), deflectedPs.GetComponent<ParticleSystemRenderer>());
+
+			ApplyData(data, deflectedPs);
 
 			ParticleSystem.CollisionModule collision = deflectedPs.collision;
 			collision.lifetimeLoss = 0f;
@@ -84,7 +86,6 @@ namespace Siberian25.Game.Bullets
 			emission.enabled = false;
 
 			DeflectedBulletEngine engine = gameObject.AddComponent<DeflectedBulletEngine>();
-			childGo.AddComponent<DeflectedBulletProxy>().Engine = engine;
 			engine.Initiate(ps, deflectedPs);
 		}
 
