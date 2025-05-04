@@ -85,6 +85,7 @@ namespace TSS.Audio
 		public static SoundEvent_Game_BossDeath Game_BossDeath { get; } = new();
 		public static SoundEvent_Game_MeleeEnemyAttack Game_MeleeEnemyAttack { get; } = new();
 		public static SoundEvent_Game_MeleeEnemyMove Game_MeleeEnemyMove { get; } = new();
+		public static SoundEvent_Game_BossLaugh Game_BossLaugh { get; } = new();
     
 		private System.IDisposable _focusDisposable;
 		
@@ -639,6 +640,27 @@ namespace TSS.Audio
 		public float Length => 0;
 
 		private static readonly FMOD.GUID _guid = new FMOD.GUID() { Data1 = -906372097, Data2 = 1332760761, Data3 = 1987473030, Data4 = 44967090 };
+
+		public void PlayOneShot() => RuntimeManager.PlayOneShot(_guid);
+		public void PlayOneShotAttached(GameObject attachTo) => RuntimeManager.PlayOneShotAttached(_guid, attachTo);
+		public void PlayOneShotInPoint(Vector3 point) => RuntimeManager.PlayOneShot(_guid, point);
+
+		public Instance CreateInstance() => new Instance(RuntimeManager.CreateInstance(_guid));
+		ISoundEventInstance ISoundEvent.CreateInstance() => CreateInstance();
+
+		public class Instance : SoundEventInstance
+		{
+			public Instance(FMOD.Studio.EventInstance eventInstance) : base(eventInstance) { }
+
+		}
+	}
+
+	public class SoundEvent_Game_BossLaugh : ISoundEvent
+	{
+		public bool IsOneShot => true;
+		public float Length => 0;
+
+		private static readonly FMOD.GUID _guid = new FMOD.GUID() { Data1 = -1360194740, Data2 = 1091972172, Data3 = -1910793053, Data4 = -285833583 };
 
 		public void PlayOneShot() => RuntimeManager.PlayOneShot(_guid);
 		public void PlayOneShotAttached(GameObject attachTo) => RuntimeManager.PlayOneShotAttached(_guid, attachTo);

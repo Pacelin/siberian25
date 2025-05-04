@@ -55,7 +55,7 @@ Material:
     m_Ints: []
     m_Floats:
     - _Alpha_Clip_Threshold: 0.5
-    - _Dissolve_Factor: 0
+    - _Dissolve_Factor: 1
     - _Line_Threshold: 0.111
     - _Mask_Scale: 5
     - _Pattern_Scale: 15
