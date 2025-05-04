@@ -19,4 +19,4 @@ MonoBehaviour:
   _dashObstaclesLayerMask:
     serializedVersion: 2
     m_Bits: 256
-  _dashObstacleAvoidRadius: 1.2
+  _dashObstacleAvoidRadius: 1.5

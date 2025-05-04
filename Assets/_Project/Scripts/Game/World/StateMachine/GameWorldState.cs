@@ -1,4 +1,6 @@
-﻿namespace Siberian25.Game.World
+﻿using System;
+
+namespace Siberian25.Game.World
 {
     public abstract class GameWorldState
     {

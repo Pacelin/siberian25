@@ -10,14 +10,18 @@ namespace Siberian25.Game.Characters
         
         public override void OnEnter()
         {
+            Composition.Collision = false;
             Composition.SliceTrigger.StartDash();
             var dashVector = Vector2.ClampMagnitude(PlayerPointer.GetVector(PlayerPointer.GetPosition()), 
                 Config.MaxAttackDashDistance);
+            if (dashVector.magnitude == 0)
+                dashVector = Vector2.right * Config.MinAttackDashDistance;
+            if (dashVector.magnitude < Config.MinAttackDashDistance)
+                dashVector = dashVector.normalized * Config.MinAttackDashDistance;
 
-            var cast = Physics2D.CircleCast(Rigidbody.position, Config.DashObstacleAviodRadius,
-                dashVector.normalized, dashVector.magnitude, Config.DashObstaclesLayerMask);
+            var cast = Physics2D.Raycast(Rigidbody.position, dashVector.normalized, dashVector.magnitude, Config.DashObstaclesLayerMask);
             if (cast)
-                dashVector = Vector2.ClampMagnitude(dashVector, cast.distance);
+                dashVector = Vector2.ClampMagnitude(dashVector, cast.distance - Config.DashObstacleAviodRadius);
             _dashPosition = Rigidbody.position + dashVector;
             
             Composition.DashTrail.emitting = true;
@@ -53,7 +57,7 @@ namespace Siberian25.Game.Characters
                 if (Input.IsDashing)
                     SwitchState(new PlayerDashState());
             }
-            if (Rigidbody.position == _dashPosition)
+            if (Rigidbody.position == _dashPosition || Composition.Collision)
             {
                 if (Input.IsIdle)
                     SwitchState(new PlayerIdleState());
