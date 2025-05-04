@@ -47,5 +47,6 @@ namespace Siberian25.Game.Characters.Boss
             _beam.Release();
             _beam = null;
         }
+        public void StartBossLaugh() => AudioSystem.Game_BossLaugh.PlayOneShot();
     }
 }

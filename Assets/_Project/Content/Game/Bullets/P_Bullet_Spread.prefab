@@ -184,11 +184,6 @@ PrefabInstance:
       insertIndex: -1
       addedObject: {fileID: 2326024631438996065}
   m_SourcePrefab: {fileID: 100100000, guid: 4e11b3ddb96681649a19f6c16140070a, type: 3}
---- !u!198 &1357103921013943435 stripped
-ParticleSystem:
-  m_CorrespondingSourceObject: {fileID: 856297733480939229, guid: 4e11b3ddb96681649a19f6c16140070a, type: 3}
-  m_PrefabInstance: {fileID: 1817000771356004950}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &4946156441012361975 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 6742750113212680353, guid: 4e11b3ddb96681649a19f6c16140070a, type: 3}
@@ -208,4 +203,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: Siberian25.Game.Bullets.DetatchParticlesOnDeath, Assembly-CSharp
   _health: {fileID: 0}
   _detatchTo: {fileID: 0}
-  _ps: {fileID: 1357103921013943435}
+  _particleSystems: []
+  _gameObjects: []
+  _enableGameObjectsOnDetach: 0
+  _playOnDetach: 0
+  _stopOnDetach: 1
