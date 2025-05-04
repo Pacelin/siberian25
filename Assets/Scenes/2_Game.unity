@@ -803,7 +803,7 @@ MonoBehaviour:
   _follow: {fileID: 0}
   _center: {fileID: 1828876360}
   _target: {fileID: 1182102821}
-  _dampFactor: 0.206
+  _dampFactor: 0.381
 --- !u!1001 &1841293230
 PrefabInstance:
   m_ObjectHideFlags: 0
