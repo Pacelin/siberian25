@@ -28,9 +28,10 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0, y: 0, z: 0}
-  m_ConstrainProportionsScale: 0
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 1
   m_Children:
+  - {fileID: 8848993677288957956}
   - {fileID: 1380525336654351263}
   - {fileID: 6577212144528317694}
   - {fileID: 2690762316824432348}
@@ -134,9 +135,12 @@ MonoBehaviour:
   _completeOnKill: 0
   _preset: {fileID: 0}
   _targets:
-  - {fileID: 1371619042360156701}
+  - {fileID: 3212414821157152707}
+  - {fileID: 6410755572236171388}
   _items:
-  - rid: 7214840346921403332
+  - rid: 3546094421599584455
+  - rid: 3546094421599584446
+  - rid: 3546094421599584448
   _cacheTween: 0
   _playOnEnable: 0
   _loops: 0
@@ -145,44 +149,23 @@ MonoBehaviour:
   references:
     version: 2
     RefIds:
-    - rid: 7214840346921403332
-      type: {class: ScriptableTweenTranform_DOScale, ns: TSS.Tweening, asm: TSS.Tweening}
+    - rid: 3546094421599584446
+      type: {class: ScriptableTweenEvent, ns: TSS.Tweening, asm: TSS.Tweening}
       data:
         _connectBehaviour: 0
-        _easing: 6
-        _delay:
-          rid: 7214840346921403333
-        _loopsCount:
-          rid: 7214840346921403334
-        _loopType: 0
-        _ignoreTimescale: 0
-        _duration:
-          rid: 7214840346921403335
-        _useStartValue: 1
-        _startValue:
-          rid: 7214840346921403336
-        _endValue:
-          rid: 7214840346921403337
-    - rid: 7214840346921403333
-      type: {class: FloatValueProvider, ns: TSS.Utils, asm: TSS.Utils}
+    - rid: 3546094421599584448
+      type: {class: ScriptableTweenInterval, ns: TSS.Tweening, asm: TSS.Tweening}
       data:
-        _value: 0
-    - rid: 7214840346921403334
-      type: {class: IntValueProvider, ns: TSS.Utils, asm: TSS.Utils}
-      data:
-        _value: 1
-    - rid: 7214840346921403335
-      type: {class: FloatValueProvider, ns: TSS.Utils, asm: TSS.Utils}
-      data:
-        _value: 0.5
-    - rid: 7214840346921403336
-      type: {class: FloatValueProvider, ns: TSS.Utils, asm: TSS.Utils}
-      data:
-        _value: 0
-    - rid: 7214840346921403337
+        _interval:
+          rid: 3546094421599584449
+    - rid: 3546094421599584449
       type: {class: FloatValueProvider, ns: TSS.Utils, asm: TSS.Utils}
       data:
         _value: 1
+    - rid: 3546094421599584455
+      type: {class: ScriptableTweenDisableGO, ns: TSS.Tweening, asm: TSS.Tweening}
+      data:
+        _connectBehaviour: 0
 --- !u!1 &7230507308629284174
 GameObject:
   m_ObjectHideFlags: 0
@@ -230,9 +213,10 @@ MonoBehaviour:
   _completeOnKill: 0
   _preset: {fileID: 0}
   _targets:
-  - {fileID: 1371619042360156701}
+  - {fileID: 3212414821157152707}
   _items:
-  - rid: 7214840346921403332
+  - rid: 3546094421599584450
+  - rid: 3546094421599584436
   _cacheTween: 0
   _playOnEnable: 0
   _loops: 0
@@ -241,44 +225,19 @@ MonoBehaviour:
   references:
     version: 2
     RefIds:
-    - rid: 7214840346921403332
-      type: {class: ScriptableTweenTranform_DOScale, ns: TSS.Tweening, asm: TSS.Tweening}
+    - rid: 3546094421599584436
+      type: {class: ScriptableTweenInterval, ns: TSS.Tweening, asm: TSS.Tweening}
+      data:
+        _interval:
+          rid: 3546094421599584437
+    - rid: 3546094421599584437
+      type: {class: FloatValueProvider, ns: TSS.Utils, asm: TSS.Utils}
+      data:
+        _value: 3
+    - rid: 3546094421599584450
+      type: {class: ScriptableTweenEnableGO, ns: TSS.Tweening, asm: TSS.Tweening}
       data:
         _connectBehaviour: 0
-        _easing: 6
-        _delay:
-          rid: 7214840346921403333
-        _loopsCount:
-          rid: 7214840346921403334
-        _loopType: 0
-        _ignoreTimescale: 0
-        _duration:
-          rid: 7214840346921403335
-        _useStartValue: 1
-        _startValue:
-          rid: 7214840346921403336
-        _endValue:
-          rid: 7214840346921403337
-    - rid: 7214840346921403333
-      type: {class: FloatValueProvider, ns: TSS.Utils, asm: TSS.Utils}
-      data:
-        _value: 0
-    - rid: 7214840346921403334
-      type: {class: IntValueProvider, ns: TSS.Utils, asm: TSS.Utils}
-      data:
-        _value: 1
-    - rid: 7214840346921403335
-      type: {class: FloatValueProvider, ns: TSS.Utils, asm: TSS.Utils}
-      data:
-        _value: 0.5
-    - rid: 7214840346921403336
-      type: {class: FloatValueProvider, ns: TSS.Utils, asm: TSS.Utils}
-      data:
-        _value: 1
-    - rid: 7214840346921403337
-      type: {class: FloatValueProvider, ns: TSS.Utils, asm: TSS.Utils}
-      data:
-        _value: 0
 --- !u!1 &8867431979350650385
 GameObject:
   m_ObjectHideFlags: 0
@@ -289,6 +248,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1380525336654351263}
   - component: {fileID: 3902733448890542422}
+  - component: {fileID: 6410755572236171388}
   m_Layer: 0
   m_Name: Circle
   m_TagString: Untagged
@@ -304,13 +264,13 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8867431979350650385}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.38268343, y: 0, z: 0, w: 0.92387956}
+  m_LocalRotation: {x: 0.2588191, y: 0, z: 0, w: 0.9659258}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1371619042360156701}
-  m_LocalEulerAnglesHint: {x: 45, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 30, y: 0, z: 0}
 --- !u!212 &3902733448890542422
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -334,7 +294,7 @@ SpriteRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 9dfc825aed78fcd4ba02077103263b40, type: 2}
+  - {fileID: 2100000, guid: e5998b36ac20c0c4a842402d324e1541, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -366,3 +326,88 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &6410755572236171388
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8867431979350650385}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 308dc7333f654094096ac6a4249b3e14, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: DissolvePortal, Assembly-CSharp
+  _dissolveTime: 1
+  _material: {fileID: 2100000, guid: e5998b36ac20c0c4a842402d324e1541, type: 2}
+--- !u!1001 &5964465689343870421
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 1371619042360156701}
+    m_Modifications:
+    - target: {fileID: 2885673953939205585, guid: df26bc275f723d24cb7dcbc820901a63, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2885673953939205585, guid: df26bc275f723d24cb7dcbc820901a63, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2885673953939205585, guid: df26bc275f723d24cb7dcbc820901a63, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2885673953939205585, guid: df26bc275f723d24cb7dcbc820901a63, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2885673953939205585, guid: df26bc275f723d24cb7dcbc820901a63, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2885673953939205585, guid: df26bc275f723d24cb7dcbc820901a63, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2885673953939205585, guid: df26bc275f723d24cb7dcbc820901a63, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2885673953939205585, guid: df26bc275f723d24cb7dcbc820901a63, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2885673953939205585, guid: df26bc275f723d24cb7dcbc820901a63, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2885673953939205585, guid: df26bc275f723d24cb7dcbc820901a63, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9102552974699094550, guid: df26bc275f723d24cb7dcbc820901a63, type: 3}
+      propertyPath: m_Name
+      value: VFX_Portal_Player
+      objectReference: {fileID: 0}
+    - target: {fileID: 9102552974699094550, guid: df26bc275f723d24cb7dcbc820901a63, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: df26bc275f723d24cb7dcbc820901a63, type: 3}
+--- !u!1 &3212414821157152707 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 9102552974699094550, guid: df26bc275f723d24cb7dcbc820901a63, type: 3}
+  m_PrefabInstance: {fileID: 5964465689343870421}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &8848993677288957956 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 2885673953939205585, guid: df26bc275f723d24cb7dcbc820901a63, type: 3}
+  m_PrefabInstance: {fileID: 5964465689343870421}
+  m_PrefabAsset: {fileID: 0}

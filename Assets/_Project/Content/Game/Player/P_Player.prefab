@@ -396,6 +396,7 @@ MonoBehaviour:
   _targets:
   - {fileID: 3883824062450276390}
   _items:
+  - rid: 3546094421599584473
   - rid: 7214840352482000901
   _cacheTween: 0
   _playOnEnable: 0
@@ -405,6 +406,15 @@ MonoBehaviour:
   references:
     version: 2
     RefIds:
+    - rid: 3546094421599584473
+      type: {class: ScriptableTweenInterval, ns: TSS.Tweening, asm: TSS.Tweening}
+      data:
+        _interval:
+          rid: 3546094421599584474
+    - rid: 3546094421599584474
+      type: {class: FloatValueProvider, ns: TSS.Utils, asm: TSS.Utils}
+      data:
+        _value: 0.8
     - rid: 7214840352482000901
       type: {class: ScriptableTweenSpriteRenderer_DOFade, ns: TSS.Tweening, asm: TSS.Tweening}
       data:
