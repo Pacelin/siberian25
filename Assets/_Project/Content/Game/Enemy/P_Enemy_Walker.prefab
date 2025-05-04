@@ -17,6 +17,10 @@ PrefabInstance:
       value: P_Bullet_Spiral
       objectReference: {fileID: 0}
     - target: {fileID: 5246689583324455609, guid: 1163ca96486170e4f9dd0b54224ab617, type: 3}
+      propertyPath: _health
+      value: 
+      objectReference: {fileID: 3941929887712392105}
+    - target: {fileID: 5246689583324455609, guid: 1163ca96486170e4f9dd0b54224ab617, type: 3}
       propertyPath: m_EditorClassIdentifier
       value: Siberian25.Game.Bullets.DetachParticlesOnDeath, Assembly-CSharp
       objectReference: {fileID: 0}
@@ -818,6 +822,17 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 9195040322244160294, guid: c3af580562688094ab762bed07889fda, type: 3}
   m_PrefabInstance: {fileID: 9046440146644982857}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &3941929887712392105 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 5422304517407174624, guid: c3af580562688094ab762bed07889fda, type: 3}
+  m_PrefabInstance: {fileID: 9046440146644982857}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5681571575899035417}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 62c65cda97604926923d05b756198c72, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Siberian25.Game.Characters.HealthComponent, Assembly-CSharp
 --- !u!1 &5681571575899035417 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 3698465044740197200, guid: c3af580562688094ab762bed07889fda, type: 3}

@@ -13,10 +13,10 @@ MonoBehaviour:
   m_Name: SO_Achievement_0
   m_EditorClassIdentifier: TSS.Achievements.AchievementConfig, TSS.Achievements
   _id: Ach1
-  _icon: {fileID: 21300000, guid: 013a97a94487853488f13f2a29eb6338, type: 3}
+  _icon: {fileID: 21300000, guid: 1b0070bfe2d708d44a44eaeebddf89b2, type: 3}
   _iconColor: {r: 0.8784314, g: 0.8784314, b: 0.8784314, a: 1}
-  _caption: Caption
-  _description: Description
+  _caption: "\u041A\u043E\u043C\u0431\u043E?"
+  _description: "\u041A\u043E\u043C\u0431\u043E?"
   _reportsCount: 1
   _isSecret: 0
   _lockedIcon: {fileID: 21300000, guid: 54b96a1c891532c4cbdf673d4f6e3b76, type: 3}
@@ -32,4 +32,4 @@ MonoBehaviour:
         Data3: -967558497
         Data4: 1705713923
       Path: event:/UI/AchievementAppear
-  _notificationContainer: Default
+  _notificationContainer: 

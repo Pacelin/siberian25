@@ -1,4 +1,6 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
+using TSS.Achievements;
 using TSS.Audio;
 using UnityEngine;
 
@@ -19,5 +21,14 @@ namespace Siberian25.Game.World
         [SerializeField] private FinishPortalView _finishPortal;
         [SerializeField] private Transform[] _worldGrid;
         [SerializeField] private GameRoomSchedule[] _possibleSchedules;
+
+        [SerializeField]
+        private bool _grantAchievement = false;
+
+        private void OnEnable()
+        {
+            if (_grantAchievement)
+                Achievements.Report("Ach3");
+        }
     }
 }
