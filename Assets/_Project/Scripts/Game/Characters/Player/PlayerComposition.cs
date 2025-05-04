@@ -12,7 +12,8 @@ namespace Siberian25.Game.Characters
         public PlayerSliceTrigger SliceTrigger => _sliceTrigger;
 
         public PlayerStateMachine StateMachine => _stateMachine;
-
+        public bool Collision { get; set; }
+        
         [Space] 
         [SerializeField] private PlayerCombo _combo;
         [SerializeField] private PlayerArrow _arrow;
@@ -23,7 +24,7 @@ namespace Siberian25.Game.Characters
         
         private PlayerStateMachine _stateMachine;
         private float _dashCooldownExtimation;
-
+        
         public void StartDashCooldown() => _dashCooldownExtimation = Time.unscaledTime + _config.DashCooldown;
         public bool CanDash() => Time.unscaledTime > _dashCooldownExtimation;
         
@@ -52,5 +53,8 @@ namespace Siberian25.Game.Characters
         {
             _stateMachine.FixedUpdate();
         }
+
+        private void OnCollisionEnter2D(Collision2D col) => Collision = true;
+        private void OnCollisionStay2D(Collision2D col) => Collision = true;
     }
 }
