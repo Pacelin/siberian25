@@ -1,6 +1,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using Siberian25.Game.Characters;
+using TSS.Audio;
 using Unity.Collections;
 using UnityEngine;
 using Random = UnityEngine.Random;
@@ -51,6 +52,7 @@ namespace Siberian25.Game.Bullets
                     deflectedParticle.startColor = _deflectedBullets.main.startColor.Evaluate(Random.value);
                     // It will be removed from enemy ps. Add to deflected ps
                     AddParticle(deflectedParticleList, deflectedParticle);
+                    AudioSystem.Game_Reflect.PlayOneShot();
                 }
                 // Destroy: this is not a player or player is not dashing. Cause damage to whatever this is
                 else

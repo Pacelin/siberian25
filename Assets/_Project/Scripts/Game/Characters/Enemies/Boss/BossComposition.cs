@@ -1,4 +1,5 @@
 using Siberian25.Game.Characters.Enemies;
+using TSS.Audio;
 using UnityEngine;
 
 namespace Siberian25.Game.Characters.Boss
@@ -58,7 +59,7 @@ namespace Siberian25.Game.Characters.Boss
         [SerializeField] private float _bothHeadsChance;
         
         private BossStateMachine _stateMachine;
-
+        
         private void Awake()
         {
             GameContext.Boss = this;
@@ -70,7 +71,10 @@ namespace Siberian25.Game.Characters.Boss
             _stateMachine.Run();
         }
 
-        private void OnDestroy() => _stateMachine.Stop();
+        private void OnDestroy()
+        {
+            _stateMachine.Stop();
+        } 
         private void Update() => _stateMachine.Update();
 
         public void HookWholeAnimationFinished() => WholeAnimationFinished = true;
@@ -97,5 +101,8 @@ namespace Siberian25.Game.Characters.Boss
             else
                 _stateMachine.SwitchState(new BossIdleState());
         }
+
+        public void StartDeathSound() => AudioSystem.Game_BossDeath.PlayOneShot();
+        public void StartBossLaugh() => AudioSystem.Game_BossLaugh.PlayOneShot();
     }
 }

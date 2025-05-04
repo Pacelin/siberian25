@@ -17,7 +17,8 @@ public class CameraTargetDamper : MonoBehaviour
 
     private void OnEnable()
     {
-        _follow = GameContext.Player.transform;
+        if (GameContext.Player)
+            _follow = GameContext.Player.transform;
     }
 
     private void OnDisable()

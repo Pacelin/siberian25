@@ -38,7 +38,7 @@ namespace Siberian25.Game.World
                         GameContext.ActiveRoom.Composition.PlayerPortal.transform.position;
                     GameContext.OST.SetTrack(GameContext.ActiveRoom.Composition.Track);
                     GameContext.Player.AppearTween.Play();
-                    AudioSystem.Game_portalOut.PlayOneShot();
+                    AudioSystem.Game_PortalOut.PlayOneShot();
                     if (GameContext.CancellationToken.IsCancellationRequested)
                         return;
                     await GameContext.Player.AppearTween.WaitWhilePlay(); 

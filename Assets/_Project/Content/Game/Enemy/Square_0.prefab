@@ -283,6 +283,8 @@ MonoBehaviour:
   _collider: {fileID: 3981434656994244634}
   _healthComponent: {fileID: 2335498474528181219}
   _lineRendererPrefab: {fileID: 6040173771880810235, guid: ec9acad37af11e64c9e1dd8360198de2, type: 3}
+  _slowMoDuration: 0.4
+  _slowMoScale: 0
   _maxSlices: 5
   _explosionForceRange: {x: 150, y: 180}
   _explosionInheritDirectionForceRange: {x: 100, y: 150}
@@ -560,6 +562,10 @@ PrefabInstance:
       propertyPath: _health
       value: 
       objectReference: {fileID: 2335498474528181219}
+    - target: {fileID: 162154506996939114, guid: 7762134fbe229e54b89831ea42c845c9, type: 3}
+      propertyPath: m_EditorClassIdentifier
+      value: Siberian25.Game.Bullets.DetachParticlesOnDeath, Assembly-CSharp
+      objectReference: {fileID: 0}
     - target: {fileID: 743517338762337814, guid: 7762134fbe229e54b89831ea42c845c9, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
