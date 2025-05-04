@@ -1,5 +1,6 @@
 ﻿using System.Threading;
 using Siberian25.Game.Characters;
+using Siberian25.Game.Characters.Boss;
 using Siberian25.Game.World;
 using UnityEngine;
 using UnityEngine.Pool;
@@ -15,6 +16,7 @@ namespace Siberian25.Game
         public static ObjectPool<PortalView> EnemiesPortalsPool { get; set; }
         public static GameWorldComposition World { get; set; }
         public static GameRoom ActiveRoom { get; set; }
+        public static BossComposition Boss { get; set; }
         
         public static GameObject HUD { get; set; }
     }
