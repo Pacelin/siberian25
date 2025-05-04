@@ -1,10 +1,14 @@
-﻿using TSS.Core;
+﻿using Cysharp.Threading.Tasks;
+using TSS.ContentManagement;
+using TSS.Core;
+using TSS.SceneManagement;
 
 namespace Siberian25.Game.World
 {
     public class GameWorldStateMachine
     {
         private GameWorldState _activeState;
+        private bool _exit;
         
         public void Run()
         {
@@ -22,6 +26,22 @@ namespace Siberian25.Game.World
         {
             if (Runtime.IsPaused)
                 return;
+            if (_exit)
+                return;
+            if (!GameContext.Player.Health.IsAlive)
+            {
+                _exit = true;
+                UniTask.Void(async () =>
+                {
+                    if (Runtime.CancellationToken.IsCancellationRequested)
+                        return;
+                    await GameContext.World.FadeOutWorld();
+                    if (Runtime.CancellationToken.IsCancellationRequested)
+                        return;
+                    await SceneManager.Scene(CMS.Scenes.Game).Single().Load(Runtime.CancellationToken);
+                });
+                return;
+            }
             _activeState?.OnUpdate();
         }
 

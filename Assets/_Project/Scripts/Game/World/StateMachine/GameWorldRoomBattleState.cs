@@ -1,4 +1,8 @@
 ﻿using System.Collections.Generic;
+using Cysharp.Threading.Tasks;
+using TSS.ContentManagement;
+using TSS.Core;
+using TSS.SceneManagement;
 using UnityEngine;
 
 namespace Siberian25.Game.World
@@ -26,6 +30,9 @@ namespace Siberian25.Game.World
 
             if (_itemsQueue.Count == 0)
             {
+                if (GameContext.Boss && 
+                    (GameContext.Boss.LeftHeadAlive || GameContext.Boss.RightHeadAlive || GameContext.Boss.MiddleHeadAlive))
+                    return;
                 if (_roomStageIndex >= GameContext.ActiveRoom.Schedule.Stages.Count - 1)
                     return;
                 if (GameContext.ActiveRoom.EnemiesExists)
