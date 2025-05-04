@@ -15,8 +15,8 @@ TagManager:
   - Props
   - Obstacle
   - Slice
-  - 
-  - 
+  - Bullets
+  - DeflectCollider
   - 
   - 
   - 

@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 5933163096034167261}
   - component: {fileID: 7815490011533270700}
   - component: {fileID: 5989888415468260580}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: P_Bullet_Spiral_Double
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4934,6 +4934,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: P_Bullet_Spiral
       objectReference: {fileID: 0}
+    - target: {fileID: 5432732012910212053, guid: 1163ca96486170e4f9dd0b54224ab617, type: 3}
+      propertyPath: m_RotateWithStretchDirection
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 7828192183870646055, guid: 1163ca96486170e4f9dd0b54224ab617, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -4973,6 +4977,14 @@ PrefabInstance:
     - target: {fileID: 7828192183870646055, guid: 1163ca96486170e4f9dd0b54224ab617, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9213949832498894135, guid: 1163ca96486170e4f9dd0b54224ab617, type: 3}
+      propertyPath: ShapeModule.alignToDirection
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9213949832498894135, guid: 1163ca96486170e4f9dd0b54224ab617, type: 3}
+      propertyPath: CollisionModule.collidesWith.m_Bits
+      value: 393
       objectReference: {fileID: 0}
     - target: {fileID: 9213949832498894135, guid: 1163ca96486170e4f9dd0b54224ab617, type: 3}
       propertyPath: InitialModule.startColor.maxColor.b

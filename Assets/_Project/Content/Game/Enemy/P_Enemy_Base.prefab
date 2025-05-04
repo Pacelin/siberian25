@@ -113,6 +113,7 @@ GameObject:
   - component: {fileID: 4860541718879265183}
   - component: {fileID: 3861640843295820227}
   - component: {fileID: 8735160246269402199}
+  - component: {fileID: 2688915202088415060}
   m_Layer: 6
   m_Name: P_Enemy_Base
   m_TagString: Untagged
@@ -168,7 +169,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Siberian25.Game.Characters.HealthComponent, Assembly-CSharp
   _health: 5
-  _invinsibilityTimeOnDamage: 0.3
+  _invinsibilityTimeOnDamage: 0.07
 --- !u!114 &1203924266685831661
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -187,7 +188,6 @@ MonoBehaviour:
   _healthComponent: {fileID: 5422304517407174624}
   _lineRendererPrefab: {fileID: 6040173771880810235, guid: ec9acad37af11e64c9e1dd8360198de2, type: 3}
   _maxSlices: 5
-  _sliceLineLength: 0.8
   _explosionForceRange: {x: 150, y: 180}
   _explosionInheritDirectionForceRange: {x: 100, y: 150}
   _debrisLifetimeRange: {x: 0.3, y: 0.8}
@@ -452,6 +452,20 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &2688915202088415060
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3698465044740197200}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ba71e47989b201649b905b06bc712a87, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Siberian25.Game.Bullets.GetDamageOnBulletHit, Assembly-CSharp
+  _health: {fileID: 5422304517407174624}
+  _damage: 1
 --- !u!1 &6523038297784520931
 GameObject:
   m_ObjectHideFlags: 0

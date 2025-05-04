@@ -1,4 +1,3 @@
-using System.Diagnostics;
 using UnityEngine;
 
 namespace Siberian25.Game.Bullets
@@ -9,7 +8,10 @@ namespace Siberian25.Game.Bullets
 		[SerializeField] private BulletSettings m_bulletsSettings;
 		[SerializeField] private EBulletType _bulletType = EBulletType.Destroyable;
 
-		[Conditional("UNITY_EDITOR")]
+		private ParticleSystem _deflectedPs;
+
+		#if UNITY_EDITOR
+
 		private void OnValidate()
 		{
 			if (m_bulletsSettings == null)
@@ -18,6 +20,16 @@ namespace Siberian25.Game.Bullets
 			ParticleSystem ps = GetComponent<ParticleSystem>();
 			BulletTypeData data = m_bulletsSettings.GetBulletTypeData(_bulletType);
 
+			ApplyData(data, ps);
+
+			ParticleSystem.CollisionModule collision = ps.collision;
+			collision.lifetimeLoss = _bulletType == EBulletType.Deflectable ? 0f : 1f;
+
+			UnityEditor.EditorApplication.delayCall += ProcessDeflectableBullets;
+		}
+
+		private void ApplyData(BulletTypeData data, ParticleSystem ps)
+		{
 			ParticleSystem.MainModule main = ps.main;
 			main.startColor = data.startColor;
 
@@ -29,6 +41,57 @@ namespace Siberian25.Game.Bullets
 
 			ParticleSystemRenderer renderer = ps.GetComponent<ParticleSystemRenderer>();
 			renderer.rotateWithStretchDirection = data.alignToDirection;
+
+			ParticleSystem.CollisionModule collision = ps.collision;
+			collision.collidesWith = data.collisionMask;
 		}
+
+		private void ProcessDeflectableBullets()
+		{
+			UnityEditor.EditorApplication.delayCall -= ProcessDeflectableBullets;
+
+			if (_bulletType == EBulletType.Deflectable)
+				AddDeflectedPs(GetComponent<ParticleSystem>());
+			else
+				TryDestroyDeflectedPs();
+		}
+
+		private void AddDeflectedPs(ParticleSystem ps)
+		{
+			if (_deflectedPs != null) return;
+
+			BulletTypeData data = m_bulletsSettings.DeflectedBulletsData;
+
+			GameObject childGo = new();
+			childGo.transform.parent = transform;
+			_deflectedPs = childGo.AddComponent<ParticleSystem>();
+
+			ApplyData(data, _deflectedPs);
+
+			UnityEditor.EditorUtility.CopySerialized(ps, _deflectedPs);
+
+			ParticleSystem.CollisionModule collision = _deflectedPs.collision;
+			collision.lifetimeLoss = 1f;
+
+			ParticleSystem.ShapeModule shape = _deflectedPs.shape;
+			shape.enabled = false;
+
+			ParticleSystem.EmissionModule emission = _deflectedPs.emission;
+			emission.enabled = false;
+
+			DeflectedBulletEngine engine = gameObject.AddComponent<DeflectedBulletEngine>();
+			engine.Initiate(ps, _deflectedPs);
+		}
+
+		private void TryDestroyDeflectedPs()
+		{
+			if (!_deflectedPs)
+				return;
+
+			DestroyImmediate(_deflectedPs.gameObject);
+			DeflectedBulletEngine engine = gameObject.AddComponent<DeflectedBulletEngine>();
+			DestroyImmediate(engine);
+		}
+		#endif
 	}
 }

@@ -15,12 +15,31 @@ MonoBehaviour:
   m_destroyableBulletsType:
     startColor: {r: 1, g: 0.23137255, b: 0.23137255, a: 1}
     sprite: {fileID: 21300000, guid: cc82370fd8e710441885ebc6a4cfb1d3, type: 3}
-    alignWithDirection: 1
+    alignToDirection: 1
+    collisionMask:
+      serializedVersion: 2
+      m_Bits: 2441
   m_immortalBulletsType:
     startColor: {r: 0.8235294, g: 0.16862746, b: 0.8784314, a: 1}
     sprite: {fileID: 21300000, guid: e050f280b5e46b549ab83b3c13a40a0f, type: 3}
-    alignWithDirection: 0
+    alignToDirection: 0
+    collisionMask:
+      serializedVersion: 2
+      m_Bits: 393
   m_deflectableBulletsType:
     startColor: {r: 0.83137256, g: 0.7490196, b: 0.19215687, a: 1}
     sprite: {fileID: 21300000, guid: cd1acd81213c7cc418a31c79a47bc6ab, type: 3}
-    alignWithDirection: 0
+    alignToDirection: 0
+    collisionMask:
+      serializedVersion: 2
+      m_Bits: 2441
+  m_deflectedBullets:
+    startColor: {r: 0.83137256, g: 0.7490196, b: 0.19215687, a: 1}
+    sprite: {fileID: 21300000, guid: cd1acd81213c7cc418a31c79a47bc6ab, type: 3}
+    alignToDirection: 0
+    collisionMask:
+      serializedVersion: 2
+      m_Bits: 449
+  _deflectedLayers:
+    serializedVersion: 2
+    m_Bits: 449
