@@ -1317,6 +1317,34 @@ PrefabInstance:
       propertyPath: m_SortingOrder
       value: -3
       objectReference: {fileID: 0}
+    - target: {fileID: 1060846132763731923, guid: 0a5c5dccd880e1944aafc67416bcd109, type: 3}
+      propertyPath: _track
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1060846132763731923, guid: 0a5c5dccd880e1944aafc67416bcd109, type: 3}
+      propertyPath: _grantAchievement
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1060846132763731923, guid: 0a5c5dccd880e1944aafc67416bcd109, type: 3}
+      propertyPath: _stepSound._eventRef.Path
+      value: event:/Game/StepWood
+      objectReference: {fileID: 0}
+    - target: {fileID: 1060846132763731923, guid: 0a5c5dccd880e1944aafc67416bcd109, type: 3}
+      propertyPath: _stepSound._eventRef.Guid.Data1
+      value: -2043027316
+      objectReference: {fileID: 0}
+    - target: {fileID: 1060846132763731923, guid: 0a5c5dccd880e1944aafc67416bcd109, type: 3}
+      propertyPath: _stepSound._eventRef.Guid.Data2
+      value: 1107539914
+      objectReference: {fileID: 0}
+    - target: {fileID: 1060846132763731923, guid: 0a5c5dccd880e1944aafc67416bcd109, type: 3}
+      propertyPath: _stepSound._eventRef.Guid.Data3
+      value: -382578245
+      objectReference: {fileID: 0}
+    - target: {fileID: 1060846132763731923, guid: 0a5c5dccd880e1944aafc67416bcd109, type: 3}
+      propertyPath: _stepSound._eventRef.Guid.Data4
+      value: 2007029359
+      objectReference: {fileID: 0}
     - target: {fileID: 2130015453281904068, guid: 0a5c5dccd880e1944aafc67416bcd109, type: 3}
       propertyPath: m_SpriteShape
       value: 
