@@ -28,6 +28,14 @@ PrefabInstance:
       propertyPath: m_EditorClassIdentifier
       value: Siberian25.Game.Bullets.DetachParticlesOnDeath, Assembly-CSharp
       objectReference: {fileID: 0}
+    - target: {fileID: 5246689583324455609, guid: 1163ca96486170e4f9dd0b54224ab617, type: 3}
+      propertyPath: _particleSystems.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5246689583324455609, guid: 1163ca96486170e4f9dd0b54224ab617, type: 3}
+      propertyPath: '_particleSystems.Array.data[0]'
+      value: 
+      objectReference: {fileID: 5888937712179206332}
     - target: {fileID: 5432732012910212053, guid: 1163ca96486170e4f9dd0b54224ab617, type: 3}
       propertyPath: m_RotateWithStretchDirection
       value: 0
@@ -104,6 +112,11 @@ PrefabInstance:
 --- !u!4 &2417121430402301475 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 7828192183870646055, guid: 1163ca96486170e4f9dd0b54224ab617, type: 3}
+  m_PrefabInstance: {fileID: 5559698630866475268}
+  m_PrefabAsset: {fileID: 0}
+--- !u!198 &5888937712179206332 stripped
+ParticleSystem:
+  m_CorrespondingSourceObject: {fileID: 2058622042899628472, guid: 1163ca96486170e4f9dd0b54224ab617, type: 3}
   m_PrefabInstance: {fileID: 5559698630866475268}
   m_PrefabAsset: {fileID: 0}
 --- !u!1001 &9046440146644982857
