@@ -17,6 +17,7 @@ namespace Siberian25.Game
         public static GameWorldComposition World { get; set; }
         public static GameRoom ActiveRoom { get; set; }
         public static BossComposition Boss { get; set; }
+        public static WorldSlowMotion SlowMo { get; set; }
         
         public static GameObject HUD { get; set; }
     }
