@@ -10,7 +10,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 2981142587957251237, guid: 58c29c9e4c712f644a7fd6f29a5b8a88, type: 3}
       propertyPath: m_Name
-      value: P_Room_Village
+      value: P_Room_Village_3
       objectReference: {fileID: 0}
     - target: {fileID: 4798255209513770051, guid: 58c29c9e4c712f644a7fd6f29a5b8a88, type: 3}
       propertyPath: m_LocalPosition.x
@@ -52,6 +52,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5395210967283630063, guid: 58c29c9e4c712f644a7fd6f29a5b8a88, type: 3}
+      propertyPath: '_rooms.Array.data[0]'
+      value: 
+      objectReference: {fileID: 5060243099949400874, guid: 3b1707ea8bd4c2e4c808212eee7f366f, type: 3}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
