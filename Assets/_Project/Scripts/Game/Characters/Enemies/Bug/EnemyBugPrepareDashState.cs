@@ -13,10 +13,12 @@ namespace Siberian25.Game.Characters.Enemies
         public override void OnEnter()
         {
             _duration = StateMachine.DashPrepareDuration;
+            StateMachine.PrepareDashObject.SetActive(true);
         }
 
         public override void OnExit()
         {
+            StateMachine.PrepareDashObject.SetActive(false);
         }
 
         public override void OnUpdate()

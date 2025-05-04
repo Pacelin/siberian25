@@ -430,5 +430,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: Siberian25.Game.World.GameWorldComposition, Assembly-CSharp
   _fadeInTween: {fileID: 1566445074302794797}
   _fadeOutTween: {fileID: 4580386217634571253}
-  _firstRoomPrefab: {fileID: 518371562276123391, guid: 54a2866ec5b1a5d48964ab36b4793df4, type: 3}
+  _firstRoomPrefab: {fileID: 5060243099949400874, guid: 3b1707ea8bd4c2e4c808212eee7f366f, type: 3}
   _enemyPortalPrefab: {fileID: 4030398780993303073, guid: adb8ecf309c3d7c4a89b8bd30a8a000d, type: 3}
