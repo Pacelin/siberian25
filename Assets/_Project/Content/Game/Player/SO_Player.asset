@@ -15,8 +15,8 @@ MonoBehaviour:
   _movementSpeed: 4
   _maxAttackDashDistance: 7
   _attackDashSpeed: 40
-  _dashCooldown: 0.25
+  _dashCooldown: 0.1
   _dashObstaclesLayerMask:
     serializedVersion: 2
     m_Bits: 256
-  _dashObstacleAvoidRadius: 0.3
+  _dashObstacleAvoidRadius: 1.2

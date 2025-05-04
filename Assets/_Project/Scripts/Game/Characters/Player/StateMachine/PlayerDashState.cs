@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using TSS.Audio;
+using UnityEngine;
 using Vector2 = UnityEngine.Vector2;
 
 namespace Siberian25.Game.Characters
@@ -23,6 +24,7 @@ namespace Siberian25.Game.Characters
             Composition.SliceTrigger.SliceDirection = dashVector.normalized;
             Composition.SliceTrigger.EnableSlice = true;
             Composition.SliceTrigger.DoTrigger();
+            AudioSystem.Game_Attack.PlayOneShot();
             Animator.SetFloat(PlayerConstants.ANIMATOR_WALK_FLOAT_X, Mathf.Abs(dashVector.normalized.x) > 0.2f ? dashVector.x : 0);
             Animator.SetFloat(PlayerConstants.ANIMATOR_WALK_FLOAT_Y, dashVector.y);
             Animator.SetFloat(PlayerConstants.ANIMATOR_DASH_FLOAT_X, dashVector.x);

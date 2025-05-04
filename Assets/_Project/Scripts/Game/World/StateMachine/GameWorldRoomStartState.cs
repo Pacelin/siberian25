@@ -1,5 +1,6 @@
 ﻿using Cysharp.Threading.Tasks;
 using Siberian25.Game.Characters;
+using TSS.Audio;
 using UnityEngine;
 
 namespace Siberian25.Game.World
@@ -37,6 +38,7 @@ namespace Siberian25.Game.World
                         GameContext.ActiveRoom.Composition.PlayerPortal.transform.position;
                     GameContext.OST.SetTrack(GameContext.ActiveRoom.Composition.Track);
                     GameContext.Player.AppearTween.Play();
+                    AudioSystem.Game_portalOut.PlayOneShot();
                     if (GameContext.CancellationToken.IsCancellationRequested)
                         return;
                     await GameContext.Player.AppearTween.WaitWhilePlay(); 
