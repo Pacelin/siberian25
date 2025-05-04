@@ -200,7 +200,7 @@ MonoBehaviour:
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: efa11869e78d476ab0d334728b052e04, type: 3}
   m_Name: 
-  m_EditorClassIdentifier: Siberian25.Game.Bullets.DetatchParticlesOnDeath, Assembly-CSharp
+  m_EditorClassIdentifier: Siberian25.Game.Bullets.DetachParticlesOnDeath, Assembly-CSharp
   _health: {fileID: 0}
   _detatchTo: {fileID: 0}
   _particleSystems: []

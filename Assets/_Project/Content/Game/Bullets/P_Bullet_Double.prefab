@@ -499,12 +499,11 @@ MonoBehaviour:
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: efa11869e78d476ab0d334728b052e04, type: 3}
   m_Name: 
-  m_EditorClassIdentifier: Siberian25.Game.Bullets.DetatchParticlesOnDeath, Assembly-CSharp
+  m_EditorClassIdentifier: Siberian25.Game.Bullets.DetachParticlesOnDeath, Assembly-CSharp
   _health: {fileID: 0}
   _detatchTo: {fileID: 0}
-  _ps: {fileID: 7561019707913997519}
---- !u!198 &7561019707913997519 stripped
-ParticleSystem:
-  m_CorrespondingSourceObject: {fileID: 856297733480939229, guid: 4e11b3ddb96681649a19f6c16140070a, type: 3}
-  m_PrefabInstance: {fileID: 7137093928618783250}
-  m_PrefabAsset: {fileID: 0}
+  _particleSystems: []
+  _gameObjects: []
+  _enableGameObjectsOnDetach: 0
+  _playOnDetach: 0
+  _stopOnDetach: 1
