@@ -12,6 +12,10 @@ PrefabInstance:
       propertyPath: lengthInSec
       value: 10
       objectReference: {fileID: 0}
+    - target: {fileID: 2973151424428273556, guid: 1163ca96486170e4f9dd0b54224ab617, type: 3}
+      propertyPath: _bulletType
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 4003516839593125144, guid: 1163ca96486170e4f9dd0b54224ab617, type: 3}
       propertyPath: m_Name
       value: P_Bullet_Spiral
@@ -23,6 +27,10 @@ PrefabInstance:
     - target: {fileID: 5246689583324455609, guid: 1163ca96486170e4f9dd0b54224ab617, type: 3}
       propertyPath: m_EditorClassIdentifier
       value: Siberian25.Game.Bullets.DetachParticlesOnDeath, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 5432732012910212053, guid: 1163ca96486170e4f9dd0b54224ab617, type: 3}
+      propertyPath: m_RotateWithStretchDirection
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7828192183870646055, guid: 1163ca96486170e4f9dd0b54224ab617, type: 3}
       propertyPath: m_LocalPosition.x
@@ -64,6 +72,30 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 9213949832498894135, guid: 1163ca96486170e4f9dd0b54224ab617, type: 3}
+      propertyPath: ShapeModule.alignToDirection
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9213949832498894135, guid: 1163ca96486170e4f9dd0b54224ab617, type: 3}
+      propertyPath: CollisionModule.collidesWith.m_Bits
+      value: 393
+      objectReference: {fileID: 0}
+    - target: {fileID: 9213949832498894135, guid: 1163ca96486170e4f9dd0b54224ab617, type: 3}
+      propertyPath: InitialModule.startColor.maxColor.b
+      value: 0.8784314
+      objectReference: {fileID: 0}
+    - target: {fileID: 9213949832498894135, guid: 1163ca96486170e4f9dd0b54224ab617, type: 3}
+      propertyPath: InitialModule.startColor.maxColor.g
+      value: 0.16862746
+      objectReference: {fileID: 0}
+    - target: {fileID: 9213949832498894135, guid: 1163ca96486170e4f9dd0b54224ab617, type: 3}
+      propertyPath: InitialModule.startColor.maxColor.r
+      value: 0.8235294
+      objectReference: {fileID: 0}
+    - target: {fileID: 9213949832498894135, guid: 1163ca96486170e4f9dd0b54224ab617, type: 3}
+      propertyPath: UVModule.sprites.Array.data[0].sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: e050f280b5e46b549ab83b3c13a40a0f, type: 3}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
