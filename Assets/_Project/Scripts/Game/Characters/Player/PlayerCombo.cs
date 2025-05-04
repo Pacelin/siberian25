@@ -21,13 +21,13 @@ namespace Siberian25.Game.Characters
 
             switch (_maxCombo)
             {
-                case >= 500:
+                case >= 250:
                     Achievements.Report("Ach7");
                     break;
-                case >= 250:
+                case >= 100:
                     Achievements.Report("Ach6");
                     break;
-                case >= 100:
+                case >= 50:
                     Achievements.Report("Ach5");
                     break;
                 case >= 25:
