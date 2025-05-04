@@ -752,7 +752,7 @@ GameObject:
   m_Component:
   - component: {fileID: 631168569337333180}
   - component: {fileID: 2702377046030942854}
-  m_Layer: 3
+  m_Layer: 11
   m_Name: Deflect_Collider
   m_TagString: Untagged
   m_Icon: {fileID: 0}
