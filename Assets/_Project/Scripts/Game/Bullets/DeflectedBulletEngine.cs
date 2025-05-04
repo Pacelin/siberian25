@@ -40,33 +40,33 @@ namespace Siberian25.Game.Bullets
 
             HashSet<int> removedParticles = new();
 
+            bool playerCanDeflect = player != null && player.EnableSlice && spawner != null && spawner.BulletType == EBulletType.Deflectable;
+            bool takeDamage = player != null && !player.EnableSlice || player == null || spawner.BulletType == EBulletType.Immortal;
+
+            if (other.TryGetComponent(out HealthComponent health) && takeDamage)
+                health.TakeDamage(1);
+
             // Deflect or destroy
-            foreach (ParticleCollisionEvent evt in _collisionEvents)
-            {
-                // Find who we collided with
-                int closestParticleIndex = GetClosestParticle(particleList, evt);
-
-                // Deflect: player is hit while dash. player is ignored after that. Remove from enemy, add to deflected
-                if (player != null && player.EnableSlice && spawner != null && spawner.BulletType == EBulletType.Deflectable)
+            if (particleList.Length != 0)
+                foreach (ParticleCollisionEvent evt in _collisionEvents)
                 {
-                    // Deflect particle velocity
-                    Vector3 velocity = player.SliceDirection * _ps.main.startSpeed.Evaluate(Random.value);
-                    ParticleSystem.Particle deflectedParticle = GetDeflectedParticle(particleList, closestParticleIndex, velocity);
-                    deflectedParticle.startColor = _deflectedBullets.main.startColor.Evaluate(Random.value);
-                    // It will be removed from enemy ps. Add to deflected ps
-                    AddParticle(deflectedParticleList, deflectedParticle);
-                    AudioSystem.Game_Reflect.PlayOneShot();
-                }
-                // Destroy: this is not a player or player is not dashing. Cause damage to whatever this is
-                else if (spawner != null && spawner.BulletType == EBulletType.Immortal)
-                {
-                    // Deal damage
-                    if (other.TryGetComponent(out HealthComponent health))
-                        health.TakeDamage(1);
-                }
+                    // Find who we collided with
+                    int closestParticleIndex = GetClosestParticle(particleList, evt);
 
-                removedParticles.Add(closestParticleIndex);
-            }
+                    // Deflect: player is hit while dash. player is ignored after that. Remove from enemy, add to deflected
+                    if (playerCanDeflect)
+                    {
+                        // Deflect particle velocity
+                        Vector3 velocity = player.SliceDirection * _ps.main.startSpeed.Evaluate(Random.value);
+                        ParticleSystem.Particle deflectedParticle = GetDeflectedParticle(particleList, closestParticleIndex, velocity);
+                        deflectedParticle.startColor = _deflectedBullets.main.startColor.Evaluate(Random.value);
+                        // It will be removed from enemy ps. Add to deflected ps
+                        AddParticle(deflectedParticleList, deflectedParticle);
+                        AudioSystem.Game_Reflect.PlayOneShot();
+                    }
+
+                    removedParticles.Add(closestParticleIndex);
+                }
 
             IOrderedEnumerable<int> removedParticlesSorted = removedParticles.OrderByDescending(a => a);
             foreach (int index in removedParticlesSorted)
