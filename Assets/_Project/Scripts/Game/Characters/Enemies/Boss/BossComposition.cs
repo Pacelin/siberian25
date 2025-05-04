@@ -1,5 +1,9 @@
+using Cysharp.Threading.Tasks;
 using Siberian25.Game.Characters.Enemies;
 using TSS.Audio;
+using TSS.ContentManagement;
+using TSS.Core;
+using TSS.SceneManagement;
 using UnityEngine;
 
 namespace Siberian25.Game.Characters.Boss
@@ -78,6 +82,16 @@ namespace Siberian25.Game.Characters.Boss
         private void Update() => _stateMachine.Update();
 
         public void HookWholeAnimationFinished() => WholeAnimationFinished = true;
+
+        public void EndGame()
+        {
+            GameContext.World.FadeOutWorld().ContinueWith(() =>
+            {
+                if (Runtime.CancellationToken.IsCancellationRequested)
+                    return;
+                SceneManager.Scene(CMS.Scenes.MainMenu).Load(Runtime.CancellationToken).Forget();
+            }).Forget();
+        }
 
         public void SwitchStateToAttack()
         {
