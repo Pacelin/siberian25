@@ -18,6 +18,7 @@ GameObject:
   - component: {fileID: 1427450189949271906}
   - component: {fileID: 3271943157705105724}
   - component: {fileID: 4498625686939073626}
+  - component: {fileID: 8334524338500542745}
   m_Layer: 3
   m_Name: P_Player
   m_TagString: Untagged
@@ -369,6 +370,21 @@ MonoBehaviour:
     Assembly-CSharp
   _collider: {fileID: 2702377046030942854}
   _player: {fileID: 4608671749684995462}
+--- !u!114 &8334524338500542745
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1550257525525488654}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ba71e47989b201649b905b06bc712a87, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Siberian25.Game.Bullets.GetDamageOnBulletHit, Assembly-CSharp
+  _health: {fileID: 7066952607971034265}
+  _damage: 1
+  _checkTypes: 01000000
 --- !u!1 &4848588206740404756
 GameObject:
   m_ObjectHideFlags: 0
