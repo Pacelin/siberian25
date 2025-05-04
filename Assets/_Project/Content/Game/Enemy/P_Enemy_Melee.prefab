@@ -212,8 +212,12 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 6415680487449971399}
     - target: {fileID: 1203924266685831661, guid: c3af580562688094ab762bed07889fda, type: 3}
+      propertyPath: _slowMoScale
+      value: 0.25
+      objectReference: {fileID: 0}
+    - target: {fileID: 1203924266685831661, guid: c3af580562688094ab762bed07889fda, type: 3}
       propertyPath: _slowMoDuration
-      value: 0.5
+      value: 0.75
       objectReference: {fileID: 0}
     - target: {fileID: 3698465044740197200, guid: c3af580562688094ab762bed07889fda, type: 3}
       propertyPath: m_Name

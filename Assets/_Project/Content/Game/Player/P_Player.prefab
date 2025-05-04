@@ -314,9 +314,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 63c59ea79f724383871eed229ce6b944, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Siberian25.Game.Characters.AddSlowMotionOnDamage, Assembly-CSharp
-  _scale: 0.15
   _duration: 0.4
-  _fadeTime: 0.15
   _health: {fileID: 7066952607971034265}
 --- !u!114 &2506173025912737601
 MonoBehaviour:
@@ -600,6 +598,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 06f67d8cd8db425dbb04ffac80aeb80c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Siberian25.Game.Characters.PlayerSliceTrigger, Assembly-CSharp
+  _collider: {fileID: 5624825946557307539}
 --- !u!58 &5624825946557307539
 CircleCollider2D:
   m_ObjectHideFlags: 0

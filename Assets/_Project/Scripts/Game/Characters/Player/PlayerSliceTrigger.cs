@@ -6,6 +6,8 @@ namespace Siberian25.Game.Characters
 {
     public class PlayerSliceTrigger : MonoBehaviour
     {
+        [SerializeField] private Collider2D _collider;
+
         public Vector2 SliceDirection { get; set; }
         public bool EnableSlice { get; set; }
 
@@ -23,9 +25,16 @@ namespace Siberian25.Game.Characters
             if (_slicables.Count > 0)
             {
                 GameContext.Player.Combo.Add(_slicables.Count);
-                AudioSystem.Game_Cut.PlayOneShot();
             }
             _slicables.Clear();
+        }
+
+        public void DoTrigger()
+        {
+            var result = new List<Collider2D>();
+            _collider.Overlap(new ContactFilter2D(), result);
+            foreach (var col in result)
+                OnTriggerEnter2D(col);
         }
         
         private void OnTriggerEnter2D(Collider2D other)
@@ -36,6 +45,7 @@ namespace Siberian25.Game.Characters
             {
                 _wasSliceCurrentDash = true;
                 slicable.OnSlice(transform.position,SliceDirection);
+                AudioSystem.Game_Cut.PlayOneShot();
                 _slicables.Add(slicable);
             }
         }

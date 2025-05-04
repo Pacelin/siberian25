@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Siberian25.Game.Characters.PlayerCharacterConfig, Assembly-CSharp
   _movementSpeed: 4
   _maxAttackDashDistance: 7
-  _attackDashSpeed: 30
+  _attackDashSpeed: 40
   _dashCooldown: 0.25
   _dashObstaclesLayerMask:
     serializedVersion: 2
