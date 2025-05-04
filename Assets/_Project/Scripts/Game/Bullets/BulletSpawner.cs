@@ -5,13 +5,12 @@ namespace Siberian25.Game.Bullets
 	[DisallowMultipleComponent, RequireComponent(typeof(ParticleSystem))]
 	public class BulletSpawner : MonoBehaviour
 	{
-		[SerializeField] private BulletSettings m_bulletsSettings;
+		public EBulletType BulletType => _bulletType;
+
+        [SerializeField] private BulletSettings m_bulletsSettings;
 		[SerializeField] private EBulletType _bulletType = EBulletType.Destroyable;
 
-		private ParticleSystem _deflectedPs;
-
 		#if UNITY_EDITOR
-
 		private void OnValidate()
 		{
 			if (m_bulletsSettings == null)
@@ -23,7 +22,7 @@ namespace Siberian25.Game.Bullets
 			ApplyData(data, ps);
 
 			ParticleSystem.CollisionModule collision = ps.collision;
-			collision.lifetimeLoss = _bulletType == EBulletType.Deflectable ? 0f : 1f;
+			collision.lifetimeLoss = _bulletType == EBulletType.Deflectable ? 0f : 0f;
 
 			UnityEditor.EditorApplication.delayCall += ProcessDeflectableBullets;
 		}
@@ -50,46 +49,54 @@ namespace Siberian25.Game.Bullets
 		{
 			UnityEditor.EditorApplication.delayCall -= ProcessDeflectableBullets;
 
-			if (_bulletType == EBulletType.Deflectable)
+			if (this == null)
+				return;
+
+			if (!gameObject.TryGetComponent(out DeflectedBulletEngine _))
+			{
 				AddDeflectedPs(GetComponent<ParticleSystem>());
-			else
-				TryDestroyDeflectedPs();
+			}
+
 		}
 
 		private void AddDeflectedPs(ParticleSystem ps)
 		{
-			if (_deflectedPs != null) return;
+			ParticleSystem deflectedPs = transform.childCount > 0 && transform.GetChild(0).TryGetComponent(out ParticleSystem dps) ? dps : null;
+
+			if (deflectedPs != null || GetComponent<DeflectedBulletEngine>() != null) return;
 
 			BulletTypeData data = m_bulletsSettings.DeflectedBulletsData;
 
 			GameObject childGo = new();
 			childGo.transform.parent = transform;
-			_deflectedPs = childGo.AddComponent<ParticleSystem>();
+			deflectedPs = childGo.AddComponent<ParticleSystem>();
 
-			ApplyData(data, _deflectedPs);
+			UnityEditor.EditorUtility.CopySerialized(ps, deflectedPs);
+			UnityEditor.EditorUtility.CopySerialized(ps.GetComponent<ParticleSystemRenderer>(), deflectedPs.GetComponent<ParticleSystemRenderer>());
 
-			UnityEditor.EditorUtility.CopySerialized(ps, _deflectedPs);
+			ApplyData(data, deflectedPs);
 
-			ParticleSystem.CollisionModule collision = _deflectedPs.collision;
-			collision.lifetimeLoss = 1f;
+			ParticleSystem.CollisionModule collision = deflectedPs.collision;
+			collision.lifetimeLoss = 0f;
 
-			ParticleSystem.ShapeModule shape = _deflectedPs.shape;
+			ParticleSystem.ShapeModule shape = deflectedPs.shape;
 			shape.enabled = false;
 
-			ParticleSystem.EmissionModule emission = _deflectedPs.emission;
+			ParticleSystem.EmissionModule emission = deflectedPs.emission;
 			emission.enabled = false;
 
 			DeflectedBulletEngine engine = gameObject.AddComponent<DeflectedBulletEngine>();
-			engine.Initiate(ps, _deflectedPs);
+			engine.Initiate(ps, deflectedPs);
 		}
 
 		private void TryDestroyDeflectedPs()
 		{
-			if (!_deflectedPs)
+			ParticleSystem deflectedPs = transform.childCount > 0 && transform.GetChild(0).TryGetComponent(out ParticleSystem dps) ? dps : null;
+
+			if (deflectedPs == null || !TryGetComponent(out DeflectedBulletEngine engine))
 				return;
 
-			DestroyImmediate(_deflectedPs.gameObject);
-			DeflectedBulletEngine engine = gameObject.AddComponent<DeflectedBulletEngine>();
+			DestroyImmediate(deflectedPs.gameObject);
 			DestroyImmediate(engine);
 		}
 		#endif

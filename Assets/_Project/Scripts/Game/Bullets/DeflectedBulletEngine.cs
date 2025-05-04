@@ -8,6 +8,7 @@ using Random = UnityEngine.Random;
 
 namespace Siberian25.Game.Bullets
 {
+
     public class DeflectedBulletEngine : MonoBehaviour
     {
         [SerializeField] private ParticleSystem _ps;
@@ -21,13 +22,15 @@ namespace Siberian25.Game.Bullets
             _deflectedBullets = deflectedPs;
         }
 
-        private void OnParticleCollision(GameObject other)
+        public void OnParticleCollision(GameObject other)
         {
             // Gather collisions and particles
             int collisionEventsSize = _ps.GetSafeCollisionEventSize();
             for (int i = 0; i < collisionEventsSize; i++)
                 _collisionEvents.Add(default);
             _ps.GetCollisionEvents(other, _collisionEvents);
+
+            var spawner = _ps.GetComponent<BulletSpawner>();
 
             NativeList<ParticleSystem.Particle> particleList = GetParticleList(_ps);
             NativeList<ParticleSystem.Particle> deflectedParticleList = GetParticleList(_deflectedBullets);
@@ -55,7 +58,7 @@ namespace Siberian25.Game.Bullets
                     AudioSystem.Game_Reflect.PlayOneShot();
                 }
                 // Destroy: this is not a player or player is not dashing. Cause damage to whatever this is
-                else
+                else if (spawner == null || spawner.BulletType == EBulletType.Immortal)
                 {
                     // Deal damage
                     if (other.TryGetComponent(out HealthComponent health))
