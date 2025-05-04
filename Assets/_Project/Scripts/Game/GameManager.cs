@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Threading;
 using Siberian25.Game.World;
+using TSS.Audio;
 using TSS.ContentManagement;
 using TSS.Core;
 using UnityEngine;
@@ -27,6 +28,10 @@ namespace Siberian25.Game
                 () => Object.Instantiate(GameContext.World.EnemyPortalPrefab));
             GameContext.HUD = Object.Instantiate(CMS.Prefabs.HUD);
             Time.timeScale = 1;
+
+            GameContext.OST = AudioSystem.OST_OST1.CreateInstance();
+            GameContext.OST.SetTrack(0);
+            GameContext.OST.Start();
         }
 
         public void Tick()
@@ -42,6 +47,8 @@ namespace Siberian25.Game
             _cts.Cancel();
             _cts.Dispose();
             _cts = null;
+            GameContext.OST.Stop(true);
+            GameContext.OST.Release();
         }
     }
 }

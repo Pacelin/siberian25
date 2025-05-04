@@ -1,7 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Linq;
-using Cysharp.Threading.Tasks;
+using TSS.Audio;
 using UnityEngine;
 using UnitySpriteCutter;
 using GameObject = UnityEngine.GameObject;
@@ -97,7 +96,8 @@ namespace Siberian25.Game.Characters
             }
 
             if (_slowMoDuration > 0)
-                GameContext.SlowMo.PlaySlowMotion(_slowMoDuration);
+                GameContext.SlowMo.PlaySlowMotion(_slowMoDuration);             
+            AudioSystem.Game_Death.PlayOneShot();
             Destroy(gameObject);
         }
 

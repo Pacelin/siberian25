@@ -1,4 +1,5 @@
 ﻿using System;
+using TSS.Audio;
 using TSS.Core;
 using UnityEngine;
 
@@ -29,9 +30,11 @@ namespace Siberian25.Game.World
             if (Runtime.IsPaused)
             {
                 Time.timeScale = 1;
+                AudioSystem.Global.SetSlowmo(0);
             }
             else
             {
+                AudioSystem.Global.SetSlowmo((1 - Time.timeScale) / (1 - _slowMoScale));
                 Time.timeScale = Mathf.MoveTowards(Time.timeScale, _targetTimeScale, _timeVelocity * Time.unscaledDeltaTime);
                 if (Math.Abs(_targetTimeScale - 1) > 0.01f && Time.time >= _slowMotionEstimation)
                     _targetTimeScale = 1;

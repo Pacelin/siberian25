@@ -2,6 +2,7 @@
 using Siberian25.Game.Characters;
 using Siberian25.Game.Characters.Boss;
 using Siberian25.Game.World;
+using TSS.Audio;
 using UnityEngine;
 using UnityEngine.Pool;
 
@@ -20,5 +21,6 @@ namespace Siberian25.Game
         public static WorldSlowMotion SlowMo { get; set; }
         
         public static GameObject HUD { get; set; }
+        public static SoundEvent_OST_OST1.Instance OST { get; set; }
     }
 }

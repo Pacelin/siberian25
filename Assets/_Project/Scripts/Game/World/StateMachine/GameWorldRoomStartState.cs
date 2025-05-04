@@ -35,6 +35,7 @@ namespace Siberian25.Game.World
                     await GameContext.ActiveRoom.Composition.PlayerPortal.Activate();
                     GameContext.Player.transform.position =
                         GameContext.ActiveRoom.Composition.PlayerPortal.transform.position;
+                    GameContext.OST.SetTrack(GameContext.ActiveRoom.Composition.Track);
                     GameContext.Player.AppearTween.Play();
                     if (GameContext.CancellationToken.IsCancellationRequested)
                         return;
