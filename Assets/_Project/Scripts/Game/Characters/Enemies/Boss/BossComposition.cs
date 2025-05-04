@@ -1,4 +1,5 @@
 using Siberian25.Game.Characters.Enemies;
+using TSS.Audio;
 using UnityEngine;
 
 namespace Siberian25.Game.Characters.Boss
@@ -58,7 +59,8 @@ namespace Siberian25.Game.Characters.Boss
         [SerializeField] private float _bothHeadsChance;
         
         private BossStateMachine _stateMachine;
-
+        private SoundEvent_Game_Beam.Instance _beam;
+        
         private void Awake()
         {
             GameContext.Boss = this;
@@ -70,7 +72,12 @@ namespace Siberian25.Game.Characters.Boss
             _stateMachine.Run();
         }
 
-        private void OnDestroy() => _stateMachine.Stop();
+        private void OnDestroy()
+        {
+            _stateMachine.Stop();
+            _beam?.Stop(false);
+            _beam?.Release();
+        } 
         private void Update() => _stateMachine.Update();
 
         public void HookWholeAnimationFinished() => WholeAnimationFinished = true;
@@ -96,6 +103,30 @@ namespace Siberian25.Game.Characters.Boss
                 _stateMachine.SwitchState(new BossSpawnEnemiesState());
             else
                 _stateMachine.SwitchState(new BossIdleState());
+        }
+
+        public void StartDeathSound() => AudioSystem.Game_BossDeath.PlayOneShot();
+        
+        public void StartShortAttackSound() => AudioSystem.Game_BossAttack1.PlayOneShot();
+        public void StartLongAttackSound() => AudioSystem.Game_BossAttack2.PlayOneShot();
+        
+        public void StartBeamSound()
+        {
+            _beam = AudioSystem.Game_Beam.CreateInstance();
+            _beam.SetBeam(0);
+            _beam.Start();
+        }
+
+        public void ApplyBeamSound()
+        {
+            _beam.SetBeam(1);
+        }
+
+        public void StopBeamSound()
+        {
+            _beam.Stop(true);
+            _beam.Release();
+            _beam = null;
         }
     }
 }

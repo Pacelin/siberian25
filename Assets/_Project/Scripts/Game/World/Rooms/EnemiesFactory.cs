@@ -2,6 +2,7 @@
 using System.Linq;
 using Cysharp.Threading.Tasks;
 using Siberian25.Game.Characters.Enemies;
+using TSS.Audio;
 using UnityEngine;
 
 namespace Siberian25.Game.World
@@ -50,6 +51,7 @@ namespace Siberian25.Game.World
             var enemy = Object.Instantiate(enemyPrefab, portal.transform.position, Quaternion.identity);
             _room.RegisterEnemy(enemy);
             enemy.AppearTween.Play();
+            AudioSystem.Game_SpawnEnemy.PlayOneShot();
             await enemy.AppearTween.WaitWhilePlay();
             
             if (GameContext.CancellationToken.IsCancellationRequested)

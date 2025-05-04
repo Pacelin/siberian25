@@ -22,7 +22,7 @@ namespace Siberian25.Game.World
                 GameContext.Player.Rigidbody.position = 
                     GameContext.ActiveRoom.Composition.FinishPortal.transform.position;
                 GameContext.Player.DisappearTween.Play();
-                AudioSystem.Game_portalIn.PlayOneShot();
+                AudioSystem.Game_PortalIn.PlayOneShot();
                 await GameContext.Player.DisappearTween.WaitWhilePlay();
                 if (GameContext.CancellationToken.IsCancellationRequested)
                     return;
@@ -30,6 +30,7 @@ namespace Siberian25.Game.World
                 if (GameContext.CancellationToken.IsCancellationRequested)
                     return;
                 await GameContext.World.FadeOutWorld();
+                GameContext.Player.Health.ResetHealth();
                 if (GameContext.CancellationToken.IsCancellationRequested)
                     return;
                 var room = GameContext.ActiveRoom.Composition;

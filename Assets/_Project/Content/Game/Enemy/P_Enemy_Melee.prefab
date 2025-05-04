@@ -2331,7 +2331,7 @@ MonoBehaviour:
   _composition: {fileID: 4520266325542536889}
   _dashTrail: {fileID: 7522189048611528261}
   _damageProvider: {fileID: 8918929602250906332}
-  _dashSpeed: 5
+  _dashSpeed: 30
   _dashSpread: 15
   _maxDashDistance: 10
   _dashDistanceOverPlayer: 2
@@ -2340,7 +2340,7 @@ MonoBehaviour:
   _obstaclesMask:
     serializedVersion: 2
     m_Bits: 256
-  _obstacleAvoidRadius: 1
+  _obstacleAvoidRadius: 2
 --- !u!114 &4520266325542536889 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 652785365995903086, guid: c3af580562688094ab762bed07889fda, type: 3}
