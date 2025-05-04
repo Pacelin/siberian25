@@ -1,5 +1,6 @@
 ﻿using Cysharp.Threading.Tasks;
 using Siberian25.Game.Characters;
+using TSS.Audio;
 using UnityEngine;
 
 namespace Siberian25.Game.World
@@ -21,6 +22,7 @@ namespace Siberian25.Game.World
                 GameContext.Player.Rigidbody.position = 
                     GameContext.ActiveRoom.Composition.FinishPortal.transform.position;
                 GameContext.Player.DisappearTween.Play();
+                AudioSystem.Game_portalIn.PlayOneShot();
                 await GameContext.Player.DisappearTween.WaitWhilePlay();
                 if (GameContext.CancellationToken.IsCancellationRequested)
                     return;

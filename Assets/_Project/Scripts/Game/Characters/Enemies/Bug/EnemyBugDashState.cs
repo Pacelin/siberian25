@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using TSS.Audio;
+using UnityEngine;
 
 namespace Siberian25.Game.Characters.Enemies
 {
@@ -24,7 +25,8 @@ namespace Siberian25.Game.Characters.Enemies
             if (cast)
                 dashVector = Vector2.ClampMagnitude(dashVector, cast.distance);
             _dashPosition = Composition.Rigidbody.position + dashVector;
-            
+
+            AudioSystem.Game_Attack.PlayOneShot();
             StateMachine.DashTrail.emitting = true;
             StateMachine.DamageProvider.SetActive(true);
         }
