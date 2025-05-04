@@ -1327,23 +1327,23 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1060846132763731923, guid: 0a5c5dccd880e1944aafc67416bcd109, type: 3}
       propertyPath: _stepSound._eventRef.Path
-      value: event:/Game/StepWood
+      value: event:/Game/StepForest
       objectReference: {fileID: 0}
     - target: {fileID: 1060846132763731923, guid: 0a5c5dccd880e1944aafc67416bcd109, type: 3}
       propertyPath: _stepSound._eventRef.Guid.Data1
-      value: -2043027316
+      value: 1283986310
       objectReference: {fileID: 0}
     - target: {fileID: 1060846132763731923, guid: 0a5c5dccd880e1944aafc67416bcd109, type: 3}
       propertyPath: _stepSound._eventRef.Guid.Data2
-      value: 1107539914
+      value: 1332459210
       objectReference: {fileID: 0}
     - target: {fileID: 1060846132763731923, guid: 0a5c5dccd880e1944aafc67416bcd109, type: 3}
       propertyPath: _stepSound._eventRef.Guid.Data3
-      value: -382578245
+      value: 1117376145
       objectReference: {fileID: 0}
     - target: {fileID: 1060846132763731923, guid: 0a5c5dccd880e1944aafc67416bcd109, type: 3}
       propertyPath: _stepSound._eventRef.Guid.Data4
-      value: 2007029359
+      value: 874156131
       objectReference: {fileID: 0}
     - target: {fileID: 2130015453281904068, guid: 0a5c5dccd880e1944aafc67416bcd109, type: 3}
       propertyPath: m_SpriteShape

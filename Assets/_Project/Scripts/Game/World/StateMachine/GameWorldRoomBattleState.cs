@@ -16,6 +16,8 @@ namespace Siberian25.Game.World
         
         public override void OnEnter()
         {
+            if (GameContext.ActiveRoom.Schedule.Stages.Count <= 0)
+                return;
             foreach (var item in GameContext.ActiveRoom.Schedule.Stages[0].Items)
                 _itemsQueue.Enqueue(item);
         }

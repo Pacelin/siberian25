@@ -5,7 +5,7 @@ namespace Siberian25.Game.Characters
     public class PlayerMoveState : PlayerState
     {
         private float _stepTimestamp;
-        private const float STEP_INTERVAL = 0.1f;
+        private const float STEP_INTERVAL = 0.3f;
         
         public override void OnEnter()
         {
