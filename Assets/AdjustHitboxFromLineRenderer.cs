@@ -22,8 +22,8 @@ namespace Siberian25.Game.Characters.Boss
 
         private void Adjust()
         {
-            Vector3 leftPoint = _lineRenderer.transform.TransformPoint(_lineRenderer.GetPosition(0));
-            Vector3 rightPoint = _lineRenderer.transform.TransformPoint(_lineRenderer.GetPosition(1));
+            Vector3 leftPoint = _lineRenderer.GetPosition(0);
+            Vector3 rightPoint =_lineRenderer.GetPosition(1);
 
             Vector3 lineCenter = (leftPoint + rightPoint) / 2f;
             Vector3 boundsScale = new ((leftPoint - rightPoint).magnitude, _lineWidth, 1f);
