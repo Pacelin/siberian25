@@ -8,6 +8,7 @@ namespace Siberian25.Game.World
     {
         public override void Execute()
         {
+            GameContext.SlowMo.StopSlowMo();
             GameContext.ActiveRoom.Composition.FinishPortal.Activate().Forget();
         }
     }
