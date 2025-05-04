@@ -26,7 +26,7 @@ namespace Siberian25.Game.Bullets
 		}
 		private void OnDisable()
 		{
-			_disposable.Dispose();
+			_disposable?.Dispose();
 		}
 
 		private void Detach()

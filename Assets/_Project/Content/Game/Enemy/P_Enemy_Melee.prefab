@@ -211,22 +211,6 @@ PrefabInstance:
       propertyPath: _stateMachine
       value: 
       objectReference: {fileID: 6415680487449971399}
-    - target: {fileID: 1203924266685831661, guid: c3af580562688094ab762bed07889fda, type: 3}
-      propertyPath: _slowMoScale
-      value: 0.25
-      objectReference: {fileID: 0}
-    - target: {fileID: 1203924266685831661, guid: c3af580562688094ab762bed07889fda, type: 3}
-      propertyPath: _slowMoDuration
-      value: 0.75
-      objectReference: {fileID: 0}
-    - target: {fileID: 1203924266685831661, guid: c3af580562688094ab762bed07889fda, type: 3}
-      propertyPath: _debrisLifetimeRange.x
-      value: 0.4
-      objectReference: {fileID: 0}
-    - target: {fileID: 1203924266685831661, guid: c3af580562688094ab762bed07889fda, type: 3}
-      propertyPath: _debrisLifetimeRange.y
-      value: 1.2
-      objectReference: {fileID: 0}
     - target: {fileID: 3698465044740197200, guid: c3af580562688094ab762bed07889fda, type: 3}
       propertyPath: m_Name
       value: P_Enemy_Melee
@@ -2336,7 +2320,7 @@ MonoBehaviour:
   _maxDashDistance: 10
   _dashDistanceOverPlayer: 2
   _idleDuration: {x: 1, y: 2}
-  _dashPrepareDuration: {x: 2, y: 3}
+  _dashPrepareDuration: {x: 0.5, y: 1}
   _obstaclesMask:
     serializedVersion: 2
     m_Bits: 256

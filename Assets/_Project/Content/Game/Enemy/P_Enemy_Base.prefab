@@ -228,10 +228,12 @@ MonoBehaviour:
   _collider: {fileID: 4860541718879265183}
   _healthComponent: {fileID: 5422304517407174624}
   _lineRendererPrefab: {fileID: 6040173771880810235, guid: ec9acad37af11e64c9e1dd8360198de2, type: 3}
+  _slowMoDuration: 0.75
+  _slowMoScale: 0.3
   _maxSlices: 5
   _explosionForceRange: {x: 150, y: 180}
   _explosionInheritDirectionForceRange: {x: 100, y: 150}
-  _debrisLifetimeRange: {x: 0.3, y: 0.8}
+  _debrisLifetimeRange: {x: 0.5, y: 1.5}
   _linearDampingForPieces: 0.05
   _spread: 10
 --- !u!212 &6406976764146266233
