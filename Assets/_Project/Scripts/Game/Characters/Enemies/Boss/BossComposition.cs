@@ -103,6 +103,5 @@ namespace Siberian25.Game.Characters.Boss
         }
 
         public void StartDeathSound() => AudioSystem.Game_BossDeath.PlayOneShot();
-        public void StartBossLaugh() => AudioSystem.Game_BossLaugh.PlayOneShot();
     }
 }

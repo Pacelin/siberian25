@@ -4907,7 +4907,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: Siberian25.Game.Bullets.DetatchParticlesOnDeath, Assembly-CSharp
   _health: {fileID: 0}
   _detatchTo: {fileID: 0}
-  _ps: {fileID: 2058622042899628472}
+  _particleSystems: []
+  _gameObjects: []
+  _enableGameObjectsOnDetach: 0
+  _playOnDetach: 0
+  _stopOnDetach: 1
 --- !u!1001 &8375755011502091242
 PrefabInstance:
   m_ObjectHideFlags: 0
