@@ -140,7 +140,6 @@ MonoBehaviour:
   _items:
   - rid: 3546094421599584455
   - rid: 3546094421599584446
-  - rid: 3546094421599584448
   _cacheTween: 0
   _playOnEnable: 0
   _loops: 0
@@ -153,15 +152,6 @@ MonoBehaviour:
       type: {class: ScriptableTweenEvent, ns: TSS.Tweening, asm: TSS.Tweening}
       data:
         _connectBehaviour: 0
-    - rid: 3546094421599584448
-      type: {class: ScriptableTweenInterval, ns: TSS.Tweening, asm: TSS.Tweening}
-      data:
-        _interval:
-          rid: 3546094421599584449
-    - rid: 3546094421599584449
-      type: {class: FloatValueProvider, ns: TSS.Utils, asm: TSS.Utils}
-      data:
-        _value: 1
     - rid: 3546094421599584455
       type: {class: ScriptableTweenDisableGO, ns: TSS.Tweening, asm: TSS.Tweening}
       data:
