@@ -20,6 +20,16 @@ namespace Siberian25.Game.Bullets
 			ParticleSystem ps = GetComponent<ParticleSystem>();
 			BulletTypeData data = m_bulletsSettings.GetBulletTypeData(_bulletType);
 
+			ApplyData(data, ps);
+
+			ParticleSystem.CollisionModule collision = ps.collision;
+			collision.lifetimeLoss = _bulletType == EBulletType.Deflectable ? 0f : 1f;
+
+			UnityEditor.EditorApplication.delayCall += ProcessDeflectableBullets;
+		}
+
+		private void ApplyData(BulletTypeData data, ParticleSystem ps)
+		{
 			ParticleSystem.MainModule main = ps.main;
 			main.startColor = data.startColor;
 
@@ -33,9 +43,7 @@ namespace Siberian25.Game.Bullets
 			renderer.rotateWithStretchDirection = data.alignToDirection;
 
 			ParticleSystem.CollisionModule collision = ps.collision;
-			collision.lifetimeLoss = _bulletType == EBulletType.Deflectable ? 0f : 1f;
-
-			UnityEditor.EditorApplication.delayCall += ProcessDeflectableBullets;
+			collision.collidesWith = data.collisionMask;
 		}
 
 		private void ProcessDeflectableBullets()
@@ -52,14 +60,17 @@ namespace Siberian25.Game.Bullets
 		{
 			if (_deflectedPs != null) return;
 
+			BulletTypeData data = m_bulletsSettings.DeflectedBulletsData;
+
 			GameObject childGo = new();
 			childGo.transform.parent = transform;
 			_deflectedPs = childGo.AddComponent<ParticleSystem>();
 
+			ApplyData(data, _deflectedPs);
+
 			UnityEditor.EditorUtility.CopySerialized(ps, _deflectedPs);
 
 			ParticleSystem.CollisionModule collision = _deflectedPs.collision;
-			collision.collidesWith = m_bulletsSettings.DeflectedLayers;
 			collision.lifetimeLoss = 1f;
 
 			ParticleSystem.ShapeModule shape = _deflectedPs.shape;
@@ -67,12 +78,19 @@ namespace Siberian25.Game.Bullets
 
 			ParticleSystem.EmissionModule emission = _deflectedPs.emission;
 			emission.enabled = false;
+
+			DeflectedBulletEngine engine = gameObject.AddComponent<DeflectedBulletEngine>();
+			engine.Initiate(ps, _deflectedPs);
 		}
 
 		private void TryDestroyDeflectedPs()
 		{
-			if (_deflectedPs)
-				DestroyImmediate(_deflectedPs.gameObject);
+			if (!_deflectedPs)
+				return;
+
+			DestroyImmediate(_deflectedPs.gameObject);
+			DeflectedBulletEngine engine = gameObject.AddComponent<DeflectedBulletEngine>();
+			DestroyImmediate(engine);
 		}
 		#endif
 	}

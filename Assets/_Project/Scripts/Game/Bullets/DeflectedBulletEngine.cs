@@ -14,6 +14,12 @@ namespace Siberian25.Game.Bullets
 
         private readonly List<ParticleCollisionEvent> _collisionEvents = new();
 
+        public void Initiate(ParticleSystem ps, ParticleSystem deflectedPs)
+        {
+            _ps = ps;
+            _deflectedBullets = deflectedPs;
+        }
+
         private void OnParticleCollision(GameObject other)
         {
             // Gather collisions and particles
