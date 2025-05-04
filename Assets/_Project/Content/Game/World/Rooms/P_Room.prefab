@@ -3974,6 +3974,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 32183b8560c641b182493a24424a71d3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Siberian25.Game.World.GameRoomComposition, Assembly-CSharp
+  _track: 0
+  _stepSound:
+    _eventRef:
+      Guid:
+        Data1: 1283986310
+        Data2: 1332459210
+        Data3: 1117376145
+        Data4: 874156131
+      Path: event:/Game/StepForest
   _playerPortal: {fileID: 1954446240934606639}
   _finishPortal: {fileID: 1620211491084003487}
   _worldGrid:

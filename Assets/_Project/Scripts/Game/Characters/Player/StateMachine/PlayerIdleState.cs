@@ -11,6 +11,8 @@ namespace Siberian25.Game.Characters
 
         public override void OnExit()
         {
+            if (GameContext.CancellationToken.IsCancellationRequested)
+                return;
             Animator.SetBool(PlayerConstants.ANIMATOR_IDLE_BOOL, false);
         }
 

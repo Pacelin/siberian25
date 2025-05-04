@@ -1,10 +1,12 @@
 ﻿using System;
 using System.Threading;
 using Siberian25.Game.World;
+using TSS.Audio;
 using TSS.ContentManagement;
 using TSS.Core;
 using UnityEngine;
 using UnityEngine.Pool;
+using VContainer;
 using VContainer.Unity;
 using Object = UnityEngine.Object;
 
@@ -12,22 +14,31 @@ namespace Siberian25.Game
 {
     public class GameManager : IInitializable, ITickable, IDisposable
     {
+        [Inject] private WorldSlowMotion _slowMo;
         private CancellationTokenSource _cts;
 
         public void Initialize()
         {
             _cts = CancellationTokenSource.CreateLinkedTokenSource(Runtime.CancellationToken);
             GameContext.CancellationToken = _cts.Token;
+            GameContext.SlowMo = _slowMo;
             GameContext.Player = Object.Instantiate(CMS.Prefabs.Player, Vector3.zero, Quaternion.identity);
             GameContext.World = Object.Instantiate(CMS.Prefabs.World);
             GameContext.EnemiesPortalsPool = new ObjectPool<PortalView>(
                 () => Object.Instantiate(GameContext.World.EnemyPortalPrefab));
             GameContext.HUD = Object.Instantiate(CMS.Prefabs.HUD);
             Time.timeScale = 1;
+
+            GameContext.OST = AudioSystem.OST_OST1.CreateInstance();
+            GameContext.OST.SetTrack(0);
+            GameContext.OST.Start();
         }
 
         public void Tick()
         {
+            if (_cts == null)
+                return;
+            _slowMo.Update();
         }
 
         public void Dispose()
@@ -36,6 +47,8 @@ namespace Siberian25.Game
             _cts.Cancel();
             _cts.Dispose();
             _cts = null;
+            GameContext.OST.Stop(true);
+            GameContext.OST.Release();
         }
     }
 }

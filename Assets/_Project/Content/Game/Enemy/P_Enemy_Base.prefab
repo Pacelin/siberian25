@@ -1,5 +1,84 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!1 &659347452809525261
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1767914282385116945}
+  - component: {fileID: 8084815855898841716}
+  - component: {fileID: 5925025123388127396}
+  m_Layer: 6
+  m_Name: Explosion_Container
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1767914282385116945
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 659347452809525261}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 8334180958811137433}
+  m_Father: {fileID: 9195040322244160294}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &8084815855898841716
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 659347452809525261}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4668421adb32456681bfb0ffa92dab8c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Siberian25.Game.Bullets.PauseParticles, Assembly-CSharp
+  _particleSystems:
+  - {fileID: 4338372474895450678}
+  - {fileID: 2839507053742867294}
+  - {fileID: 1571579081079215186}
+  - {fileID: 2632031813802706443}
+  - {fileID: 567555791123580861}
+  - {fileID: 5283154812032787847}
+--- !u!114 &5925025123388127396
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 659347452809525261}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: efa11869e78d476ab0d334728b052e04, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Siberian25.Game.Bullets.DetachParticlesOnDeath, Assembly-CSharp
+  _health: {fileID: 5422304517407174624}
+  _detatchTo: {fileID: 0}
+  _particleSystems:
+  - {fileID: 4338372474895450678}
+  - {fileID: 2839507053742867294}
+  - {fileID: 1571579081079215186}
+  - {fileID: 2632031813802706443}
+  - {fileID: 567555791123580861}
+  - {fileID: 5283154812032787847}
+  _gameObjects:
+  - {fileID: 1471906385335933865}
+  _enableGameObjectsOnDetach: 1
+  _playOnDetach: 1
+  _stopOnDetach: 0
 --- !u!1 &933366904126361151
 GameObject:
   m_ObjectHideFlags: 0
@@ -47,9 +126,8 @@ MonoBehaviour:
   _completeOnKill: 0
   _preset: {fileID: 0}
   _targets:
-  - {fileID: 6406976764146266233}
-  _items:
-  - rid: 7214840352482000901
+  - {fileID: 0}
+  _items: []
   _cacheTween: 0
   _playOnEnable: 0
   _loops: 0
@@ -57,45 +135,7 @@ MonoBehaviour:
   _delay: 0
   references:
     version: 2
-    RefIds:
-    - rid: 7214840352482000901
-      type: {class: ScriptableTweenSpriteRenderer_DOFade, ns: TSS.Tweening, asm: TSS.Tweening}
-      data:
-        _connectBehaviour: 0
-        _easing: 6
-        _delay:
-          rid: 7214840352482000902
-        _loopsCount:
-          rid: 7214840352482000903
-        _loopType: 0
-        _ignoreTimescale: 0
-        _duration:
-          rid: 7214840352482000904
-        _useStartValue: 1
-        _startValue:
-          rid: 7214840352482000905
-        _endValue:
-          rid: 7214840352482000906
-    - rid: 7214840352482000902
-      type: {class: FloatValueProvider, ns: TSS.Utils, asm: TSS.Utils}
-      data:
-        _value: 0
-    - rid: 7214840352482000903
-      type: {class: IntValueProvider, ns: TSS.Utils, asm: TSS.Utils}
-      data:
-        _value: 1
-    - rid: 7214840352482000904
-      type: {class: FloatValueProvider, ns: TSS.Utils, asm: TSS.Utils}
-      data:
-        _value: 0.5
-    - rid: 7214840352482000905
-      type: {class: FloatValueProvider, ns: TSS.Utils, asm: TSS.Utils}
-      data:
-        _value: 1
-    - rid: 7214840352482000906
-      type: {class: FloatValueProvider, ns: TSS.Utils, asm: TSS.Utils}
-      data:
-        _value: 0
+    RefIds: []
 --- !u!1 &3698465044740197200
 GameObject:
   m_ObjectHideFlags: 0
@@ -136,6 +176,7 @@ Transform:
   m_Children:
   - {fileID: 4696385015624316847}
   - {fileID: 3203929166776972278}
+  - {fileID: 1767914282385116945}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &652785365995903086
@@ -514,8 +555,10 @@ MonoBehaviour:
   _preset: {fileID: 0}
   _targets:
   - {fileID: 6406976764146266233}
+  - {fileID: 1471906385335933865}
   _items:
   - rid: 7214840352482000901
+  - rid: 3546094421599584490
   _cacheTween: 0
   _playOnEnable: 0
   _loops: 0
@@ -524,6 +567,10 @@ MonoBehaviour:
   references:
     version: 2
     RefIds:
+    - rid: 3546094421599584490
+      type: {class: ScriptableTweenDisableGO, ns: TSS.Tweening, asm: TSS.Tweening}
+      data:
+        _connectBehaviour: 1
     - rid: 7214840352482000901
       type: {class: ScriptableTweenSpriteRenderer_DOFade, ns: TSS.Tweening, asm: TSS.Tweening}
       data:
@@ -562,3 +609,108 @@ MonoBehaviour:
       type: {class: FloatValueProvider, ns: TSS.Utils, asm: TSS.Utils}
       data:
         _value: 1
+--- !u!1001 &8432789845785859163
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 1767914282385116945}
+    m_Modifications:
+    - target: {fileID: 481811232472789442, guid: 25ce01b589b8d034ebc645dc09e318aa, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 481811232472789442, guid: 25ce01b589b8d034ebc645dc09e318aa, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 481811232472789442, guid: 25ce01b589b8d034ebc645dc09e318aa, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 481811232472789442, guid: 25ce01b589b8d034ebc645dc09e318aa, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 481811232472789442, guid: 25ce01b589b8d034ebc645dc09e318aa, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 481811232472789442, guid: 25ce01b589b8d034ebc645dc09e318aa, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 481811232472789442, guid: 25ce01b589b8d034ebc645dc09e318aa, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 481811232472789442, guid: 25ce01b589b8d034ebc645dc09e318aa, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 481811232472789442, guid: 25ce01b589b8d034ebc645dc09e318aa, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 481811232472789442, guid: 25ce01b589b8d034ebc645dc09e318aa, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7019434653920890866, guid: 25ce01b589b8d034ebc645dc09e318aa, type: 3}
+      propertyPath: m_Name
+      value: VFX_Explosion_01
+      objectReference: {fileID: 0}
+    - target: {fileID: 7019434653920890866, guid: 25ce01b589b8d034ebc645dc09e318aa, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7505413224671985935, guid: 25ce01b589b8d034ebc645dc09e318aa, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 25ce01b589b8d034ebc645dc09e318aa, type: 3}
+--- !u!198 &567555791123580861 stripped
+ParticleSystem:
+  m_CorrespondingSourceObject: {fileID: 8279609889386746854, guid: 25ce01b589b8d034ebc645dc09e318aa, type: 3}
+  m_PrefabInstance: {fileID: 8432789845785859163}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &1471906385335933865 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7019434653920890866, guid: 25ce01b589b8d034ebc645dc09e318aa, type: 3}
+  m_PrefabInstance: {fileID: 8432789845785859163}
+  m_PrefabAsset: {fileID: 0}
+--- !u!198 &1571579081079215186 stripped
+ParticleSystem:
+  m_CorrespondingSourceObject: {fileID: 6973849821102669833, guid: 25ce01b589b8d034ebc645dc09e318aa, type: 3}
+  m_PrefabInstance: {fileID: 8432789845785859163}
+  m_PrefabAsset: {fileID: 0}
+--- !u!198 &2632031813802706443 stripped
+ParticleSystem:
+  m_CorrespondingSourceObject: {fileID: 5873137372763951696, guid: 25ce01b589b8d034ebc645dc09e318aa, type: 3}
+  m_PrefabInstance: {fileID: 8432789845785859163}
+  m_PrefabAsset: {fileID: 0}
+--- !u!198 &2839507053742867294 stripped
+ParticleSystem:
+  m_CorrespondingSourceObject: {fileID: 5935952328838944517, guid: 25ce01b589b8d034ebc645dc09e318aa, type: 3}
+  m_PrefabInstance: {fileID: 8432789845785859163}
+  m_PrefabAsset: {fileID: 0}
+--- !u!198 &4338372474895450678 stripped
+ParticleSystem:
+  m_CorrespondingSourceObject: {fileID: 5274761246605809261, guid: 25ce01b589b8d034ebc645dc09e318aa, type: 3}
+  m_PrefabInstance: {fileID: 8432789845785859163}
+  m_PrefabAsset: {fileID: 0}
+--- !u!198 &5283154812032787847 stripped
+ParticleSystem:
+  m_CorrespondingSourceObject: {fileID: 4347874562856874460, guid: 25ce01b589b8d034ebc645dc09e318aa, type: 3}
+  m_PrefabInstance: {fileID: 8432789845785859163}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &8334180958811137433 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 481811232472789442, guid: 25ce01b589b8d034ebc645dc09e318aa, type: 3}
+  m_PrefabInstance: {fileID: 8432789845785859163}
+  m_PrefabAsset: {fileID: 0}

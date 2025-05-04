@@ -6,12 +6,8 @@ namespace Siberian25.Game.Characters
 {
 	public class AddSlowMotionOnDamage : MonoBehaviour
 	{
-		[SerializeField, Range(0f, 1f)]
-		private float _scale = .1f;
 		[SerializeField, Min(0f)]
 		private float _duration = .2f;
-		[SerializeField, Min(0f)]
-		private float _fadeTime = .1f;
 
 		[SerializeField] private HealthComponent _health;
 
@@ -27,9 +23,6 @@ namespace Siberian25.Game.Characters
 			_disposable?.Dispose();
 		}
 
-		private void OnDamage(int damage)
-		{
-			GameSlowMotionService.StartSlowMotion(_scale, _duration, _fadeTime);
-		}
+		private void OnDamage(int damage) => GameContext.SlowMo.PlaySlowMotion(_duration);
 	}
 }

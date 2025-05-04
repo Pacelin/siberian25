@@ -16,7 +16,7 @@ namespace Siberian25.Game.Characters
         public bool IsAlive => _health > 0;
         public bool IsDead => _health == 0;
         public int DefaultHealth => _defaultHealth;
-        
+
         [SerializeField] private int _health;
         [SerializeField] private float _invinsibilityTimeOnDamage = .3f;
 
@@ -30,7 +30,7 @@ namespace Siberian25.Game.Characters
         private readonly Subject<Unit> _onDeath = new();
 
         private void Awake() => _defaultHealth = _health;
-        
+
         private void OnEnable()
         {
             _canTakeDamage = true;

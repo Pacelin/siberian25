@@ -24,8 +24,8 @@ namespace Siberian25.Game.Characters
         private PlayerStateMachine _stateMachine;
         private float _dashCooldownExtimation;
 
-        public void StartDashCooldown() => _dashCooldownExtimation = Time.time + _config.DashCooldown;
-        public bool CanDash() => Time.time > _dashCooldownExtimation;
+        public void StartDashCooldown() => _dashCooldownExtimation = Time.unscaledTime + _config.DashCooldown;
+        public bool CanDash() => Time.unscaledTime > _dashCooldownExtimation;
         
         private void Awake()
         {
