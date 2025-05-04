@@ -44,6 +44,8 @@ namespace Siberian25.Game.Characters.Boss
 
         public float ShortAttackBothHeadsChance => _bothHeadsChance;
 
+        public bool WholeAnimationFinished { get; set; }
+        
         [SerializeField] private Animator _wholeAnimator;
         [SerializeField] private BossHead _leftHead;
         [SerializeField] private BossHead _middleHead;
@@ -70,6 +72,8 @@ namespace Siberian25.Game.Characters.Boss
 
         private void OnDestroy() => _stateMachine.Stop();
         private void Update() => _stateMachine.Update();
+
+        public void HookWholeAnimationFinished() => WholeAnimationFinished = true;
 
         public void SwitchStateToAttack()
         {

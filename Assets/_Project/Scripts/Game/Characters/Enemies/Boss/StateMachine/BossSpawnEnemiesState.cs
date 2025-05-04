@@ -9,11 +9,11 @@ namespace Siberian25.Game.Characters.Boss
         public override void OnEnter()
         {
             if (Composition.LeftHead.IsAlive)
-                Composition.LeftHead.StartAnimation(BossConstants.BOSS_SPAWN_TRIGGER);
+                Composition.LeftHead.StartAnimation(BossConstants.BOSS_ENEMIES_TRIGGER);
             if (Composition.MiddleHead.IsAlive)
-                Composition.MiddleHead.StartAnimation(BossConstants.BOSS_SPAWN_TRIGGER);
+                Composition.MiddleHead.StartAnimation(BossConstants.BOSS_ENEMIES_TRIGGER);
             if (Composition.RightHead.IsAlive)
-                Composition.RightHead.StartAnimation(BossConstants.BOSS_SPAWN_TRIGGER);
+                Composition.RightHead.StartAnimation(BossConstants.BOSS_ENEMIES_TRIGGER);
             foreach (var phaseEnemy in Composition.CurrentPhase.PhaseEnemies)
                 GameContext.ActiveRoom.EnemiesFactory.Spawn(2, phaseEnemy);
             _duration = Random.Range(

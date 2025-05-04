@@ -20,7 +20,7 @@ namespace Siberian25.Game.Characters.Boss
         
         public void Run()
         {
-            _activeState = new BossIdleState();
+            _activeState = new BossAppearState();
             _activeState.Init(this);
             _activeState.OnEnter();
         }
