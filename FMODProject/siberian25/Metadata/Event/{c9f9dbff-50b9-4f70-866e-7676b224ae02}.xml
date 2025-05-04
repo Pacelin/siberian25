@@ -59,7 +59,14 @@
 			<destination>{e37d5cf2-e612-4b4f-b68a-4714c6579d6e}</destination>
 		</relationship>
 	</object>
-	<object class="EventAutomatableProperties" id="{3ff4f299-5343-411b-a85d-052539226c64}" />
+	<object class="EventAutomatableProperties" id="{3ff4f299-5343-411b-a85d-052539226c64}">
+		<property name="maxVoices">
+			<value>6</value>
+		</property>
+		<property name="triggerCooldown">
+			<value>40</value>
+		</property>
+	</object>
 	<object class="MarkerTrack" id="{50eb2d25-c9c8-47d9-8c12-2fbb4658e56c}" />
 	<object class="Timeline" id="{24316ee9-a08f-43fe-866a-e18a29dcf6ac}">
 		<property name="isProxyEnabled">
