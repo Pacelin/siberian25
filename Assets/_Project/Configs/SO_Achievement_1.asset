@@ -14,16 +14,15 @@ MonoBehaviour:
   m_EditorClassIdentifier: TSS.Achievements.AchievementConfig, TSS.Achievements
   _id: Ach2
   _icon: {fileID: 21300000, guid: c01a613d29b52ae4285ce8dcb0b39fcc, type: 3}
-  _iconColor: {r: 0.8784314, g: 0.8784314, b: 0.8784314, a: 1}
+  _iconColor: {r: 1, g: 1, b: 1, a: 1}
   _caption: "\u041A\u0440\u043E\u043C\u0441\u0430\u0442\u0435\u043B\u044C"
   _description: "\u0423\u0431\u0438\u0442\u044C 50 \u0440\u043E\u0431\u043E\u0442\u043E\u0432."
   _reportsCount: 50
   _isSecret: 0
-  _lockedIcon: {fileID: 21300000, guid: 54b96a1c891532c4cbdf673d4f6e3b76, type: 3}
-  _lockedIconColor: {r: 0.8784314, g: 0.8784314, b: 0.8784314, a: 1}
-  _lockedCaption: "\u0421\u0435\u043A\u0440\u0435\u0442\u043D\u043E\u0435 \u0434\u043E\u0441\u0442\u0438\u0436\u0435\u043D\u0438\u0435"
-  _lockedDescription: "\u0421\u0443\u043F\u0435\u0440-\u043F\u0443\u043F\u0435\u0440-\u0434\u0443\u043F\u0435\u0440-\u0433\u0438\u043F\u0435\u0440-\u0443\u043B\u044C\u0442\u0440\u0430
-    \u0441\u0435\u043A\u0440\u0435\u0442\u043D\u043E\u0435..."
+  _lockedIcon: {fileID: 21300000, guid: c01a613d29b52ae4285ce8dcb0b39fcc, type: 3}
+  _lockedIconColor: {r: 0.6901961, g: 0.6901961, b: 0.6901961, a: 1}
+  _lockedCaption: "\u041A\u0440\u043E\u043C\u0441\u0430\u0442\u0435\u043B\u044C"
+  _lockedDescription: "\u0423\u0431\u0438\u0442\u044C 50 \u0440\u043E\u0431\u043E\u0442\u043E\u0432."
   _claimSound:
     _eventRef:
       Guid:
@@ -32,4 +31,4 @@ MonoBehaviour:
         Data3: -967558497
         Data4: 1705713923
       Path: event:/UI/AchievementAppear
-  _notificationContainer: 
+  _notificationContainer: Default

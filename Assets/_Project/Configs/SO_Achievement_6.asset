@@ -33,4 +33,4 @@ MonoBehaviour:
         Data3: -967558497
         Data4: 1705713923
       Path: event:/UI/AchievementAppear
-  _notificationContainer: 
+  _notificationContainer: Default
