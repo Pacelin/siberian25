@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 351b6acd1ab347eb9ca28569649d9dce, type: 3}
   m_Name: SO_Room_Stage_1_Spawn_3
   m_EditorClassIdentifier: Siberian25.Game.World.GameRoomStageSpawnEnemiesItem, Assembly-CSharp
-  _time: 10
+  _time: 20
   _distanceFromPlayer: 2
   _enemies:
   - {fileID: 4520266325542536889, guid: b49ea6a8c4562854783972bd4c66c3ca, type: 3}
