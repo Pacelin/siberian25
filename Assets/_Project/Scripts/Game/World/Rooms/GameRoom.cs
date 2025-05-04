@@ -2,6 +2,8 @@
 using System.Collections.Generic;
 using R3;
 using Siberian25.Game.Characters.Enemies;
+using TSS.Achievements;
+using UnityEngine.SocialPlatforms.Impl;
 using Random = UnityEngine.Random;
 
 namespace Siberian25.Game.World
@@ -13,7 +15,7 @@ namespace Siberian25.Game.World
         public IReadOnlyList<EnemyComposition> Enemies => _enemies;
         public EnemiesFactory EnemiesFactory => _enemiesFactory;
         public bool EnemiesExists => _enemies.Count > 0 || _enemiesFactory.Spawning;
-        
+
         private readonly GameRoomComposition _composition;
         private readonly GameRoomSchedule _schedule;
         private readonly EnemiesFactory _enemiesFactory;
@@ -28,7 +30,7 @@ namespace Siberian25.Game.World
             _enemies = new();
             _disposables = new();
         }
-        
+
         public void RegisterEnemy(EnemyComposition enemy)
         {
             _disposables.Add(enemy, enemy.Health.OnDeath.Subscribe(_ => UnregisterEnemy(enemy)));
@@ -37,6 +39,7 @@ namespace Siberian25.Game.World
 
         private void UnregisterEnemy(EnemyComposition enemy)
         {
+            Achievements.Report("Ach2");
             _disposables[enemy].Dispose();
             _disposables.Remove(enemy);
             _enemies.Remove(enemy);
