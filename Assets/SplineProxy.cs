@@ -1,6 +1,7 @@
 using UnityEngine;
 using UnityEngine.Splines;
 
+
 [ExecuteAlways]
 public class SplineProxy : MonoBehaviour
 {
@@ -12,6 +13,9 @@ public class SplineProxy : MonoBehaviour
 
     private void Update()
     {
+        if (_splineContainer == null || _parent == null || _point1 == null || _point2 == null || _point3 == null)
+            return;
+
         _splineContainer.Spline.SetKnot(0, GetKnot(_point1));
         _splineContainer.Spline.SetKnot(1, GetKnot(_point2));
         _splineContainer.Spline.SetKnot(2, GetKnot(_point3));
