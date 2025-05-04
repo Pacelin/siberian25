@@ -33,6 +33,8 @@ namespace Siberian25.Game.Characters
 
         public override void OnExit()
         {
+            if (GameContext.CancellationToken.IsCancellationRequested)
+                return;
             Composition.SliceTrigger.PerformSlice();
             GameContext.Player.DashTrail.emitting = false;
             Composition.SliceTrigger.EnableSlice = false;

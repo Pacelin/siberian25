@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using TSS.Audio;
 using UnityEngine;
 
 namespace Siberian25.Game.Characters
@@ -20,7 +21,10 @@ namespace Siberian25.Game.Characters
                 if (slicable != null)
                     slicable.OnSlicePerform(transform.position, SliceDirection);
             if (_slicables.Count > 0)
+            {
                 GameContext.Player.Combo.Add(_slicables.Count);
+                AudioSystem.Game_Cut.PlayOneShot();
+            }
             _slicables.Clear();
         }
         

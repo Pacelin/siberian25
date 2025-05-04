@@ -31,6 +31,8 @@ namespace Siberian25.Game.Characters.Enemies
 
         public override void OnExit()
         {
+            if (GameContext.CancellationToken.IsCancellationRequested)
+                return;
             GameContext.Player.DashTrail.emitting = false;
             StateMachine.DamageProvider.SetActive(false);
         }

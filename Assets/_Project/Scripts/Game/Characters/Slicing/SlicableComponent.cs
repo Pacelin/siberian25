@@ -1,7 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Linq;
-using Cysharp.Threading.Tasks;
+using TSS.Audio;
 using UnityEngine;
 using UnitySpriteCutter;
 using GameObject = UnityEngine.GameObject;
@@ -16,7 +15,9 @@ namespace Siberian25.Game.Characters
         [SerializeField] private Collider2D _collider;
         [SerializeField] private HealthComponent _healthComponent;
         [SerializeField] private LineRenderer _lineRendererPrefab;
-        [Header("Settings")]
+        [Header("Settings")] 
+        [SerializeField] private float _slowMoDuration = 0.4f;
+        [SerializeField] private float _slowMoScale = 0f;
         [SerializeField] private int _maxSlices = 3;
         [SerializeField] private Vector2 _explosionForceRange;
         [SerializeField] private Vector2 _explosionInheritDirectionForceRange;
@@ -95,14 +96,9 @@ namespace Siberian25.Game.Characters
                 debrises[i].Activate(Random.Range(_debrisLifetimeRange.x, _debrisLifetimeRange.y));
             }
 
-            Time.timeScale = 0.7f;
-            UniTask.Void(async () =>
-            {
-                await UniTask.Delay(TimeSpan.FromSeconds(0.2f));
-                if (GameContext.CancellationToken.IsCancellationRequested)
-                    return;
-                Time.timeScale = 1;
-            });
+            if (_slowMoDuration > 0)
+                GameContext.SlowMo.PlaySlowMotion(_slowMoDuration, _slowMoScale);             
+            AudioSystem.Game_Death.PlayOneShot();
             Destroy(gameObject);
         }
 
