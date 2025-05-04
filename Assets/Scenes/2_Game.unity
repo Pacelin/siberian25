@@ -673,7 +673,7 @@ MonoBehaviour:
   autoRun: 1
   autoInjectGameObjects: []
   _slowMoTimeScale: 0.3
-  _slowMoVelocity: 1.4
+  _slowMoVelocity: 2.8
 --- !u!1 &1771952974
 GameObject:
   m_ObjectHideFlags: 0

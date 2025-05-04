@@ -17,6 +17,7 @@ namespace Siberian25.Game.Characters
         [SerializeField] private LineRenderer _lineRendererPrefab;
         [Header("Settings")] 
         [SerializeField] private float _slowMoDuration = 0.4f;
+        [SerializeField] private float _slowMoScale = 0f;
         [SerializeField] private int _maxSlices = 3;
         [SerializeField] private Vector2 _explosionForceRange;
         [SerializeField] private Vector2 _explosionInheritDirectionForceRange;
@@ -96,7 +97,7 @@ namespace Siberian25.Game.Characters
             }
 
             if (_slowMoDuration > 0)
-                GameContext.SlowMo.PlaySlowMotion(_slowMoDuration);             
+                GameContext.SlowMo.PlaySlowMotion(_slowMoDuration, _slowMoScale);             
             AudioSystem.Game_Death.PlayOneShot();
             Destroy(gameObject);
         }

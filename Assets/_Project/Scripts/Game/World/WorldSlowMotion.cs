@@ -19,9 +19,12 @@ namespace Siberian25.Game.World
             _timeVelocity = timeVelocity;
         }
         
-        public void PlaySlowMotion(float time)
+        public void PlaySlowMotion(float time, float scale = 0)
         {
-            _targetTimeScale = _slowMoScale;
+            if (scale == 0)
+                _targetTimeScale = _slowMoScale;
+            else
+                _targetTimeScale = scale;
             _slowMotionEstimation = Time.time + time;
         }
 
