@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 856297733480939229}
   - component: {fileID: 4564495207921375295}
   - component: {fileID: 6736938339074163838}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: P_Bullet_Base
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3793,7 +3793,7 @@ ParticleSystem:
     radiusScale: 0.01
     collidesWith:
       serializedVersion: 2
-      m_Bits: 447
+      m_Bits: 2441
     maxCollisionShapes: 256
     quality: 0
     voxelSize: 0.5

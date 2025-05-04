@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 2058622042899628472}
   - component: {fileID: 4547969326663584410}
   - component: {fileID: 5246689583324455609}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: P_Bullet_Spiral
   m_TagString: Untagged
   m_Icon: {fileID: 0}
