@@ -1,4 +1,5 @@
 ﻿using TSS.Core;
+using UnityEngine;
 
 namespace Siberian25.Game.Characters.Boss
 {

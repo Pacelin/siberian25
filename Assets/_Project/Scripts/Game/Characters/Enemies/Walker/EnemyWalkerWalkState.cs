@@ -20,6 +20,8 @@ namespace Siberian25.Game.Characters.Enemies
             var cast = Physics2D.Raycast(position, 
                 randomVector.normalized, randomVector.magnitude, StateMachine.ObstaclesMask);
 
+            _duration = 0.2f;
+
             if (cast)
                 randomVector = Vector2.ClampMagnitude(randomVector, cast.distance);
             _targetPosition = Composition.Rigidbody.position + randomVector;
@@ -31,7 +33,8 @@ namespace Siberian25.Game.Characters.Enemies
 
         public override void OnUpdate()
         {
-            if (Composition.Rigidbody.position == _targetPosition || Composition.Collision)
+            _duration -= Time.deltaTime;
+            if (Composition.Rigidbody.position == _targetPosition || (_duration < 0f && Composition.Collision))
                 StateMachine.SwitchState(new EnemyWalkerIdleState(Composition, StateMachine));
         }
 
