@@ -8,6 +8,7 @@ namespace Siberian25.Game.World
 {
     public class EnemiesFactory
     {
+        public bool Spawning { get; private set; }
         private readonly GameRoom _room;
         private readonly List<Transform> _busyPortalPoints;
         
@@ -19,6 +20,7 @@ namespace Siberian25.Game.World
 
         public void Spawn(float distanceFromPlayer, EnemyComposition enemyPrefab)
         {
+            Spawning = true;
             var points = _room.Composition.WorldGrid.Where(t =>
             {
                 if (_busyPortalPoints.Contains(t))
@@ -60,6 +62,7 @@ namespace Siberian25.Game.World
             
             portal.gameObject.SetActive(false);
             _busyPortalPoints.Remove(point);
+            Spawning = false;
         }
     }
 }

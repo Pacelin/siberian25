@@ -12,7 +12,7 @@ namespace Siberian25.Game.World
         public GameRoomSchedule Schedule => _schedule;
         public IReadOnlyList<EnemyComposition> Enemies => _enemies;
         public EnemiesFactory EnemiesFactory => _enemiesFactory;
-        public bool EnemiesExists => _enemies.Count > 0;
+        public bool EnemiesExists => _enemies.Count > 0 || _enemiesFactory.Spawning;
         
         private readonly GameRoomComposition _composition;
         private readonly GameRoomSchedule _schedule;
