@@ -5,7 +5,9 @@ namespace Siberian25.Game.Bullets
 	[DisallowMultipleComponent, RequireComponent(typeof(ParticleSystem))]
 	public class BulletSpawner : MonoBehaviour
 	{
-		[SerializeField] private BulletSettings m_bulletsSettings;
+		public EBulletType BulletType => _bulletType;
+
+        [SerializeField] private BulletSettings m_bulletsSettings;
 		[SerializeField] private EBulletType _bulletType = EBulletType.Destroyable;
 
 		#if UNITY_EDITOR
@@ -20,7 +22,7 @@ namespace Siberian25.Game.Bullets
 			ApplyData(data, ps);
 
 			ParticleSystem.CollisionModule collision = ps.collision;
-			collision.lifetimeLoss = _bulletType == EBulletType.Deflectable ? 0f : 1f;
+			collision.lifetimeLoss = _bulletType == EBulletType.Deflectable ? 0f : 0f;
 
 			UnityEditor.EditorApplication.delayCall += ProcessDeflectableBullets;
 		}
@@ -73,7 +75,7 @@ namespace Siberian25.Game.Bullets
 			UnityEditor.EditorUtility.CopySerialized(ps, deflectedPs);
 
 			ParticleSystem.CollisionModule collision = deflectedPs.collision;
-			collision.lifetimeLoss = 1f;
+			collision.lifetimeLoss = 0f;
 
 			ParticleSystem.ShapeModule shape = deflectedPs.shape;
 			shape.enabled = false;
@@ -82,6 +84,7 @@ namespace Siberian25.Game.Bullets
 			emission.enabled = false;
 
 			DeflectedBulletEngine engine = gameObject.AddComponent<DeflectedBulletEngine>();
+			childGo.AddComponent<DeflectedBulletProxy>().Engine = engine;
 			engine.Initiate(ps, deflectedPs);
 		}
 

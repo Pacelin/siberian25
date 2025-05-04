@@ -17,7 +17,6 @@ GameObject:
   - component: {fileID: 2934798644503649201}
   - component: {fileID: 1427450189949271906}
   - component: {fileID: 3271943157705105724}
-  - component: {fileID: 2506173025912737601}
   - component: {fileID: 4498625686939073626}
   m_Layer: 3
   m_Name: P_Player
@@ -355,20 +354,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: Siberian25.Game.Characters.AddSlowMotionOnDamage, Assembly-CSharp
   _duration: 0.4
   _health: {fileID: 7066952607971034265}
---- !u!114 &2506173025912737601
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1550257525525488654}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ba71e47989b201649b905b06bc712a87, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Siberian25.Game.Bullets.GetDamageOnBulletHit, Assembly-CSharp
-  _health: {fileID: 7066952607971034265}
-  _damage: 1
 --- !u!114 &4498625686939073626
 MonoBehaviour:
   m_ObjectHideFlags: 0
