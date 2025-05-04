@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using TSS.Core;
+using UnityEngine;
 
 namespace Siberian25.Game.Characters.Enemies
 {
@@ -31,9 +32,20 @@ namespace Siberian25.Game.Characters.Enemies
             _activeState = state;
             _activeState?.OnEnter();
         }
-        
-        public override void UpdateSM() => _activeState?.OnUpdate();
-        public override void FixedUpdateSM() => _activeState?.OnFixedUpdate();
+
+        public override void UpdateSM()
+        {
+            if (Runtime.IsPaused)
+                return;
+            _activeState?.OnUpdate();
+        }
+
+        public override void FixedUpdateSM()
+        {
+            if (Runtime.IsPaused)
+                return;
+            _activeState?.OnFixedUpdate();
+        } 
 
         protected abstract T GetFirstState();
         

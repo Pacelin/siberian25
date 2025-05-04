@@ -51,6 +51,8 @@ namespace Siberian25.Game.Characters
 
         private void FixedUpdate()
         {
+            if (!Health || Health.IsDead)
+                return;
             _stateMachine.FixedUpdate();
         }
 

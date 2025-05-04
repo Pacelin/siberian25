@@ -1,4 +1,5 @@
 ﻿using Cysharp.Threading.Tasks;
+using Siberian25.Game.Characters;
 using TSS.ContentManagement;
 using TSS.Core;
 using TSS.SceneManagement;
@@ -30,6 +31,8 @@ namespace Siberian25.Game.World
                 return;
             if (!GameContext.Player.Health.IsAlive)
             {
+                GameContext.Player.StateMachine.SwitchState(new PlayerIdleState());
+                GameContext.Player.StateMachine.SetPause(true);
                 _exit = true;
                 UniTask.Void(async () =>
                 {
