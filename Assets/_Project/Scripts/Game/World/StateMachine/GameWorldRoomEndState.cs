@@ -34,7 +34,7 @@ namespace Siberian25.Game.World
                 if (GameContext.CancellationToken.IsCancellationRequested)
                     return;
                 var room = GameContext.ActiveRoom.Composition;
-                Object.Destroy(room);
+                Object.Destroy(room.gameObject);
                 SwitchState(new GameWorldRoomStartState(_nextRoom, false));
             });
         }
