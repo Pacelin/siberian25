@@ -4,9 +4,13 @@ namespace Siberian25.Game.Characters
 {
     public class PlayerMoveState : PlayerState
     {
+        private float _stepTimestamp;
+        private const float STEP_INTERVAL = 0.1f;
+        
         public override void OnEnter()
         {
             GameContext.Player.Animator.SetBool(PlayerConstants.ANIMATOR_WALK_BOOL, true);
+            _stepTimestamp = Time.time + STEP_INTERVAL;
         }
 
         public override void OnExit()
@@ -18,6 +22,12 @@ namespace Siberian25.Game.Characters
 
         public override void OnUpdate()
         {
+            if (Time.time > _stepTimestamp)
+            {
+                _stepTimestamp = Time.time + STEP_INTERVAL;
+                GameContext.ActiveRoom.Composition.StepSound.PlayOneShot();
+            }
+                
             if (Input.IsDashing && Composition.CanDash())
                 SwitchState(new PlayerDashState());
             else if (Input.IsIdle)
