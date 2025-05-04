@@ -47,7 +47,7 @@ namespace Siberian25.Game.Bullets
                 int closestParticleIndex = GetClosestParticle(particleList, evt);
 
                 // Deflect: player is hit while dash. player is ignored after that. Remove from enemy, add to deflected
-                if (player != null && player.EnableSlice)
+                if (player != null && player.EnableSlice && spawner != null && spawner.BulletType == EBulletType.Deflectable)
                 {
                     // Deflect particle velocity
                     Vector3 velocity = player.SliceDirection * _ps.main.startSpeed.Evaluate(Random.value);
@@ -58,7 +58,7 @@ namespace Siberian25.Game.Bullets
                     AudioSystem.Game_Reflect.PlayOneShot();
                 }
                 // Destroy: this is not a player or player is not dashing. Cause damage to whatever this is
-                else if (spawner == null || spawner.BulletType == EBulletType.Immortal)
+                else if (spawner != null && spawner.BulletType == EBulletType.Immortal)
                 {
                     // Deal damage
                     if (other.TryGetComponent(out HealthComponent health))
