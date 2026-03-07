@@ -1,8 +1,8 @@
 # Red Iron Hood – Siberian Jam 2025 Project
 
 **Red Iron Hood** – это игра, разработанная за 48 часов в рамках Siberian Jam 2025. Проект создан на Unity и демонстрирует эффективное использование современных инструментов и подходов для быстрой разработки.
-Ссылка на проект: https://thespinningsofa.itch.io/red-iron-hood
-Ссылка на все мои проекты: https://pacelin.itch.io
+- Ссылка на проект: https://thespinningsofa.itch.io/red-iron-hood
+- Ссылка на все мои проекты: https://pacelin.itch.io
 
 ---
 
