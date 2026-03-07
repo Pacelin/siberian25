@@ -1,0 +1,8 @@
+<linker>
+    <assembly fullname="System.Core">
+        <type fullname="System.Linq.Enumerable" preserve="all"/>
+    </assembly>
+    <assembly fullname="TSS.Achievements">
+        <type fullname="TSS.Achievements.AchievementConfig" preserve="all"/>
+    </assembly>
+</linker>

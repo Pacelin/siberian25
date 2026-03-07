@@ -89,9 +89,12 @@ namespace TSS.Achievements.View
 
         private void OnDisable()
         {
-            _cts.Cancel();
-            _cts.Dispose();
-            _cts = null;
+            if (_cts != null)
+            {
+                _cts.Cancel();
+                _cts.Dispose();
+                _cts = null;
+            }
         }
 
         private void ApplyState(bool unlocked, bool secret, string key)

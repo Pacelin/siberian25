@@ -17,10 +17,11 @@ namespace TSS.Achievements
             var collectionView = UnityEngine.Object.Instantiate(collection.ViewPrefab);
             UnityEngine.Object.DontDestroyOnLoad(collectionView.gameObject);
             
-            collection.PanelPrefab.gameObject.SetActive(false);
+            await UniTask.NextFrame(cancellationToken);
+            
             var panelView = UnityEngine.Object.Instantiate(collection.PanelPrefab);
-            collection.PanelPrefab.gameObject.SetActive(true);
             UnityEngine.Object.DontDestroyOnLoad(panelView.gameObject);
+            panelView.gameObject.SetActive(false);
             Achievements.SetPanel(panelView);
         }
 

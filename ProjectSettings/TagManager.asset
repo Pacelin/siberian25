@@ -8,15 +8,15 @@ TagManager:
   - Default
   - TransparentFX
   - Ignore Raycast
-  - Floor
+  - Player
   - Water
   - UI
-  - Influence
-  - Triggers
-  - 
-  - 
-  - 
-  - 
+  - Enemy
+  - Props
+  - Obstacle
+  - Slice
+  - Bullets
+  - DeflectCollider
   - 
   - 
   - 
@@ -38,8 +38,14 @@ TagManager:
   - 
   - 
   m_SortingLayers:
+  - name: BG
+    uniqueID: 451572389
+    locked: 0
   - name: Default
     uniqueID: 0
+    locked: 0
+  - name: Bullets
+    uniqueID: 317142939
     locked: 0
   m_RenderingLayers:
   - Default

@@ -1,0 +1,14 @@
+﻿using System;
+using UnityEngine;
+
+namespace Siberian25.Game.Bullets
+{
+	[Serializable]
+	public class BulletTypeData
+	{
+		public Color startColor;
+        public Sprite sprite;
+        public bool alignToDirection = true;
+        public LayerMask collisionMask;
+	}
+}

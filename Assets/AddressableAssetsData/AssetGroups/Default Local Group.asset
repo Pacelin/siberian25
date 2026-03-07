@@ -15,6 +15,21 @@ MonoBehaviour:
   m_GroupName: Default Local Group
   m_GUID: 74d1f905e2729fb4cabb3f98768f8d67
   m_SerializeEntries:
+  - m_GUID: 11429530820545541b13ecdf5862623b
+    m_Address: Assets/_Project/Content/Game/World/P_HUD.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 2729149cc88453b4b97a666415747884
+    m_Address: Assets/_Project/Content/Game/World/P_World.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 525d8d8798d1b324289424186557344b
+    m_Address: Assets/_Project/Content/Game/Characters/P_Player.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 62af7fca09f34c74481788e651479d18
     m_Address: Runtime Settings
     m_ReadOnly: 0

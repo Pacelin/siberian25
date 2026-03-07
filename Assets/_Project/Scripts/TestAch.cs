@@ -1,3 +1,4 @@
+using System;
 using TSS.Achievements;
 using UnityEngine;
 
@@ -11,6 +12,11 @@ namespace Siberian25
         [SerializeField] private string _ach2;
         [AchievementKey]
         [SerializeField] private string _ach3;
+
+        private void Awake()
+        {
+            DontDestroyOnLoad(gameObject);
+        }
 
         private void Update()
         {

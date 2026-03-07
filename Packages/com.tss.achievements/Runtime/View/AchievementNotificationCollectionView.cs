@@ -16,7 +16,6 @@ namespace TSS.Achievements.View
         private IDisposable _disposable;
         private CancellationTokenSource _cts;
         
-        
         private void OnEnable()
         {
             _cts = new CancellationTokenSource();
